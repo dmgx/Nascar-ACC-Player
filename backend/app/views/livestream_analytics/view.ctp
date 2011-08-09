@@ -79,11 +79,11 @@
 &nbsp;</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created Date');?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-	<?php echo $livestreamAnalytic['LivestreamFeed']['created_date'];?>
+	<?php echo $livestreamAnalytic['LivestreamFeed']['created'];?>
 &nbsp;</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Updated Date');?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-	<?php echo $livestreamAnalytic['LivestreamFeed']['updated_date'];?>
+	<?php echo $livestreamAnalytic['LivestreamFeed']['modified'];?>
 &nbsp;</dd>
 		</dl>
 	<?php endif; ?>

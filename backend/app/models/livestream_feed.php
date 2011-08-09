@@ -56,35 +56,32 @@ class LivestreamFeed extends AppModel {
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-	var $hasOne = array(
+	var $belongsTo = array(
 		'Status' => array(
 			'className' => 'Status',
-			'foreignKey' => 'id',
-			'conditions' => '',
+			'foreignKey' => false,
+			'conditions' => array('LivestreamFeed.status_id = Status.id'),
 			'fields' => '',
 			'order' => ''
 		),
 		'LeftIcon' => array(
 			'className' => 'TeamIcon',
-			'foreignKey' => 'id',
-			'conditions' => '',
+			'foreignKey' => false,
+			'conditions' => array('LivestreamFeed.left_icon_id = LeftIcon.id'),
 			'fields' => '',
 			'order' => ''
 		),
 		'RightIcon' => array(
 			'className' => 'TeamIcon',
-			'foreignKey' => 'id',
-			'conditions' => '',
+			'foreignKey' => false,
+			'conditions' => array('LivestreamFeed.right_icon_id = RightIcon.id'),
 			'fields' => '',
 			'order' => ''
-		)
-	);
-    
-	var $belongsTo = array(
+		),
 		'Category' => array(
 			'className' => 'Category',
-			'foreignKey' => 'category_id',
-			'conditions' => '',
+			'foreignKey' => false,
+			'conditions' => array('LivestreamFeed.category_id = Category.id'),
 			'fields' => '',
 			'order' => ''
 		)

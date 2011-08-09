@@ -5,8 +5,8 @@
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
 			<th><?php echo $this->Paginator->sort('description');?></th>
-			<th><?php echo $this->Paginator->sort('created_date');?></th>
-			<th><?php echo $this->Paginator->sort('updated_date');?></th>
+			<th><?php echo $this->Paginator->sort('created');?></th>
+			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -21,8 +21,8 @@
 		<td><?php echo $category['Category']['id']; ?>&nbsp;</td>
 		<td><?php echo $category['Category']['name']; ?>&nbsp;</td>
 		<td><?php echo $category['Category']['description']; ?>&nbsp;</td>
-		<td><?php echo $category['Category']['created_date']; ?>&nbsp;</td>
-		<td><?php echo $category['Category']['updated_date']; ?>&nbsp;</td>
+		<td><?php echo $category['Category']['created']; ?>&nbsp;</td>
+		<td><?php echo $category['Category']['modified']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $category['Category']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $category['Category']['id'])); ?>
@@ -48,6 +48,8 @@
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
+		<li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
+        <p>&nbsp</p>
 		<li><?php echo $this->Html->link(__('New Category', true), array('action' => 'add')); ?></li>
 	</ul>
 </div>

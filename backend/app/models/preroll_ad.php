@@ -26,11 +26,11 @@ class PrerollAd extends AppModel {
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-	var $hasOne = array(
+	var $belongsTo = array(
 		'Status' => array(
 			'className' => 'Status',
-			'foreignKey' => 'id',
-			'conditions' => '',
+			'foreignKey' => false,
+			'conditions' => array('PrerollAd.status_id = Status.id'),
 			'fields' => '',
 			'order' => ''
 		)

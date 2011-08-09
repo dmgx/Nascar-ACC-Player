@@ -78,11 +78,11 @@
 &nbsp;</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created Date');?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-	<?php echo $popoverAnalytic['PopoverAd']['created_date'];?>
+	<?php echo $popoverAnalytic['PopoverAd']['created'];?>
 &nbsp;</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Updated Date');?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-	<?php echo $popoverAnalytic['PopoverAd']['updated_date'];?>
+	<?php echo $popoverAnalytic['PopoverAd']['modified'];?>
 &nbsp;</dd>
 		</dl>
 	<?php endif; ?>

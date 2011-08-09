@@ -10,8 +10,8 @@ class UserFixture extends CakeTestFixture {
 		'lastname' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 24, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
 		'password' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 24, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
 		'useremail' => array('type' => 'text', 'null' => false, 'default' => NULL, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
-		'created_date' => array('type' => 'datetime', 'null' => false, 'default' => NULL),
-		'updated_date' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
+		'created' => array('type' => 'datetime', 'null' => false, 'default' => NULL),
+		'modified' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1)),
 		'tableParameters' => array('charset' => 'latin1', 'collate' => 'latin1_swedish_ci', 'engine' => 'MyISAM')
 	);
@@ -24,8 +24,8 @@ class UserFixture extends CakeTestFixture {
 			'lastname' => 'Lorem ipsum dolor sit ',
 			'password' => 'Lorem ipsum dolor sit ',
 			'useremail' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
-			'created_date' => '2011-08-03 20:38:03',
-			'updated_date' => '2011-08-03 20:38:03'
+			'created' => '2011-08-03 20:38:03',
+			'modified' => '2011-08-03 20:38:03'
 		),
 	);
 }

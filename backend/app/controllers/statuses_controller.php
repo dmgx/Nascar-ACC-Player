@@ -4,8 +4,9 @@ class StatusesController extends AppController {
 	var $name = 'Statuses';
 
 	function index() {
-		$this->Status->recursive = 0;
-		$this->set('statuses', $this->paginate());
+		$this->Status->recursive = 1;
+        $statuses = $this->Status->find('all');
+		$this->set('statuses', $statuses);
 	}
 
 	function view($id = null) {

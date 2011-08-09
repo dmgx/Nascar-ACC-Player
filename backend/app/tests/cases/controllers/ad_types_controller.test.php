@@ -1,5 +1,5 @@
 <?php
-/* AdTypes Test cases generated on: 2011-08-04 15:53:12 : 1312473192*/
+/* AdTypes Test cases generated on: 2011-08-09 00:30:40 : 1312849840*/
 App::import('Controller', 'AdTypes');
 
 class TestAdTypesController extends AdTypesController {
@@ -11,7 +11,7 @@ class TestAdTypesController extends AdTypesController {
 }
 
 class AdTypesControllerTestCase extends CakeTestCase {
-	var $fixtures = array('app.ad_type', 'app.popover_ad', 'app.status', 'app.archive_feed', 'app.left_icon', 'app.right_icon', 'app.category', 'app.archive_analytic', 'app.livestream_feed', 'app.livestream_analytic', 'app.preroll_ad', 'app.preroll_analytic', 'app.popover_analytic', 'app.contact_type');
+	var $fixtures = array('app.ad_type', 'app.popover_ad', 'app.status', 'app.archive_feed', 'app.team_icon', 'app.livestream_feed', 'app.category', 'app.livestream_analytic', 'app.archive_analytic', 'app.preroll_ad', 'app.preroll_analytic', 'app.popover_analytic', 'app.contact_type');
 
 	function startTest() {
 		$this->AdTypes =& new TestAdTypesController();
@@ -21,6 +21,26 @@ class AdTypesControllerTestCase extends CakeTestCase {
 	function endTest() {
 		unset($this->AdTypes);
 		ClassRegistry::flush();
+	}
+
+	function testIndex() {
+
+	}
+
+	function testView() {
+
+	}
+
+	function testAdd() {
+
+	}
+
+	function testEdit() {
+
+	}
+
+	function testDelete() {
+
 	}
 
 }

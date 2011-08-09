@@ -10,8 +10,8 @@
 			<th><?php echo $this->Paginator->sort('link_url');?></th>
 			<th><?php echo $this->Paginator->sort('start_time');?></th>
 			<th><?php echo $this->Paginator->sort('end_time');?></th>
-			<th><?php echo $this->Paginator->sort('created_date');?></th>
-			<th><?php echo $this->Paginator->sort('updated_date');?></th>
+			<th><?php echo $this->Paginator->sort('created');?></th>
+			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -26,13 +26,13 @@
 		<td><?php echo $prerollAd['PrerollAd']['id']; ?>&nbsp;</td>
 		<td><?php echo $prerollAd['PrerollAd']['name']; ?>&nbsp;</td>
 		<td><?php echo $prerollAd['PrerollAd']['description']; ?>&nbsp;</td>
-		<td><?php echo $prerollAd['PrerollAd']['status_id']; ?>&nbsp;</td>
+		<td><?php echo $prerollAd['Status']['name']; ?>&nbsp;</td>
 		<td><?php echo $prerollAd['PrerollAd']['image_url']; ?>&nbsp;</td>
 		<td><?php echo $prerollAd['PrerollAd']['link_url']; ?>&nbsp;</td>
 		<td><?php echo $prerollAd['PrerollAd']['start_time']; ?>&nbsp;</td>
 		<td><?php echo $prerollAd['PrerollAd']['end_time']; ?>&nbsp;</td>
-		<td><?php echo $prerollAd['PrerollAd']['created_date']; ?>&nbsp;</td>
-		<td><?php echo $prerollAd['PrerollAd']['updated_date']; ?>&nbsp;</td>
+		<td><?php echo $prerollAd['PrerollAd']['created']; ?>&nbsp;</td>
+		<td><?php echo $prerollAd['PrerollAd']['modified']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $prerollAd['PrerollAd']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $prerollAd['PrerollAd']['id'])); ?>
@@ -58,10 +58,10 @@
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
+		<li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
+        <p>&nbsp</p>
 		<li><?php echo $this->Html->link(__('New Preroll Ad', true), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Statuses', true), array('controller' => 'statuses', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Status', true), array('controller' => 'statuses', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Preroll Analytics', true), array('controller' => 'preroll_analytics', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Preroll Analytic', true), array('controller' => 'preroll_analytics', 'action' => 'add')); ?> </li>
+        <p>&nbsp</p>
+		<li><?php echo $this->Html->link(__('View Preroll Analytics', true), array('controller' => 'preroll_analytics', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

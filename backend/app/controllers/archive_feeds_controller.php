@@ -2,6 +2,8 @@
 class ArchiveFeedsController extends AppController {
 
 	var $name = 'ArchiveFeeds';
+    var $helpers = array('Form');
+
 
 	function index() {
 		$this->ArchiveFeed->recursive = 0;
@@ -26,6 +28,14 @@ class ArchiveFeedsController extends AppController {
 				$this->Session->setFlash(__('The archive feed could not be saved. Please, try again.', true));
 			}
 		}
+        $statuses = $this->ArchiveFeed->Status->find('list'); 
+        $this->set('statuses', $statuses ); 
+        $left_icons = $this->ArchiveFeed->LeftIcon->find('list'); 
+        $this->set('left_icons', $left_icons ); 
+        $right_icons = $this->ArchiveFeed->RightIcon->find('list'); 
+        $this->set('right_icons', $right_icons ); 
+        $categories = $this->ArchiveFeed->Category->find('list'); 
+        $this->set('categories', $categories ); 
 	}
 
 	function edit($id = null) {
@@ -44,6 +54,15 @@ class ArchiveFeedsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->ArchiveFeed->read(null, $id);
 		}
+        $statuses = $this->ArchiveFeed->Status->find('list'); 
+        $this->set('statuses', $statuses ); 
+        $left_icons = $this->ArchiveFeed->LeftIcon->find('list'); 
+        $this->set('left_icons', $left_icons ); 
+        $right_icons = $this->ArchiveFeed->RightIcon->find('list'); 
+        $this->set('right_icons', $right_icons ); 
+        $categories = $this->ArchiveFeed->Category->find('list'); 
+        $this->set('categories', $categories );
+        
 	}
 
 	function delete($id = null) {
@@ -57,6 +76,14 @@ class ArchiveFeedsController extends AppController {
 		}
 		$this->Session->setFlash(__('Archive feed was not deleted', true));
 		$this->redirect(array('action' => 'index'));
+        $statuses = $this->ArchiveFeed->Status->find('list'); 
+        $this->set('statuses', $statuses ); 
+        $left_icons = $this->ArchiveFeed->LeftIcon->find('list'); 
+        $this->set('left_icons', $left_icons ); 
+        $right_icons = $this->ArchiveFeed->RightIcon->find('list'); 
+        $this->set('right_icons', $right_icons ); 
+        $categories = $this->ArchiveFeed->Category->find('list'); 
+        $this->set('categories', $categories ); 
 	}
 	function display() {
 		$path = func_get_args();

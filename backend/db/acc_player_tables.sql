@@ -6,12 +6,12 @@ CREATE TABLE IF NOT EXISTS `users` (
   `lastname` varchar(24) NOT NULL,
   `password` varchar(40) NOT NULL,
   `useremail` text NOT NULL,
-  `created_date` datetime NOT NULL,
-  `updated_date` datetime,
+  `created` datetime NOT NULL,
+  `modified` datetime,
   PRIMARY KEY (`id`)
 );
 
-INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `password`, `useremail`, `created_date`, `updated_date`) VALUES
+INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `password`, `useremail`, `created`, `modified`) VALUES
 (1, 'test', 'Test', 'Testy', 'e70c3dc1bd4f74abfee646a5c2b8c825fb44ccd3', 'rktest@gametruckparty.com', '2011-08-04 16:37:00', '2011-08-04 16:37:00');
 -- test user pw 123456
 
@@ -20,8 +20,8 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(16) NOT NULL,
   `description` text,
-  `created_date` datetime NOT NULL,
-  `updated_date` datetime,
+  `created` datetime NOT NULL,
+  `modified` datetime,
   PRIMARY KEY (`id`)
 );
 
@@ -31,6 +31,10 @@ CREATE TABLE IF NOT EXISTS `statuses` (
   `name` varchar(16) NOT NULL,
   PRIMARY KEY (`id`)
 );
+INSERT INTO `statuses` (`id`, `name`) VALUES
+(1, 'Draft'),
+(2, 'Published'),
+(3, 'Archive');
 
 DROP TABLE IF EXISTS `team_icons`;
 CREATE TABLE IF NOT EXISTS `team_icons` (
@@ -39,6 +43,19 @@ CREATE TABLE IF NOT EXISTS `team_icons` (
   `icon` text NOT NULL,
   PRIMARY KEY (`id`)
 );
+INSERT INTO `team_icons` (`id`, `name`, `icon`) VALUES
+(1, 'Boston College', ''),
+(2, 'Clemson', ''),
+(3, 'Duke', ''),
+(4, 'Flordia State', ''),
+(5, 'Georgia Tech', ''),
+(6, 'Maryland', ''),
+(7, 'Miami', ''),
+(8, 'North Carolina', ''),
+(9, 'NC State', ''),
+(10, 'Virginia', ''),
+(11, 'Virginia Tech', ''),
+(12, 'Wake Forest', '');
 
 DROP TABLE IF EXISTS `archive_feeds`;
 CREATE TABLE IF NOT EXISTS `archive_feeds` (
@@ -53,8 +70,8 @@ CREATE TABLE IF NOT EXISTS `archive_feeds` (
   `right_icon_id` int(11) NOT NULL,
   `background` text NOT NULL,
   `category_id` int(11) NOT NULL,
-  `created_date` datetime NOT NULL,
-  `updated_date` datetime,
+  `created` datetime NOT NULL,
+  `modified` datetime,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`category_id`) REFERENCES `categories`(`id`), 
   FOREIGN KEY (`left_icon_id`) REFERENCES `team_icons`(`id`), 
@@ -75,8 +92,8 @@ CREATE TABLE IF NOT EXISTS `livestream_feeds` (
   `right_icon_id` int(11) NOT NULL,
   `background` text NOT NULL,
   `category_id` int(11) NOT NULL,
-  `created_date` datetime NOT NULL,
-  `updated_date` datetime,
+  `created` datetime NOT NULL,
+  `modified` datetime,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`category_id`) REFERENCES `categories`(`id`), 
   FOREIGN KEY (`left_icon_id`) REFERENCES `team_icons`(`id`), 
@@ -94,8 +111,8 @@ CREATE TABLE IF NOT EXISTS `preroll_ads` (
   `link_url` text,
   `start_time` datetime NOT NULL,
   `end_time` datetime NOT NULL,
-  `created_date` datetime NOT NULL,
-  `updated_date` datetime,
+  `created` datetime NOT NULL,
+  `modified` datetime,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`status_id`) REFERENCES `statuses`(`id`)
 );
@@ -107,6 +124,10 @@ CREATE TABLE IF NOT EXISTS `ad_types` ( -- ENUM ('SWF', 'Image', 'Text'),
   `description` text,
   PRIMARY KEY (`id`)
 );
+INSERT INTO `ad_types` (`id`, `name`) VALUES
+(1, 'SWF'),
+(2, 'Image'),
+(3, 'Text');
 
 DROP TABLE IF EXISTS `popover_ads`;
 CREATE TABLE IF NOT EXISTS `popover_ads` (
@@ -119,8 +140,8 @@ CREATE TABLE IF NOT EXISTS `popover_ads` (
   `link_url` text,
   `start_time` datetime NOT NULL,
   `end_time` datetime NOT NULL,
-  `created_date` datetime NOT NULL,
-  `updated_date` datetime,
+  `created` datetime NOT NULL,
+  `modified` datetime,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`ad_type_id`) REFERENCES `ad_types`(`id`),
   FOREIGN KEY (`status_id`) REFERENCES `statuses`(`id`)
@@ -151,6 +172,9 @@ CREATE TABLE IF NOT EXISTS `contact_types` ( -- ENUM ('view', 'click')
   `description` text,
   PRIMARY KEY (`id`)
 );
+INSERT INTO `contact_types` (`id`, `name`) VALUES
+(1, 'view'),
+(2, 'click');
 
 DROP TABLE IF EXISTS `preroll_analytics`;
 CREATE TABLE IF NOT EXISTS `preroll_analytics` (

@@ -6,7 +6,7 @@ class LivestreamFeedsController extends AppController {
 	function index() {
 		$this->LivestreamFeed->recursive = 0;
 		$this->set('livestreamFeeds', $this->paginate());
-	}
+    }
 
 	function view($id = null) {
 		if (!$id) {
@@ -26,6 +26,14 @@ class LivestreamFeedsController extends AppController {
 				$this->Session->setFlash(__('The livestream feed could not be saved. Please, try again.', true));
 			}
 		}
+        $statuses = $this->LivestreamFeed->Status->find('list'); 
+        $this->set('statuses', $statuses ); 
+        $left_icons = $this->LivestreamFeed->LeftIcon->find('list'); 
+        $this->set('left_icons', $left_icons ); 
+        $right_icons = $this->LivestreamFeed->RightIcon->find('list'); 
+        $this->set('right_icons', $right_icons ); 
+        $categories = $this->LivestreamFeed->Category->find('list'); 
+        $this->set('categories', $categories ); 
 	}
 
 	function edit($id = null) {
@@ -44,6 +52,14 @@ class LivestreamFeedsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->LivestreamFeed->read(null, $id);
 		}
+        $statuses = $this->LivestreamFeed->Status->find('list'); 
+        $this->set('statuses', $statuses ); 
+        $left_icons = $this->LivestreamFeed->LeftIcon->find('list'); 
+        $this->set('left_icons', $left_icons ); 
+        $right_icons = $this->LivestreamFeed->RightIcon->find('list'); 
+        $this->set('right_icons', $right_icons ); 
+        $categories = $this->LivestreamFeed->Category->find('list'); 
+        $this->set('categories', $categories ); 
 	}
 
 	function delete($id = null) {

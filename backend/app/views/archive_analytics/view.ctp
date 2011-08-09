@@ -79,11 +79,11 @@
 &nbsp;</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created Date');?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-	<?php echo $archiveAnalytic['ArchiveFeed']['created_date'];?>
+	<?php echo $archiveAnalytic['ArchiveFeed']['created'];?>
 &nbsp;</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Updated Date');?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-	<?php echo $archiveAnalytic['ArchiveFeed']['updated_date'];?>
+	<?php echo $archiveAnalytic['ArchiveFeed']['modified'];?>
 &nbsp;</dd>
 		</dl>
 	<?php endif; ?>

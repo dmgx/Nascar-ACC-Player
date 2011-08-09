@@ -11,8 +11,8 @@
 		echo $this->Form->input('link_url');
 		echo $this->Form->input('start_time');
 		echo $this->Form->input('end_time');
-		echo $this->Form->input('created_date');
-		echo $this->Form->input('updated_date');
+		echo $this->Form->input('created');
+		echo $this->Form->input('modified');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
@@ -20,13 +20,8 @@
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
-
+		<li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
+        <p>&nbsp</p>
 		<li><?php echo $this->Html->link(__('List Popover Ads', true), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Statuses', true), array('controller' => 'statuses', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Status', true), array('controller' => 'statuses', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Ad Types', true), array('controller' => 'ad_types', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Ad Type', true), array('controller' => 'ad_types', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Popover Analytics', true), array('controller' => 'popover_analytics', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Popover Analytic', true), array('controller' => 'popover_analytics', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

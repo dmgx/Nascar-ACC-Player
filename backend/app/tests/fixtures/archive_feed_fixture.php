@@ -15,8 +15,8 @@ class ArchiveFeedFixture extends CakeTestFixture {
 		'right_icon_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'index'),
 		'background' => array('type' => 'text', 'null' => false, 'default' => NULL, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
 		'category_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'index'),
-		'created_date' => array('type' => 'datetime', 'null' => false, 'default' => NULL),
-		'updated_date' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
+		'created' => array('type' => 'datetime', 'null' => false, 'default' => NULL),
+		'modified' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'category_id' => array('column' => 'category_id', 'unique' => 0), 'left_icon_id' => array('column' => 'left_icon_id', 'unique' => 0), 'right_icon_id' => array('column' => 'right_icon_id', 'unique' => 0), 'status_id' => array('column' => 'status_id', 'unique' => 0)),
 		'tableParameters' => array('charset' => 'latin1', 'collate' => 'latin1_swedish_ci', 'engine' => 'MyISAM')
 	);
@@ -34,8 +34,8 @@ class ArchiveFeedFixture extends CakeTestFixture {
 			'right_icon_id' => 1,
 			'background' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
 			'category_id' => 1,
-			'created_date' => '2011-08-04 19:28:25',
-			'updated_date' => '2011-08-04 19:28:25'
+			'created' => '2011-08-04 19:28:25',
+			'modified' => '2011-08-04 19:28:25'
 		),
 	);
 }

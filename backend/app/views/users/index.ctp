@@ -6,10 +6,9 @@
 			<th><?php echo $this->Paginator->sort('username');?></th>
 			<th><?php echo $this->Paginator->sort('firstname');?></th>
 			<th><?php echo $this->Paginator->sort('lastname');?></th>
-			<th><?php echo $this->Paginator->sort('password');?></th>
 			<th><?php echo $this->Paginator->sort('useremail');?></th>
-			<th><?php echo $this->Paginator->sort('created_date');?></th>
-			<th><?php echo $this->Paginator->sort('updated_date');?></th>
+			<th><?php echo $this->Paginator->sort('created');?></th>
+			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -25,10 +24,9 @@
 		<td><?php echo $user['User']['username']; ?>&nbsp;</td>
 		<td><?php echo $user['User']['firstname']; ?>&nbsp;</td>
 		<td><?php echo $user['User']['lastname']; ?>&nbsp;</td>
-		<td><?php echo $user['User']['password']; ?>&nbsp;</td>
 		<td><?php echo $user['User']['useremail']; ?>&nbsp;</td>
-		<td><?php echo $user['User']['created_date']; ?>&nbsp;</td>
-		<td><?php echo $user['User']['updated_date']; ?>&nbsp;</td>
+		<td><?php echo $user['User']['created']; ?>&nbsp;</td>
+		<td><?php echo $user['User']['modified']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $user['User']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $user['User']['id'])); ?>
@@ -54,7 +52,8 @@
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New User', true), array('action' => 'add')); ?></li>
 		<li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
+        <p>&nbsp</p>
+		<li><?php echo $this->Html->link(__('New User', true), array('action' => 'add')); ?></li>
 	</ul>
 </div>

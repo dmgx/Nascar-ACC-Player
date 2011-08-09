@@ -26,6 +26,8 @@ class PrerollAdsController extends AppController {
 				$this->Session->setFlash(__('The preroll ad could not be saved. Please, try again.', true));
 			}
 		}
+        $statuses = $this->PrerollAd->Status->find('list'); 
+        $this->set('statuses', $statuses ); 
 	}
 
 	function edit($id = null) {
@@ -44,6 +46,8 @@ class PrerollAdsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->PrerollAd->read(null, $id);
 		}
+        $statuses = $this->PrerollAd->Status->find('list'); 
+        $this->set('statuses', $statuses ); 
 	}
 
 	function delete($id = null) {

@@ -4,8 +4,8 @@ class Category extends AppModel {
 	var $displayField = 'name';
 	var $validate = array(
 		'name' => array(
-			'alphanumeric' => array(
-				'rule' => array('alphanumeric'),
+			'notempty' => array(
+				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -21,5 +21,34 @@ class Category extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+	);
+
+	var $hasMany = array(
+		'ArchiveFeed' => array(
+			'className' => 'ArchiveFeed',
+			'foreignKey' => 'category_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'LivestreamFeed' => array(
+			'className' => 'LivestreamFeed',
+			'foreignKey' => 'category_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
 	);
 }

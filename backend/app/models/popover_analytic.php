@@ -15,7 +15,7 @@ class PopoverAnalytic extends AppModel {
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-	var $hasOne = array(
+	var $belongsTo = array(
 		'PopoverAd' => array(
 			'className' => 'PopoverAd',
 			'foreignKey' => 'popover_ad_id',

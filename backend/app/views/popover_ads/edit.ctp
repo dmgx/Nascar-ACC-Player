@@ -3,7 +3,6 @@
 	<fieldset>
 		<legend><?php __('Edit Popover Ad'); ?></legend>
 	<?php
-		echo $this->Form->input('id');
 		echo $this->Form->input('name');
 		echo $this->Form->input('description');
 		echo $this->Form->input('status_id');
@@ -12,8 +11,6 @@
 		echo $this->Form->input('link_url');
 		echo $this->Form->input('start_time');
 		echo $this->Form->input('end_time');
-		echo $this->Form->input('created_date');
-		echo $this->Form->input('updated_date');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
@@ -21,14 +18,10 @@
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
-
-		<li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('PopoverAd.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('PopoverAd.id'))); ?></li>
+		<li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
+        <p>&nbsp</p>
 		<li><?php echo $this->Html->link(__('List Popover Ads', true), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Statuses', true), array('controller' => 'statuses', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Status', true), array('controller' => 'statuses', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Ad Types', true), array('controller' => 'ad_types', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Ad Type', true), array('controller' => 'ad_types', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Popover Analytics', true), array('controller' => 'popover_analytics', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Popover Analytic', true), array('controller' => 'popover_analytics', 'action' => 'add')); ?> </li>
+        <p>&nbsp</p>
+		<li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('PopoverAd.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('PopoverAd.id'))); ?></li>
 	</ul>
 </div>

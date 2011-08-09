@@ -19,7 +19,7 @@ class Status extends AppModel {
 	var $hasMany = array(
 		'ArchiveFeed' => array(
 			'className' => 'ArchiveFeed',
-			'foreignKey' => 'id',
+			'foreignKey' => 'status_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
@@ -32,7 +32,7 @@ class Status extends AppModel {
 		),
 		'LivestreamFeed' => array(
 			'className' => 'LivestreamFeed',
-			'foreignKey' => 'id',
+			'foreignKey' => 'status_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
@@ -45,7 +45,7 @@ class Status extends AppModel {
 		),
 		'PopoverAd' => array(
 			'className' => 'PopoverAd',
-			'foreignKey' => 'id',
+			'foreignKey' => 'status_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
@@ -58,7 +58,7 @@ class Status extends AppModel {
 		),
 		'PrerollAd' => array(
 			'className' => 'PrerollAd',
-			'foreignKey' => 'id',
+			'foreignKey' => 'status_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',

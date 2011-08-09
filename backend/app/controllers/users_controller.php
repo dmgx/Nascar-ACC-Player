@@ -33,12 +33,14 @@ class UsersController extends AppController {
 		if (!empty($this->data)) {
 			if ($this->User->save($this->data)) {
 				$this->flash(__('The user has been saved.', true), array('action' => 'index'));
+				$this->redirect(array('action' => 'index'));
 			} else {
 			}
 		}
 		if (empty($this->data)) {
 			$this->data = $this->User->read(null, $id);
 		}
+        unset($this->data['ArchiveFeeds']['modified']);
 	}
 
 	function delete($id = null) {

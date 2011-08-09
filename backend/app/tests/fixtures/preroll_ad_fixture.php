@@ -12,8 +12,8 @@ class PrerollAdFixture extends CakeTestFixture {
 		'link_url' => array('type' => 'text', 'null' => true, 'default' => NULL, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
 		'start_time' => array('type' => 'datetime', 'null' => false, 'default' => NULL),
 		'end_time' => array('type' => 'datetime', 'null' => false, 'default' => NULL),
-		'created_date' => array('type' => 'datetime', 'null' => false, 'default' => NULL),
-		'updated_date' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
+		'created' => array('type' => 'datetime', 'null' => false, 'default' => NULL),
+		'modified' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'status_id' => array('column' => 'status_id', 'unique' => 0)),
 		'tableParameters' => array('charset' => 'latin1', 'collate' => 'latin1_swedish_ci', 'engine' => 'MyISAM')
 	);
@@ -28,8 +28,8 @@ class PrerollAdFixture extends CakeTestFixture {
 			'link_url' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
 			'start_time' => '2011-08-04 19:53:12',
 			'end_time' => '2011-08-04 19:53:12',
-			'created_date' => '2011-08-04 19:53:12',
-			'updated_date' => '2011-08-04 19:53:12'
+			'created' => '2011-08-04 19:53:12',
+			'modified' => '2011-08-04 19:53:12'
 		),
 	);
 }

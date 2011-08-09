@@ -36,21 +36,18 @@ class PopoverAd extends AppModel {
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-	var $hasOne = array(
+	var $belongsTo = array(
 		'Status' => array(
 			'className' => 'Status',
-			'foreignKey' => 'id',
-			'conditions' => '',
+			'foreignKey' => false,
+			'conditions' => array('PopoverAd.status_id = Status.id'),
 			'fields' => '',
 			'order' => ''
-		)
-	);
-    
-	var $belongsTo = array(
+		),
 		'AdType' => array(
 			'className' => 'AdType',
-			'foreignKey' => 'ad_type_id',
-			'conditions' => '',
+			'foreignKey' => false,
+			'conditions' => array('PopoverAd.ad_type_id = AdType.id'),
 			'fields' => '',
 			'order' => ''
 		)

@@ -65,8 +65,8 @@
 			<td><?php echo $popoverAd['link_url'];?></td>
 			<td><?php echo $popoverAd['start_time'];?></td>
 			<td><?php echo $popoverAd['end_time'];?></td>
-			<td><?php echo $popoverAd['created_date'];?></td>
-			<td><?php echo $popoverAd['updated_date'];?></td>
+			<td><?php echo $popoverAd['created'];?></td>
+			<td><?php echo $popoverAd['modified'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'popover_ads', 'action' => 'view', $popoverAd['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'popover_ads', 'action' => 'edit', $popoverAd['id'])); ?>

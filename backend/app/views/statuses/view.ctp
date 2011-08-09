@@ -70,8 +70,8 @@
 			<td><?php echo $archiveFeed['right_icon_id'];?></td>
 			<td><?php echo $archiveFeed['background'];?></td>
 			<td><?php echo $archiveFeed['category_id'];?></td>
-			<td><?php echo $archiveFeed['created_date'];?></td>
-			<td><?php echo $archiveFeed['updated_date'];?></td>
+			<td><?php echo $archiveFeed['created'];?></td>
+			<td><?php echo $archiveFeed['modified'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'archive_feeds', 'action' => 'view', $archiveFeed['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'archive_feeds', 'action' => 'edit', $archiveFeed['id'])); ?>
@@ -128,8 +128,8 @@
 			<td><?php echo $livestreamFeed['right_icon_id'];?></td>
 			<td><?php echo $livestreamFeed['background'];?></td>
 			<td><?php echo $livestreamFeed['category_id'];?></td>
-			<td><?php echo $livestreamFeed['created_date'];?></td>
-			<td><?php echo $livestreamFeed['updated_date'];?></td>
+			<td><?php echo $livestreamFeed['created'];?></td>
+			<td><?php echo $livestreamFeed['modified'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'livestream_feeds', 'action' => 'view', $livestreamFeed['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'livestream_feeds', 'action' => 'edit', $livestreamFeed['id'])); ?>
@@ -182,8 +182,8 @@
 			<td><?php echo $popoverAd['link_url'];?></td>
 			<td><?php echo $popoverAd['start_time'];?></td>
 			<td><?php echo $popoverAd['end_time'];?></td>
-			<td><?php echo $popoverAd['created_date'];?></td>
-			<td><?php echo $popoverAd['updated_date'];?></td>
+			<td><?php echo $popoverAd['created'];?></td>
+			<td><?php echo $popoverAd['modified'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'popover_ads', 'action' => 'view', $popoverAd['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'popover_ads', 'action' => 'edit', $popoverAd['id'])); ?>
@@ -234,8 +234,8 @@
 			<td><?php echo $prerollAd['link_url'];?></td>
 			<td><?php echo $prerollAd['start_time'];?></td>
 			<td><?php echo $prerollAd['end_time'];?></td>
-			<td><?php echo $prerollAd['created_date'];?></td>
-			<td><?php echo $prerollAd['updated_date'];?></td>
+			<td><?php echo $prerollAd['created'];?></td>
+			<td><?php echo $prerollAd['modified'];?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View', true), array('controller' => 'preroll_ads', 'action' => 'view', $prerollAd['id'])); ?>
 				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'preroll_ads', 'action' => 'edit', $prerollAd['id'])); ?>

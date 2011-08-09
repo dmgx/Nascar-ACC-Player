@@ -11,8 +11,8 @@
 			<th><?php echo $this->Paginator->sort('link_url');?></th>
 			<th><?php echo $this->Paginator->sort('start_time');?></th>
 			<th><?php echo $this->Paginator->sort('end_time');?></th>
-			<th><?php echo $this->Paginator->sort('created_date');?></th>
-			<th><?php echo $this->Paginator->sort('updated_date');?></th>
+			<th><?php echo $this->Paginator->sort('created');?></th>
+			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
@@ -27,14 +27,14 @@
 		<td><?php echo $popoverAd['PopoverAd']['id']; ?>&nbsp;</td>
 		<td><?php echo $popoverAd['PopoverAd']['name']; ?>&nbsp;</td>
 		<td><?php echo $popoverAd['PopoverAd']['description']; ?>&nbsp;</td>
-		<td><?php echo $popoverAd['PopoverAd']['status_id']; ?>&nbsp;</td>
-		<td><?php echo $popoverAd['PopoverAd']['ad_type_id']; ?>&nbsp;</td>
+		<td><?php echo $popoverAd['Status']['name']; ?>&nbsp;</td>
+		<td><?php echo $popoverAd['AdType']['name']; ?>&nbsp;</td>
 		<td><?php echo $popoverAd['PopoverAd']['image_url']; ?>&nbsp;</td>
 		<td><?php echo $popoverAd['PopoverAd']['link_url']; ?>&nbsp;</td>
 		<td><?php echo $popoverAd['PopoverAd']['start_time']; ?>&nbsp;</td>
 		<td><?php echo $popoverAd['PopoverAd']['end_time']; ?>&nbsp;</td>
-		<td><?php echo $popoverAd['PopoverAd']['created_date']; ?>&nbsp;</td>
-		<td><?php echo $popoverAd['PopoverAd']['updated_date']; ?>&nbsp;</td>
+		<td><?php echo $popoverAd['PopoverAd']['created']; ?>&nbsp;</td>
+		<td><?php echo $popoverAd['PopoverAd']['modified']; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $popoverAd['PopoverAd']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $popoverAd['PopoverAd']['id'])); ?>
@@ -60,12 +60,10 @@
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
+		<li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
+        <p>&nbsp</p>
 		<li><?php echo $this->Html->link(__('New Popover Ad', true), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Statuses', true), array('controller' => 'statuses', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Status', true), array('controller' => 'statuses', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Ad Types', true), array('controller' => 'ad_types', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Ad Type', true), array('controller' => 'ad_types', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Popover Analytics', true), array('controller' => 'popover_analytics', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Popover Analytic', true), array('controller' => 'popover_analytics', 'action' => 'add')); ?> </li>
+        <p>&nbsp</p>
+		<li><?php echo $this->Html->link(__('View Popover Analytics', true), array('controller' => 'popover_analytics', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

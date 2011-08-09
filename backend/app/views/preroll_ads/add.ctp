@@ -10,8 +10,8 @@
 		echo $this->Form->input('link_url');
 		echo $this->Form->input('start_time');
 		echo $this->Form->input('end_time');
-		echo $this->Form->input('created_date');
-		echo $this->Form->input('updated_date');
+		echo $this->Form->input('created');
+		echo $this->Form->input('modified');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
@@ -19,11 +19,8 @@
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
-
+		<li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
+        <p>&nbsp</p>
 		<li><?php echo $this->Html->link(__('List Preroll Ads', true), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('List Statuses', true), array('controller' => 'statuses', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Status', true), array('controller' => 'statuses', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Preroll Analytics', true), array('controller' => 'preroll_analytics', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Preroll Analytic', true), array('controller' => 'preroll_analytics', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
