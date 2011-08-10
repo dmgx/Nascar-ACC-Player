@@ -26,7 +26,7 @@ body {
 	background: #003d4c;
 	color: #fff;
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
-	font-size:90%;
+	font-size:80%;
 	margin: 0;
 }
 a {
@@ -48,7 +48,7 @@ h1, h2, h3, h4 {
 h1 {
 	background:#fff;
 	color: #003d4c;
-	font-size: 100%;
+	font-size: 150%;
 }
 h2 {
 	background:#fff;
@@ -79,7 +79,7 @@ ul, li {
 }
 #header h1 {
 	line-height:20px;
-	background: #003d4c url('../img/cake.icon.png') no-repeat left;
+	background: #003d4c;
 	color: #fff;
 	padding: 0px 30px;
 }
@@ -105,6 +105,17 @@ ul, li {
 	clear: both;
 	padding: 6px 10px;
 	text-align: right;
+}
+#footer a {
+	color: #fff;
+	background: #003d4c;
+	font-weight: normal;
+	text-decoration: none;
+}
+#footer a:hover {
+	color: #aff;
+	background: #003d4c;
+	text-decoration: underline;
 }
 
 /** containers **/
@@ -216,10 +227,10 @@ dt {
 	font-weight: bold;
 	padding-left: 4px;
 	vertical-align: top;
-	width: 10em;
+	width: 15em;
 }
 dd {
-	margin-left: 10em;
+	margin-left: 15em;
 	margin-top: -2em;
 	vertical-align: top;
 }
@@ -282,9 +293,17 @@ label {
 	font-size: 110%;
 	margin-bottom:3px;
 }
-input, textarea {
+textarea {
 	clear: both;
-	font-size: 140%;
+	font-size: 120%;
+	font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
+	padding: 1%;
+	width:98%;
+    height: 7px;
+}
+input{
+	clear: both;
+	font-size: 120%;
 	font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
 	padding: 1%;
 	width:98%;

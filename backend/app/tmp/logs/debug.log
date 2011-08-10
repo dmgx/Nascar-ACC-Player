@@ -101,3 +101,7 @@
 2011-08-09 00:02:24 Debug: Notice (8): Undefined index: DISTINCT LivestreamFeed in [C:\wamp\www\NascarACCPlayer\backend\app\views\livestream_feeds\index.ctp, line 29]
 2011-08-09 01:16:40 Debug: Notice (8): Undefined property: PopoverAdsController::$PrerollAd in [C:\wamp\www\NascarACCPlayer\backend\app\controllers\popover_ads_controller.php, line 51]
 2011-08-09 01:16:40 Debug: Notice (8): Trying to get property of non-object in [C:\wamp\www\NascarACCPlayer\backend\app\controllers\popover_ads_controller.php, line 51]
+2011-08-09 20:29:08 Debug: Notice (8): Undefined property: XmlController::$Control in [C:\wamp\www\NascarACCPlayer\backend\app\app_controller.php, line 11]
+2011-08-09 20:29:08 Debug: Notice (8): Undefined property: UsersController::$Control in [C:\wamp\www\NascarACCPlayer\backend\app\app_controller.php, line 11]
+2011-08-09 20:30:26 Debug: Notice (8): Undefined property: XmlController::$Control in [C:\wamp\www\NascarACCPlayer\backend\app\app_controller.php, line 11]
+2011-08-09 22:23:55 Debug: Notice (8): Undefined property: View::$Paginator in [C:\wamp\www\NascarACCPlayer\backend\app\views\configurations\index.ctp, line 5]

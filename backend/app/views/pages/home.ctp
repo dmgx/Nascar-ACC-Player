@@ -28,6 +28,8 @@ endif;
 ?>
 
 <ul>
+	<li><a href="configurations"><?php __('Configurations'); ?> </a>
+	<ul><li><?php __('Managing configuration parameters'); ?></li></ul></li>
 	<li><a href="users"><?php __('Users'); ?> </a>
 	<ul><li><?php __('Managing users'); ?></li></ul></li>
 	<li><a href="archive_feeds"><?php __('Archive Feeds'); ?> </a>

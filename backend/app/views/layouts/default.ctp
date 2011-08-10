@@ -52,6 +52,7 @@
 					array('target' => '_blank', 'escape' => false)
 				);
 			?>
+            <p>&nbsp</p>
             <p><?php echo $this->Html->link(__('Copyright DMGx 2011', true), 'http://www.dmgx.com/'); ?></p>
 		</div>
 	</div>

@@ -198,5 +198,44 @@ CREATE TABLE IF NOT EXISTS `popover_analytics` (
   FOREIGN KEY (`contact_type_id`) REFERENCES `contact_types`(`id`)
 );
 
+DROP TABLE IF EXISTS `configurations`;
+CREATE TABLE IF NOT EXISTS `configurations` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`twitter` text,
+	`facebook` text,
+	`popover_frequency` real,
+	`placeholder` text,
+    `image_url_path` text,
+	`swf_url_path` text,
+	`livefeed_url_path` text,
+	`archive_hr_url_path` text,
+	`archive_lr_url_path` text,
+	`thumbnail_url_path` text,
+   PRIMARY KEY (`id`)
+);
+INSERT INTO `configurations` (`popover_frequency`, `twitter`, `facebook`, `placeholder`, `image_url_path`, `swf_url_path`, `livefeed_url_path`, `archive_hr_url_path`, `archive_lr_url_path`, `thumbnail_url_path`) VALUES
+    (180,
+    'http://twitter.com/statuses/user_timeline/theacc.xml?count=25',
+    'http://facebook.com/theacc',
+    'http://acc.nascarmediagroup.com/assets/static_placeholder.png',
+    'http://acc.nascarmediagroup.com/assets/images/',
+    'http://acc.nascarmediagroup.com/assets/swf/',
+    'http://acc.nascarmediagroup.com/assets/livefeed/',
+    'http://acc.nascarmediagroup.com/assets/archive_hr/',
+    'http://acc.nascarmediagroup.com/assets/archive_lr/',
+    'http://acc.nascarmediagroup.com/assets/thumbnail/'
+);
 
+DROP TABLE IF EXISTS `weekly_email_lists`;
+CREATE TABLE IF NOT EXISTS `weekly_email_lists` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`email` text,
+   PRIMARY KEY (`id`)
+);
+DROP TABLE IF EXISTS `monthly_email_lists`;
+CREATE TABLE IF NOT EXISTS `monthly_email_lists` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`email` text,
+   PRIMARY KEY (`id`)
+);
 
