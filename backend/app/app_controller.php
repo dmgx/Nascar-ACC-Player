@@ -8,14 +8,10 @@ class AppController extends Controller {
     var $components = array('Auth', 'Cookie', 'Session');
 
     function beforeFilter() {
-        if ($this->name != 'Xml')
-        {
-            $this->Auth->userModel = 'User';
-            $this->Auth->fields = array('username' => 'username', 'password' => 'password');
-            $this->Auth->loginAction = array('admin' => false, 'controller' => 'users', 'action' => 'login');
-            $this->Auth->loginRedirect = array('controller' => '');
-        }
-
+        $this->Auth->userModel = 'User';
+        $this->Auth->fields = array('username' => 'username', 'password' => 'password');
+        $this->Auth->loginAction = array('admin' => false, 'controller' => 'users', 'action' => 'login');
+        $this->Auth->loginRedirect = array('controller' => '');
     } 
 } 
 /**

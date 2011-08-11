@@ -44,18 +44,18 @@ CREATE TABLE IF NOT EXISTS `team_icons` (
   PRIMARY KEY (`id`)
 );
 INSERT INTO `team_icons` (`id`, `name`, `icon`) VALUES
-(1, 'Boston College', ''),
-(2, 'Clemson', ''),
-(3, 'Duke', ''),
-(4, 'Flordia State', ''),
-(5, 'Georgia Tech', ''),
-(6, 'Maryland', ''),
-(7, 'Miami', ''),
-(8, 'North Carolina', ''),
-(9, 'NC State', ''),
-(10, 'Virginia', ''),
-(11, 'Virginia Tech', ''),
-(12, 'Wake Forest', '');
+(1, 'Boston College', 'BostonCollegeIcon.png'),
+(2, 'Clemson', 'Clemson.png'),
+(3, 'Duke', 'Duke.png'),
+(4, 'Flordia State', 'FlordiaState.png'),
+(5, 'Georgia Tech', 'GeorgiaTech.png'),
+(6, 'Maryland', 'Maryland.png'),
+(7, 'Miami', 'Miami.png'),
+(8, 'North Carolina', 'NorthCarolina.png'),
+(9, 'NC State', 'NCState.png'),
+(10, 'Virginia', 'Virginia.png'),
+(11, 'Virginia Tech', 'VirginiaTech.png'),
+(12, 'Wake Forest', 'WakeForest.png');
 
 DROP TABLE IF EXISTS `archive_feeds`;
 CREATE TABLE IF NOT EXISTS `archive_feeds` (
@@ -181,10 +181,8 @@ CREATE TABLE IF NOT EXISTS `preroll_analytics` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `preroll_ad_id` int(11) NOT NULL,
   `event_time` datetime NOT NULL,
-  `contact_type_id` varchar(5),
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`preroll_ad_id`) REFERENCES `preroll_ads`(`id`),
-  FOREIGN KEY (`contact_type_id`) REFERENCES `contact_types`(`id`)
+  FOREIGN KEY (`preroll_ad_id`) REFERENCES `preroll_ads`(`id`)
 );
 
 DROP TABLE IF EXISTS `popover_analytics`;

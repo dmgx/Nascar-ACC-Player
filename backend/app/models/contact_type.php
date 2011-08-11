@@ -30,19 +30,6 @@ class ContactType extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		'PrerollAnalytic' => array(
-			'className' => 'PrerollAnalytic',
-			'foreignKey' => 'contact_type_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		)
 	);
 
 }

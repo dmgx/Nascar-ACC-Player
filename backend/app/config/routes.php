@@ -39,8 +39,3 @@
     Router::connect('/ArchiveFeeds/add', array('controller' => 'ArchiveFeeds', 'action' => 'add'));
     Router::connect('/ArchiveFeeds/edit/*', array('controller' => 'ArchiveFeeds', 'action' => 'edit'));
     Router::connect('/ArchiveFeeds/delete/*', array('controller' => 'ArchiveFeeds', 'action' => 'delete'));
-/**
- * Add in support for web services by enabling generating output based on extension
- */
-    Router::parseExtensions();
-    Router::connect('/xml/*', array('controller' => 'xml', 'action' => 'index'));
