@@ -2,7 +2,7 @@
 	<?php
 	foreach ($livestreamFeeds as $livestreamFeed):
 	?>
-        <?php  __('<livestream_feed id="'); echo $livestreamFeed['LivestreamFeed']['id']; __('">');?>
+        <?php  __('<livestream id="'); echo $livestreamFeed['LivestreamFeed']['id']; __('">');?>
             <?php __('<name>'); ?>
                 <?php __('<![CDATA['); echo $livestreamFeed['LivestreamFeed']['name']; __(']]>'); ?>
             <?php __('</name>'); ?>
@@ -21,7 +21,10 @@
             <?php __('<background>'); ?>
                 <?php __('<![CDATA['); echo $livestreamFeed['LivestreamFeed']['background']; __(']]>'); ?>
             <?php __('</background>'); ?>
-        <?php  __('</archive_feed>');?>
+            <?php __('<thumbnail>'); ?>
+                <?php __('<![CDATA['); echo $livestreamFeed['LivestreamFeed']['thumbnail_url']; __(']]>'); ?>
+            <?php __('</thumbnail>'); ?>
+        <?php  __('</livestream>');?>
     <?php endforeach; ?>
 <?php  __('</root>');?>
 

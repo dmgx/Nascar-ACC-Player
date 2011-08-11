@@ -7,6 +7,7 @@
 		echo $this->Form->input('description');
 		echo $this->Form->input('status_id');
 		echo $this->Form->input('url');
+		echo $this->Form->input('thumbnail_url');
 		echo $this->Form->input('start_time');
 		echo $this->Form->input('end_time');
 		echo $this->Form->input('left_icon_id',array('options' => $left_icons));

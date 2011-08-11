@@ -22,6 +22,11 @@ class XmlController extends AppController
     }
     function index()
     {
+        $this->archivefeed();
+        $this->livestreamfeed();
+        $this->prerollad();
+        $this->popoverad();
+        $this->configuration();
     }
     function archivefeed() {
         $args = $this->passedArgs;

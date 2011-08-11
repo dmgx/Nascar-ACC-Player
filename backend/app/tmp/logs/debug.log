@@ -373,3 +373,4 @@
 2011-08-11 01:04:41 Debug: Notice (8): Undefined variable: archiveFeeds in [C:\wamp\www\NascarACCPlayer\backend\app\views\xml\livestreamfeed.ctp, line 3]
 2011-08-11 01:05:12 Debug: Notice (8): Undefined variable: livestreamFeeds in [C:\wamp\www\NascarACCPlayer\backend\app\views\xml\livestreamfeed.ctp, line 3]
 2011-08-11 01:07:19 Debug: Notice (8): Undefined variable: archiveFeeds in [C:\wamp\www\NascarACCPlayer\backend\app\views\xml\archivefeed.ctp, line 3]
+2011-08-11 12:21:17 Debug: Notice (8): Undefined variable: archiveFeed in [C:\wamp\www\NascarACCPlayer\backend\app\views\xml\livestreamfeed.ctp, line 22]

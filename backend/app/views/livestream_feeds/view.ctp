@@ -26,6 +26,11 @@
 			<?php echo $livestreamFeed['LivestreamFeed']['url']; ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Thumbnail Url'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $livestreamFeed['LivestreamFeed']['thumbnail_url']; ?>
+			&nbsp;
+		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Start Time'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $livestreamFeed['LivestreamFeed']['start_time']; ?>

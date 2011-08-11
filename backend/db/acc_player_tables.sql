@@ -86,6 +86,7 @@ CREATE TABLE IF NOT EXISTS `livestream_feeds` (
   `description` text,
   `status_id` int(11) NOT NULL,
   `url` text NOT NULL,
+  `thumbnail_url` text NOT NULL,
   `start_time` datetime NOT NULL,
   `end_time` datetime NOT NULL,
   `left_icon_id` int(11) NOT NULL,

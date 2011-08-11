@@ -7,6 +7,7 @@
 			<th><?php echo $this->Paginator->sort('description');?></th>
 			<th><?php echo $this->Paginator->sort('Satus','status_id',array('type' => 'text','label' => 'Satus'));?></th>
 			<th><?php echo $this->Paginator->sort('url');?></th>
+			<th><?php echo $this->Paginator->sort('thumbnail_url');?></th>
 			<th><?php echo $this->Paginator->sort('start_time');?></th>
 			<th><?php echo $this->Paginator->sort('end_time');?></th>
 			<th><?php echo $this->Paginator->sort('Left Icon','left_icon_id',array('type' => 'text','label' => 'Left Icon'));?></th>
@@ -31,6 +32,7 @@
 		<td><?php echo $livestreamFeed['LivestreamFeed']['description']; ?>&nbsp;</td>
 		<td><?php echo $livestreamFeed['Status']['name']; ?>&nbsp;</td>
 		<td><?php echo $livestreamFeed['LivestreamFeed']['url']; ?>&nbsp;</td>
+		<td><?php echo $livestreamFeed['LivestreamFeed']['thumbnail_url']; ?>&nbsp;</td>
 		<td><?php echo $livestreamFeed['LivestreamFeed']['start_time']; ?>&nbsp;</td>
 		<td><?php echo $livestreamFeed['LivestreamFeed']['end_time']; ?>&nbsp;</td>
 		<td><?php echo $livestreamFeed['LeftIcon']['name']; ?>&nbsp;</td>
