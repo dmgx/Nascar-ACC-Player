@@ -303,21 +303,21 @@ textarea {
 }
 input{
 	clear: both;
-	font-size: 120%;
+	font-size: 100%;
 	font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
 	padding: 1%;
 	width:98%;
 }
 select {
 	clear: both;
-	font-size: 120%;
+	font-size: 100%;
 	vertical-align: text-bottom;
 }
 select[multiple=multiple] {
 	width: 100%;
 }
 option {
-	font-size: 120%;
+	font-size: 100%;
 	padding: 0 3px;
 }
 input[type=checkbox] {
@@ -336,6 +336,23 @@ input[type=radio] {
 }
 div.radio label {
 	margin: 0 0 6px 20px;
+}
+input.buttontext {
+	padding: 1%;
+    height: 7px;
+	width: 85%;
+    color: #000;
+	margin-top: -20px;
+	margin-left: 7px;
+	margin-bottom: 15px;
+}
+input.textbutton {
+	margin-top: -20px;
+	margin-bottom: -15px;
+	top: 15px;
+	width: 10%;
+	height: auto;
+    color: #000;
 }
 input[type=submit] {
 	display: inline;
@@ -438,11 +455,16 @@ td.actions a {
 	text-shadow: #fff 0px 1px 0px;
 	min-width: 0;
 }
+
 input[type=submit]:hover,
 div.actions ul li a:hover,
 td.actions a:hover {
 	background: #f0f09a;
 	background: -webkit-gradient(linear, left top, left bottom, from(#f7f7e1), to(#eeeca9));
+}
+
+input[type=file]{
+	size: 400px;
 }
 
 /** Related **/

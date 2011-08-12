@@ -1,5 +1,6 @@
 <?php
 class ArchiveFeed extends AppModel {
+    
 	var $name = 'ArchiveFeed';
 	var $displayField = 'name';
 	var $validate = array(
@@ -103,5 +104,24 @@ class ArchiveFeed extends AppModel {
 			'counterQuery' => ''
 		)
 	);
+
+    function beforeSave($created) {
+        $Configuration = ClassRegistry::init('Configuration');
+        $configuration = $Configuration->find('first');
+
+        extract($this->data['ArchiveFeed']['thumbnail_url']);
+        $dest = $configuration['Configuration']['thumbnail_url_path'];
+        if ($size && !$error && $name) {
+            $t0 = move_uploaded_file($tmp_name, $dest.$name);
+            $this->data['ArchiveFeed']['thumbnail_url'] = $name;
+        }
+        extract($this->data['ArchiveFeed']['background']);
+        $dest = $configuration['Configuration']['background_url_path'];
+        if ($size && !$error && $name) {
+            $t0 = move_uploaded_file($tmp_name, $dest.$name);
+            $this->data['ArchiveFeed']['background'] = $name;
+        }
+        return true;
+    } 
 
 }

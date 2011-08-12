@@ -1,4 +1,5 @@
 <div class="livestreamFeeds form">
+<?php echo $form->create('LivestreamFeed', array('type' => 'file')); ?>
 <?php echo $this->Form->create('LivestreamFeed');?>
 	<fieldset>
 		<legend><?php __('Add Livestream Feed'); ?></legend>
@@ -6,17 +7,32 @@
 		echo $this->Form->input('name');
 		echo $this->Form->input('description');
 		echo $this->Form->input('status_id');
-		echo $this->Form->input('url');
-		echo $this->Form->input('thumbnail_url');
+		echo $this->Form->input('url',array('value'=>$configuration['Configuration']['livefeed_url_path']));
+		echo $this->Form->input('thumbnail_url',array('label' => 'Thumbnail','type' => 'file','name'=>'thumbnail_url_file', 'style'=>'display: none;', 'onchange'=>'thumbnail_url_text.value=thumbnail_url_file.value;'));
+    ?>
+    <input type="text" class="input buttontext" name="thumbnail_url_text">
+    <input type="button" class="input textbutton"
+        onClick="thumbnail_url_file.click();"
+        value="Pick File..."> 
+    <?php
 		echo $this->Form->input('start_time');
 		echo $this->Form->input('end_time');
 		echo $this->Form->input('left_icon_id',array('options' => $left_icons));
 		echo $this->Form->input('right_icon_id',array('options' => $right_icons));
-		echo $this->Form->input('background');
+		echo $this->Form->input('background',array('type' => 'file','name'=>'background_file', 'style'=>'display: none;', 'onchange'=>'background_text.value=background_file.value;'));
+    ?>
+    <input type="text" class="input buttontext" name="background_text">
+    <input type="button" class="input textbutton"
+        onClick="background_file.click();"
+        value="Pick File..."> 
+    <?php
 		echo $this->Form->input('category_id');
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
+<?php
+    echo $this->Form->submit('Submit', array('url'=> array('controller'=>'livestream_feeds', 'action'=>'add'), 'onclick' => 'thumbnail_url_file.name ="data[LivestreamFeed][thumbnail_url]";background_file.name ="data[LivestreamFeed][background]";'));
+    echo $this->Form->end();
+    ?>
 </div>
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>

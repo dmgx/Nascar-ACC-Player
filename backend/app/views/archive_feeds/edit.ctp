@@ -3,19 +3,39 @@
 	<fieldset>
 		<legend><?php __('Edit Archive Feed'); ?></legend>
 	<?php
+		echo $this->Form->input('id', array('type' => 'hidden'));
 		echo $this->Form->input('name');
 		echo $this->Form->input('description');
 		echo $this->Form->input('status_id');
 		echo $this->Form->input('low_res_url');
 		echo $this->Form->input('high_res_url');
-		echo $this->Form->input('thumbnail_url');
+        echo $this->Form->input('thumbnail_url',array('label' => 'Thumbnail','type' => 'file','name'=>'thumbnail_url_file', 'style'=>'display: none;', 'onchange'=>'thumbnail_url_text.value=thumbnail_url_file.value;'));
+    ?>
+    <input type="text" class="input buttontext" name="thumbnail_url_text" value="
+        <?php echo $this->data['ArchiveFeed']['thumbnail_url']; ?>
+    ">
+    <input type="button" class="input textbutton"
+        onClick="thumbnail_url_file.click();"
+        value="Pick File..."> 
+    <?php
 		echo $this->Form->input('left_icon_id',array('options' => $left_icons));
 		echo $this->Form->input('right_icon_id',array('options' => $right_icons));
-		echo $this->Form->input('background');
+		echo $this->Form->input('background',array('type' => 'file','name'=>'background_file', 'style'=>'display: none;', 'onchange'=>'background_text.value=background_file.value;'));
+    ?>
+    <input type="text" class="input buttontext" name="background_text" value="
+    <?php echo $this->data['ArchiveFeed']['background']; ?>
+    ">
+    <input type="button" class="input textbutton"
+        onClick="background_file.click();"
+        value="Pick File..."> 
+    <?php
 		echo $this->Form->input('category_id');
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
+    <?php
+        echo $this->Form->submit('Submit', array('onclick' => 'thumbnail_url_file.name ="data[ArchiveFeed][thumbnail_url]";background_file.name ="data[ArchiveFeed][background]";'));
+        echo $this->Form->end();
+    ?>
 </div>
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>

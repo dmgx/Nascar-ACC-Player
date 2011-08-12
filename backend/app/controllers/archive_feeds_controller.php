@@ -3,6 +3,7 @@ class ArchiveFeedsController extends AppController {
 
 	var $name = 'ArchiveFeeds';
     var $helpers = array('Form');
+    var $uses = array('ArchiveFeed','Configuration');
 
 
 	function index() {
@@ -19,7 +20,9 @@ class ArchiveFeedsController extends AppController {
 	}
 
 	function add() {
-		if (!empty($this->data)) {
+        $this->set('configuration', $this->Configuration->find('first'));
+
+        if (!empty($this->data)) {
 			$this->ArchiveFeed->create();
 			if ($this->ArchiveFeed->save($this->data)) {
 				$this->Session->setFlash(__('The archive feed has been saved', true));

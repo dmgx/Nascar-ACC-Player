@@ -13,6 +13,7 @@
 		echo $this->Form->input('archive_hr_url_path');
 		echo $this->Form->input('archive_lr_url_path');
 		echo $this->Form->input('thumbnail_url_path');
+		echo $this->Form->input('background_url_path');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

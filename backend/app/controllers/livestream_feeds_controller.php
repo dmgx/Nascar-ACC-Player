@@ -2,6 +2,8 @@
 class LivestreamFeedsController extends AppController {
 
 	var $name = 'LivestreamFeeds';
+    var $helpers = array('Form');
+    var $uses = array('LivestreamFeed','Configuration');
 
 	function index() {
 		$this->LivestreamFeed->recursive = 0;
@@ -17,6 +19,8 @@ class LivestreamFeedsController extends AppController {
 	}
 
 	function add() {
+        $this->set('configuration', $this->Configuration->find('first'));
+
 		if (!empty($this->data)) {
 			$this->LivestreamFeed->create();
 			if ($this->LivestreamFeed->save($this->data)) {

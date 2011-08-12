@@ -51,6 +51,11 @@
 			<?php echo $configuration['Configuration']['thumbnail_url_path']; ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Background Url Path'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $configuration['Configuration']['background_url_path']; ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">
