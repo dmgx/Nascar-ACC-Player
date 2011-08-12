@@ -7,6 +7,7 @@ class LivestreamFeedsController extends AppController {
 
 	function index() {
 		$this->LivestreamFeed->recursive = 0;
+        $this->paginate['LivestreamFeed']['limit'] = '10';
 		$this->set('livestreamFeeds', $this->paginate());
     }
 

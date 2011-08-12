@@ -18,15 +18,15 @@ class PopoverAnalytic extends AppModel {
 	var $belongsTo = array(
 		'PopoverAd' => array(
 			'className' => 'PopoverAd',
-			'foreignKey' => 'popover_ad_id',
-			'conditions' => '',
+			'foreignKey' => false,
+			'conditions' => array('PopoverAnalytic.popover_ad_id = PopoverAd.id'),
 			'fields' => '',
 			'order' => ''
 		),
 		'ContactType' => array(
 			'className' => 'ContactType',
-			'foreignKey' => 'contact_type_id',
-			'conditions' => '',
+			'foreignKey' => false,
+			'conditions' => array('PopoverAnalytic.contact_type_id = ContactType.id'),
 			'fields' => '',
 			'order' => ''
 		)

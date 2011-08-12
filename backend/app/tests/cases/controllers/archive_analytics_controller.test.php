@@ -1,5 +1,5 @@
 <?php
-/* ArchiveAnalytics Test cases generated on: 2011-08-04 15:53:18 : 1312473198*/
+/* ArchiveAnalytics Test cases generated on: 2011-08-12 14:18:53 : 1313173133*/
 App::import('Controller', 'ArchiveAnalytics');
 
 class TestArchiveAnalyticsController extends ArchiveAnalyticsController {
@@ -11,7 +11,7 @@ class TestArchiveAnalyticsController extends ArchiveAnalyticsController {
 }
 
 class ArchiveAnalyticsControllerTestCase extends CakeTestCase {
-	var $fixtures = array('app.archive_analytic', 'app.archive_feed', 'app.status', 'app.livestream_feed', 'app.left_icon', 'app.right_icon', 'app.category', 'app.livestream_analytic', 'app.popover_ad', 'app.ad_type', 'app.popover_analytic', 'app.contact_type', 'app.preroll_analytic', 'app.preroll_ad');
+	var $fixtures = array('app.archive_analytic', 'app.archive_feed', 'app.status', 'app.livestream_feed', 'app.team_icon', 'app.category', 'app.livestream_analytic', 'app.popover_ad', 'app.ad_type', 'app.popover_analytic', 'app.contact_type', 'app.preroll_ad', 'app.preroll_analytic');
 
 	function startTest() {
 		$this->ArchiveAnalytics =& new TestArchiveAnalyticsController();
@@ -21,6 +21,26 @@ class ArchiveAnalyticsControllerTestCase extends CakeTestCase {
 	function endTest() {
 		unset($this->ArchiveAnalytics);
 		ClassRegistry::flush();
+	}
+
+	function testIndex() {
+
+	}
+
+	function testView() {
+
+	}
+
+	function testAdd() {
+
+	}
+
+	function testEdit() {
+
+	}
+
+	function testDelete() {
+
 	}
 
 }

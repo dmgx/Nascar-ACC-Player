@@ -210,9 +210,10 @@ CREATE TABLE IF NOT EXISTS `configurations` (
 	`archive_hr_url_path` text,
 	`archive_lr_url_path` text,
 	`thumbnail_url_path` text,
+	`background_url_path` text,
    PRIMARY KEY (`id`)
 );
-INSERT INTO `configurations` (`popover_frequency`, `twitter`, `facebook`, `placeholder`, `image_url_path`, `swf_url_path`, `livefeed_url_path`, `archive_hr_url_path`, `archive_lr_url_path`, `thumbnail_url_path`) VALUES
+INSERT INTO `configurations` (`popover_frequency`, `twitter`, `facebook`, `placeholder`, `image_url_path`, `swf_url_path`, `livefeed_url_path`, `archive_hr_url_path`, `archive_lr_url_path`, `thumbnail_url_path`, `background_url_path`) VALUES
     (180,
     'http://twitter.com/statuses/user_timeline/theacc.xml?count=25',
     'http://facebook.com/theacc',
@@ -222,7 +223,8 @@ INSERT INTO `configurations` (`popover_frequency`, `twitter`, `facebook`, `place
     'http://acc.nascarmediagroup.com/assets/livefeed/',
     'http://acc.nascarmediagroup.com/assets/archive_hr/',
     'http://acc.nascarmediagroup.com/assets/archive_lr/',
-    'http://acc.nascarmediagroup.com/assets/thumbnail/'
+    'http://acc.nascarmediagroup.com/assets/thumbnail/',
+    'http://acc.nascarmediagroup.com/assets/background/'
 );
 
 DROP TABLE IF EXISTS `weekly_email_lists`;

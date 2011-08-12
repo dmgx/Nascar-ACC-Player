@@ -1,12 +1,17 @@
 <div class="prerollAnalytics index">
 	<h2><?php __('Preroll Analytics');?></h2>
+    <?php
+        echo $this->Form->create('PrerollAnalytics');
+        echo $this->Form->input('start',array('type'=>'date','value'=>$this->data['PrerollAnalytics']['start']));
+        echo $this->Form->input('end',array('type'=>'date','value'=>$this->data['PrerollAnalytics']['end']));
+        echo $this->Form->submit('Submit', array('url'=> array('controller'=>'preroll_analytics', 'action'=>'index')));
+        echo $this->Form->end();
+    ?>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('preroll_ad_id');?></th>
-			<th><?php echo $this->Paginator->sort('event_time');?></th>
-			<th><?php echo $this->Paginator->sort('contact_type_id');?></th>
-			<th class="actions"><?php __('Actions');?></th>
+			<th><?php echo $this->Paginator->sort('Preroll ID');?></th>
+			<th><?php echo $this->Paginator->sort('Preroll Name');?></th>
+			<th><?php echo $this->Paginator->sort('View Count');?></th>
 	</tr>
 	<?php
 	$i = 0;
@@ -17,17 +22,11 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $prerollAnalytic['PrerollAnalytic']['id']; ?>&nbsp;</td>
 		<td><?php echo $prerollAnalytic['PrerollAnalytic']['preroll_ad_id']; ?>&nbsp;</td>
-		<td><?php echo $prerollAnalytic['PrerollAnalytic']['event_time']; ?>&nbsp;</td>
-		<td><?php echo $prerollAnalytic['PrerollAnalytic']['contact_type_id']; ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $prerollAnalytic['PrerollAnalytic']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $prerollAnalytic['PrerollAnalytic']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $prerollAnalytic['PrerollAnalytic']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $prerollAnalytic['PrerollAnalytic']['id'])); ?>
-		</td>
+		<td><?php echo $prerollAnalytic['PrerollAd']['name']; ?>&nbsp;</td>
+		<td><?php echo $prerollAnalytic[0]['Count_Views']; ?>&nbsp;</td>
 	</tr>
-<?php endforeach; ?>
+    <?php endforeach; ?>
 	</table>
 	<p>
 	<?php
@@ -46,6 +45,8 @@
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New Preroll Analytic', true), array('action' => 'add')); ?></li>
+		<li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
+        <p>&nbsp</p>
+		<li><?php echo $this->Html->link(__('List Preroll Feeds', true), array('controller' => 'preroll_feeds', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

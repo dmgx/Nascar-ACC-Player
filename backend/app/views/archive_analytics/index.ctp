@@ -1,11 +1,17 @@
 <div class="archiveAnalytics index">
 	<h2><?php __('Archive Analytics');?></h2>
-	<table cellpadding="0" cellspacing="0">
+    <?php
+        echo $this->Form->create('ArchiveAnalytics');
+        echo $this->Form->input('start',array('type'=>'date','value'=>$this->data['ArchiveAnalytics']['start']));
+        echo $this->Form->input('end',array('type'=>'date','value'=>$this->data['ArchiveAnalytics']['end']));
+        echo $this->Form->submit('Submit', array('url'=> array('controller'=>'archive_analytics', 'action'=>'index')));
+        echo $this->Form->end();
+    ?>
+    <table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
-			<th><?php echo $this->Paginator->sort('archive_feed_id');?></th>
-			<th><?php echo $this->Paginator->sort('view_time');?></th>
-			<th class="actions"><?php __('Actions');?></th>
+        <th><?php echo $this->Paginator->sort('Archive ID');?></th>
+        <th><?php echo $this->Paginator->sort('Archive Name');?></th>
+        <th><?php echo $this->Paginator->sort('View Count');?></th>
 	</tr>
 	<?php
 	$i = 0;
@@ -16,14 +22,9 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $archiveAnalytic['ArchiveAnalytic']['id']; ?>&nbsp;</td>
 		<td><?php echo $archiveAnalytic['ArchiveAnalytic']['archive_feed_id']; ?>&nbsp;</td>
-		<td><?php echo $archiveAnalytic['ArchiveAnalytic']['view_time']; ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $archiveAnalytic['ArchiveAnalytic']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $archiveAnalytic['ArchiveAnalytic']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $archiveAnalytic['ArchiveAnalytic']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $archiveAnalytic['ArchiveAnalytic']['id'])); ?>
-		</td>
+		<td><?php echo $archiveAnalytic['ArchiveFeed']['name']; ?>&nbsp;</td>
+		<td><?php echo $archiveAnalytic[0]['Count_Views']; ?>&nbsp;</td>
 	</tr>
 <?php endforeach; ?>
 	</table>
@@ -44,8 +45,8 @@
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New Archive Analytic', true), array('action' => 'add')); ?></li>
+		<li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
+        <p>&nbsp</p>
 		<li><?php echo $this->Html->link(__('List Archive Feeds', true), array('controller' => 'archive_feeds', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Archive Feed', true), array('controller' => 'archive_feeds', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

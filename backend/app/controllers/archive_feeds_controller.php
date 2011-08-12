@@ -8,6 +8,7 @@ class ArchiveFeedsController extends AppController {
 
 	function index() {
 		$this->ArchiveFeed->recursive = 0;
+        $this->paginate['ArchiveFeed']['limit'] = '10';
 		$this->set('archiveFeeds', $this->paginate());
 	}
 
@@ -87,26 +88,5 @@ class ArchiveFeedsController extends AppController {
         $this->set('right_icons', $right_icons ); 
         $categories = $this->ArchiveFeed->Category->find('list'); 
         $this->set('categories', $categories ); 
-	}
-	function display() {
-		$path = func_get_args();
-
-		$count = count($path);
-		if (!$count) {
-			$this->redirect('/');
-		}
-		$page = $subpage = $title_for_layout = null;
-
-		if (!empty($path[0])) {
-			$page = $path[0];
-		}
-		if (!empty($path[1])) {
-			$subpage = $path[1];
-		}
-		if (!empty($path[$count - 1])) {
-			$title_for_layout = Inflector::humanize($path[$count - 1]);
-		}
-		$this->set(compact('page', 'subpage', 'title_for_layout'));
-		$this->render(implode('/', $path));
 	}
 }

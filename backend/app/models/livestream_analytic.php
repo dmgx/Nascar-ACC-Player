@@ -18,8 +18,8 @@ class LivestreamAnalytic extends AppModel {
 	var $belongsTo = array(
 		'LivestreamFeed' => array(
 			'className' => 'LivestreamFeed',
-			'foreignKey' => 'livestream_feed_id',
-			'conditions' => '',
+			'foreignKey' => false,
+			'conditions' => array('LivestreamAnalytic.livestream_feed_id = LivestreamFeed.id'),
 			'fields' => '',
 			'order' => ''
 		)

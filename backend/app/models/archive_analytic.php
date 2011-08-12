@@ -18,10 +18,13 @@ class ArchiveAnalytic extends AppModel {
 	var $belongsTo = array(
 		'ArchiveFeed' => array(
 			'className' => 'ArchiveFeed',
-			'foreignKey' => 'archive_feed_id',
-			'conditions' => '',
+			'foreignKey' => false,
+			'conditions' => array('ArchiveAnalytic.archive_feed_id = ArchiveFeed.id'),
 			'fields' => '',
 			'order' => ''
 		)
 	);
+    function findByDateRange($start,$end){
+        return $this->find('all',array('view_time >= '.$start,'view_time >= '.$end));
+    } 
 }
