@@ -6,8 +6,7 @@
 		echo $this->Form->input('name');
 		echo $this->Form->input('description');
 		echo $this->Form->input('status_id');
-		echo $this->Form->input('image_url');
-		echo $this->Form->input('link_url');
+		echo $this->Form->input('image_url',array('label'=>'Ad URL'));
 		echo $this->Form->input('start_time');
 		echo $this->Form->input('end_time');
 	?>

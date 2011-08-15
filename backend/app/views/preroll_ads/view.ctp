@@ -21,14 +21,9 @@
 			<?php echo $prerollAd['Status']['name']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Image Url'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Ad Url'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $prerollAd['PrerollAd']['image_url']; ?>
-			&nbsp;
-		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Link Url'); ?></dt>
-		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $prerollAd['PrerollAd']['link_url']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Start Time'); ?></dt>

@@ -109,7 +109,6 @@ CREATE TABLE IF NOT EXISTS `preroll_ads` (
   `description` text,
   `status_id` int(11) NOT NULL,
   `image_url` text NOT NULL,
-  `link_url` text,
   `start_time` datetime NOT NULL,
   `end_time` datetime NOT NULL,
   `created` datetime NOT NULL,

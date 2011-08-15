@@ -3,11 +3,11 @@
 	<fieldset>
 		<legend><?php __('Add User'); ?></legend>
 	<?php
-		echo $this->Form->input('username');
-		echo $this->Form->input('firstname');
-		echo $this->Form->input('lastname');
-		echo $this->Form->input('password');
-		echo $this->Form->input('useremail');
+		echo $this->Form->input('username',array('label'=>'User Name'));
+		echo $this->Form->input('firstname',array('label'=>'First Name'));
+		echo $this->Form->input('lastname',array('label'=>'Last Name'));
+		echo $this->Form->input('password',array('label'=>'Password'));
+		echo $this->Form->input('useremail',array('label'=>'Email Address'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

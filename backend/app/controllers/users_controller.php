@@ -11,7 +11,8 @@ class UsersController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->flash(__('Invalid user', true), array('action' => 'index'));
+			$this->flash(__('Invalid user', true));
+			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('user', $this->User->read(null, $id));
 	}
@@ -20,7 +21,8 @@ class UsersController extends AppController {
 		if (!empty($this->data)) {
 			$this->User->create();
 			if ($this->User->save($this->data)) {
-				$this->flash(__('User saved.', true), array('action' => 'index'));
+				$this->flash(__('User saved.', true));
+                $this->redirect(array('action' => 'index'));
 			} else {
 			}
 		}
@@ -28,11 +30,13 @@ class UsersController extends AppController {
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->flash(sprintf(__('Invalid user', true)), array('action' => 'index'));
+			$this->flash(sprintf(__('Invalid user', true)));
+			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->User->save($this->data)) {
-				$this->flash(__('The user has been saved.', true), array('action' => 'index'));
+				$this->flash(__('The user has been saved.', true));
+                $this->redirect(array('action' => 'index'));
 				$this->redirect(array('action' => 'index'));
 			} else {
 			}
@@ -45,12 +49,14 @@ class UsersController extends AppController {
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->flash(sprintf(__('Invalid user', true)), array('action' => 'index'));
+			$this->flash(sprintf(__('Invalid user', true)));
+			$this->redirect(array('action' => 'index'));
 		}
 		if ($this->User->delete($id)) {
-			$this->flash(__('User deleted', true), array('action' => 'index'));
+			$this->flash(__('User deleted', true));
+			$this->redirect(array('action' => 'index'));
 		}
-		$this->flash(__('User was not deleted', true), array('action' => 'index'));
+		$this->flash(__('User was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
      
