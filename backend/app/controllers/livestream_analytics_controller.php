@@ -4,6 +4,8 @@ class LivestreamAnalyticsController extends AppController {
 	var $name = 'LivestreamAnalytics';
     var $uses = array('LivestreamAnalytic','LivestreamFeed','Configuration');
 
+    var $helpers = array('Chart');
+
 	function index() {
  		$this->LivestreamAnalytic->recursive = 0;
         if (($this->data['LivestreamAnalytics']) && ($this->data['LivestreamAnalytics']['start']) && ($this->data['LivestreamAnalytics']['end'])) {
@@ -29,6 +31,18 @@ class LivestreamAnalyticsController extends AppController {
             'group' => 'LivestreamAnalytic.livestream_feed_id');
         $livestreamAnalytics = $this->paginate('LivestreamAnalytic');
         $this->set(compact('livestreamAnalytics'));
+        
+        // Fill Chart data
+        $i = 0;
+        $data = array();
+        foreach ($livestreamAnalytics as $Analytic){
+            if ($Analytic[0]['Count_Views']>0){
+                $data[$i]['title'] = $Analytic['LivestreamFeed']['name'];
+                $data[$i]['value'] = $Analytic[0]['Count_Views'];
+            }
+            $i++;
+        }
+        $this->data[$this->name]['chartdata'] = $data;
     }
 }
 

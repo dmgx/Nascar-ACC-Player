@@ -5,7 +5,6 @@ class ArchiveFeedsController extends AppController {
     var $helpers = array('Form');
     var $uses = array('ArchiveFeed','Configuration');
 
-
 	function index() {
 		$this->ArchiveFeed->recursive = 0;
         $this->paginate['ArchiveFeed']['limit'] = '10';

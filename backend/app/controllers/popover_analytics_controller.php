@@ -4,6 +4,8 @@ class PopoverAnalyticsController extends AppController {
 	var $name = 'PopoverAnalytics';
     var $uses = array('PopoverAnalytic','PopoverAd','Configuration');
 
+    var $helpers = array('Chart');
+
 	function index() {
  		$this->PopoverAnalytic->recursive = 0;
         if (($this->data['PopoverAnalytics']) && ($this->data['PopoverAnalytics']['start']) && ($this->data['PopoverAnalytics']['end'])) {
@@ -30,6 +32,19 @@ class PopoverAnalyticsController extends AppController {
             'group' => 'PopoverAnalytic.popover_ad_id');
         $popoverAnalytics = $this->paginate('PopoverAnalytic');
         $this->set(compact('popoverAnalytics'));
+        
+        // Fill Chart data
+        $i = 0;
+        $data = array();
+        foreach ($popoverAnalytics as $Analytic){
+            if ($Analytic[0]['Count_Views']>0){
+                $data[$i]['title'] = $Analytic['PopoverAd']['name'];
+                $data[$i]['value'][0] = $Analytic[0]['Count_Views'];
+                $data[$i]['value'][1] = $Analytic[0]['Count_Clicks'];
+            }
+            $i++;
+        }
+        $this->data[$this->name]['chartdata'] = $data;
     }
 
 }

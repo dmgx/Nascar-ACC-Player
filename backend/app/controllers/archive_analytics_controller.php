@@ -3,7 +3,10 @@ class ArchiveAnalyticsController extends AppController {
 
 	var $name = 'ArchiveAnalytics';
     var $uses = array('ArchiveAnalytic','ArchiveFeed','Configuration');
+    //var $helpers = array('Pdf');
 
+    var $helpers = array('Chart');
+       
 	function index() {
  		$this->ArchiveAnalytic->recursive = 0;
         if (($this->data['ArchiveAnalytics']) && ($this->data['ArchiveAnalytics']['start']) && ($this->data['ArchiveAnalytics']['end'])) {
@@ -29,5 +32,24 @@ class ArchiveAnalyticsController extends AppController {
             'group' => 'ArchiveAnalytic.archive_feed_id');
         $archiveAnalytics = $this->paginate('ArchiveAnalytic');
         $this->set(compact('archiveAnalytics'));
+        
+        // Fill Chart data
+        $i = 0;
+        $data = array();
+        foreach ($archiveAnalytics as $Analytic){
+            if ($Analytic[0]['Count_Views']>0){
+                $data[$i]['title'] = $Analytic['ArchiveFeed']['name'];
+                $data[$i]['value'] = $Analytic[0]['Count_Views'];
+            }
+            $i++;
+        }
+        $this->data[$this->name]['chartdata'] = $data;
     }
+    	//the sample code to be pasted into the controller of your choice
+    function pdf() {
+        $this->layout = 'pdf'; //this will use the pdf.thtml layout 
+        $this->set('data','hello world!'); 
+        $this->render(); 
+        $t0 = 0;
+	}
 }

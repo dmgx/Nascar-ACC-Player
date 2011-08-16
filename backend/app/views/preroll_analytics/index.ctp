@@ -1,3 +1,6 @@
+<?php
+    echo $html->css('chart', 'stylesheet', array("media"=>"all" ), false);
+?> 
 <div class="prerollAnalytics index">
 	<h2><?php __('Preroll Analytics');?></h2>
     <?php
@@ -41,12 +44,17 @@
  |
 		<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
+
+    <div class="caption">Traffic Chart</div>
+    <div id="result">
+        <?php $this->Chart->drawChart($this->data['PrerollAnalytics']['chartdata'],'Preroll Name','View Count'); ?>
+    </div>   
 </div>
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
         <p>&nbsp</p>
-		<li><?php echo $this->Html->link(__('List Preroll Feeds', true), array('controller' => 'preroll_feeds', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Preroll Ads', true), array('controller' => 'preroll_ads', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

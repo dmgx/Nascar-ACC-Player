@@ -1,3 +1,6 @@
+<?php
+    echo $html->css('chart', 'stylesheet', array("media"=>"all" ), false);
+?> 
 <div class="popoverAnalytics index">
 	<h2><?php __('Popover Analytics');?></h2>
     <?php
@@ -43,6 +46,11 @@
  |
 		<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
+
+    <div class="caption">Traffic Chart</div>
+    <div id="result">
+        <?php $this->Chart->drawChart2($this->data['PopoverAnalytics']['chartdata'],'Popover Name',array('View Count','Click Count')); ?>
+    </div>   
 </div>
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>

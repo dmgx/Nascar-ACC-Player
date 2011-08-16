@@ -1,3 +1,6 @@
+<?php
+    echo $html->css('chart', 'stylesheet', array("media"=>"all" ), false);
+?> 
 <div class="archiveAnalytics index">
 	<h2><?php __('Archive Analytics');?></h2>
     <?php
@@ -41,7 +44,13 @@
  |
 		<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
+
+    <div class="caption">Traffic Chart</div>
+    <div id="result">
+        <?php $this->Chart->drawChart($this->data['ArchiveAnalytics']['chartdata'],'Archive Name','View Count'); ?>
+    </div>   
 </div>
+
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>

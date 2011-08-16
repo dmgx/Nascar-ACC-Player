@@ -4,6 +4,8 @@ class PrerollAnalyticsController extends AppController {
 	var $name = 'PrerollAnalytics';
     var $uses = array('PrerollAnalytic','PrerollAd','Configuration');
 
+    var $helpers = array('Chart');
+
 	function index() {
  		$this->PrerollAnalytic->recursive = 0;
         if (($this->data['PrerollAnalytics']) && ($this->data['PrerollAnalytics']['start']) && ($this->data['PrerollAnalytics']['end'])) {
@@ -29,6 +31,18 @@ class PrerollAnalyticsController extends AppController {
             'group' => 'PrerollAnalytic.preroll_ad_id');
         $prerollAnalytics = $this->paginate('PrerollAnalytic');
         $this->set(compact('prerollAnalytics'));
+        
+        // Fill Chart data
+        $i = 0;
+        $data = array();
+        foreach ($prerollAnalytics as $Analytic){
+            if ($Analytic[0]['Count_Views']>0){
+                $data[$i]['title'] = $Analytic['PrerollAd']['name'];
+                $data[$i]['value'] = $Analytic[0]['Count_Views'];
+            }
+            $i++;
+        }
+        $this->data[$this->name]['chartdata'] = $data;
     }
 
 }

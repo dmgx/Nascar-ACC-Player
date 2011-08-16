@@ -199,9 +199,9 @@ CREATE TABLE IF NOT EXISTS `popover_analytics` (
 DROP TABLE IF EXISTS `configurations`;
 CREATE TABLE IF NOT EXISTS `configurations` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`popover_frequency` real,
 	`twitter` text,
 	`facebook` text,
-	`popover_frequency` real,
 	`placeholder` text,
     `image_url_path` text,
 	`swf_url_path` text,
@@ -210,9 +210,10 @@ CREATE TABLE IF NOT EXISTS `configurations` (
 	`archive_lr_url_path` text,
 	`thumbnail_url_path` text,
 	`background_url_path` text,
+	`sender_email_address` text,
    PRIMARY KEY (`id`)
 );
-INSERT INTO `configurations` (`popover_frequency`, `twitter`, `facebook`, `placeholder`, `image_url_path`, `swf_url_path`, `livefeed_url_path`, `archive_hr_url_path`, `archive_lr_url_path`, `thumbnail_url_path`, `background_url_path`) VALUES
+INSERT INTO `configurations` (`popover_frequency`, `twitter`, `facebook`, `placeholder`, `image_url_path`, `swf_url_path`, `livefeed_url_path`, `archive_hr_url_path`, `archive_lr_url_path`, `thumbnail_url_path`, `background_url_path`, `sender_email_address`) VALUES
     (180,
     'http://twitter.com/statuses/user_timeline/theacc.xml?count=25',
     'http://facebook.com/theacc',
@@ -223,7 +224,8 @@ INSERT INTO `configurations` (`popover_frequency`, `twitter`, `facebook`, `place
     'http://acc.nascarmediagroup.com/assets/archive_hr/',
     'http://acc.nascarmediagroup.com/assets/archive_lr/',
     'http://acc.nascarmediagroup.com/assets/thumbnail/',
-    'http://acc.nascarmediagroup.com/assets/background/'
+    'http://acc.nascarmediagroup.com/assets/background/',
+    'rktest@gametruckparty.com'
 );
 
 DROP TABLE IF EXISTS `weekly_email_lists`;
