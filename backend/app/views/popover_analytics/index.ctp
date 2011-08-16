@@ -57,6 +57,6 @@
 	<ul>
 		<li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
         <p>&nbsp</p>
-		<li><?php echo $this->Html->link(__('List Popover Feeds', true), array('controller' => 'popover_feeds', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Popover Ads', true), array('controller' => 'popover_ads', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

@@ -1,0 +1,86 @@
+#main {
+    margin: auto;
+	border: 1px solid #cccccc;
+	width: 500px;
+	background: #F1F3F5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size : 12px;
+}
+
+#result {
+    margin-left: 80px;
+	border: 1px solid #cccccc;
+	width: inherit;
+	background: #E9ECEF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:normal;
+    font-size : 12px;
+    padding:5px;
+    margin-bottom:20px;
+}
+
+.text {
+	border: 1px solid #cccccc;
+}
+
+.values{
+  font-family: verdana;
+  font-weight:normal;
+  font-size : 10px;
+  vertical-align:top;
+}
+
+.key{
+  font-family: verdana;
+  font-weight:bold;
+  font-size : 12px;
+  padding-bottom:15px;
+}
+
+
+.caption{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    margin:10px;
+    font-size : 14px;
+    color:#C64934;
+}
+
+#source{
+  text-align:right;
+  padding-right:10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight:normal;
+  font-size : 10px;
+  color:#CCCCCC;
+}
+
+.index_title{
+  text-align:left;
+}
+
+.unit_title0 {
+  text-align:left;
+}
+
+.unit_title1 {
+  text-align:right;
+}
+
+.unit_title2 {
+  text-align:right;
+}
+
+.index_name {
+  text-align:left;
+  width: inherit;
+}
+
+.index_bar0 {
+  text-align:right;
+}
+
+.index_bar1 {
+  text-align:right;
+}
