@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+	<!-- Limit one live_stream, node may not even exist if the event is not happening -->
+	<live_stream id="1">
+		<name><![CDATA[Live Feed Test]]></name>
+		<description><![CDATA[Description of the live feed]]></description>
+		<url><![CDATA[flv/jdsmith-freak-alley.flv]]></url>
+		<left_icon><![CDATA[bostoncollege]]></left_icon>
+		<right_icon><![CDATA[ncstate]]></right_icon>
+		<background><![CDATA[flv/thumbs/featured/jdsmith-freak-alley.jpg]]></background>
+		<thumbnail><![CDATA[flv/thumbs/featured/jdsmith-freak-alley.jpg]]></thumbnail>
+	</live_stream>
+    <archive_feed id="4">
+        <name><![CDATA[Archive Feed Number One]]></name>
+        <description><![CDATA[Description for archive feed number one]]></description>
+        <high_res><![CDATA[flv/jdsmith-freak-alley.flv]]></high_res>
+        <low_res><![CDATA[flv/jdsmith-freak-alley.flv]]></low_res>
+        <left_icon><![CDATA[bostoncollege]]></left_icon>
+        <right_icon><![CDATA[ncstate]]></right_icon>
+        <background><![CDATA[flv/thumbs/featured/jdsmith-freak-alley.jpg]]></background>
+        <thumbnail><![CDATA[flv/thumbs/featured/jdsmith-freak-alley.jpg]]></thumbnail>
+    </archive_feed>
+    <preroll_ad id="15">
+        <url><![CDATA[flv/bsu-football-open.flv]]></url>
+    </preroll_ad>
+    <preroll_ad id="14">
+        <url><![CDATA[flv/gh1test.flv]]></url>
+    </preroll_ad>
+    <popover_ad id="3" type="swf">
+        <asset><![CDATA[rtmp://example.akami.com/ad.swf]]></asset>
+    </popover_ad>
+    <popover_ad id="4" type="image">
+        <asset><![CDATA[flv/thumbs/video/gh1test.jpg]]></asset>
+        <url><![CDATA[http://www.google.com]]></url>
+    </popover_ad>
+    <popover_ad id="5" type="text">
+        <content><![CDATA[This is text for the popover ad]]></content>
+        <url><![CDATA[http://www.google.com]]></url>
+    </popover_ad>
+	<configuration>
+		<twitter><![CDATA[http://twitter.com/statuses/user_timeline/theacc.xml?count=25]]></twitter>
+		<popover>
+			<frequency><![CDATA[180]]></frequency><!-- Seconds -->
+		</popover>
+		<placeholder><!-- This is the image shown on the screen if there is no <live_stream> node, otherwise load the image from <live_stream> while waiting for the video to buffer -->
+			<![CDATA[flv/thumbs/video/bsu-football-open.jpg]]>
+		</placeholder>
+	</configuration>
+</root>
