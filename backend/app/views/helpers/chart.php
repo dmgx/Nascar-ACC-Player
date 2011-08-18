@@ -32,9 +32,9 @@
             foreach ($chartData as $item) {
                 $width = ceil($item['value']*$pxValue);
                 echo '<tr><td class="index_name">'.$item['title'].'</td>';
-                echo '<td width="'.($maxBar*$pxValue).'">
-                    <img src="img/barbg.gif" alt="'.$item['title'].'" width="'.$width.'" height="15" /></td>';
-                echo '<td class="chart_value">'.$item['value'].'</td></tr>';
+                echo '<td class="index_bkgd" width="'.($maxBar*$pxValue).'">
+                    <img class="index_bar" src="'.$this->webroot.'img/barbg.gif" alt="'.$item['title'].'" width="'.$width.'" height="15" /></td>';
+                echo '<td class="index_value">'.$item['value'].'</td></tr>';
             }
             echo '</table>';
         
@@ -66,11 +66,11 @@
                 $width0 = ceil($item['value'][0]*$pxValue);
                 $width1 = ceil($item['value'][1]*$pxValue);
                 echo '<tr><td class="index_name">'.$item['title'].'</td>';
-                echo '<td width="'.($maxBar*$pxValue1).'" class="index_bar0">
-                    <img src="img/barbg.gif" alt="'.$item['title'].' '.$unit_name[0].'" width="'.$width0.'" height="15" /></td>';
-                echo '<td width="'.($maxBar*$pxValue2).'" class="index_bar1">
-                    <img src="img/barbg.gif" alt="'.$item['title'].' '.$unit_name[1].'" width="'.$width1.'" height="15"/></td>';
-                echo '<td class="chart_value">'.$item['value'][0].'/'.$item['value'][1].'</td></tr>';
+                echo '<td width="'.($maxBar*$pxValue1).'">
+                    <img class="index_bar0" src="img/barbg.gif" alt="'.$item['title'].' '.$unit_name[0].'" width="'.$width0.'" height="15" /></td>';
+                echo '<td width="'.($maxBar*$pxValue2).'">
+                    <img class="index_bar1" src="img/barbg.gif" alt="'.$item['title'].' '.$unit_name[1].'" width="'.$width1.'" height="15"/></td>';
+                echo '<td class="index_value">'.$item['value'][0].'/'.$item['value'][1].'</td></tr>';
             }
             echo '</table>';
         

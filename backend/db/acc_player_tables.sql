@@ -225,7 +225,7 @@ INSERT INTO `configurations` (`popover_frequency`, `twitter`, `facebook`, `place
     'http://acc.nascarmediagroup.com/assets/archive_lr/',
     'http://acc.nascarmediagroup.com/assets/thumbnail/',
     'http://acc.nascarmediagroup.com/assets/background/',
-    'rktest@gametruckparty.com'
+    'emal@nascarmediagroup.com'
 );
 
 DROP TABLE IF EXISTS `weekly_email_lists`;

@@ -1,10 +1,4 @@
 <?php 
-/**
- * Test controller for built-in web services in Cake 1.2.x.x
- *
- * @author Chris Hartjes
- *
- */
 
 class XmlController extends AppController
 {

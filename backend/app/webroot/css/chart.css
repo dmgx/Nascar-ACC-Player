@@ -43,7 +43,7 @@
     font-family: Arial, Helvetica, sans-serif;
     font-weight:bold;
     margin:10px;
-    font-size : 14px;
+    font-size : 140%;
     color:#C64934;
 }
 
@@ -77,10 +77,19 @@
   width: inherit;
 }
 
+img.index_bar {
+    background:url(../img/barbg.gif);
+    background-color:#333;
+}
+
+div.index_bkgd {
+}
+
 .index_bar0 {
-  text-align:right;
 }
 
 .index_bar1 {
-  text-align:right;
+}
+
+.index_value {
 }

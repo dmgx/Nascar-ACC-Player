@@ -1,10 +1,4 @@
 <?php 
-/**
- * Test controller for built-in web services in Cake 1.2.x.x
- *
- * @author Chris Hartjes
- *
- */
 
 class EmailController extends AppController
 {
@@ -20,23 +14,22 @@ class EmailController extends AppController
         
     }
 
-    /** 
-     * Send a text string as email body 
-     */ 
     function sendWeeklyMail() { 
         //$this->Email->delivery = 'debug';
+        
+        $this->requestAction('/archive_analytics/pdf_weekly');
+        $this->requestAction('/livestream_analytics/pdf_weekly');
 
         $Configuration = $this->Configuration->find('first');
         $EmailList = $this->WeeklyEmailList->find('all');
         foreach ($EmailList as $Email) {
             $this->Email->to = $Email['WeeklyEmailList']['email']; 
             $this->Email->subject = 'Weekly Nascar ACC Player View Report'; 
-            $this->Email->from = $Configuration['Configuration']['sender_email_address']; 
+            $this->Email->from = $Configuration['Configuration']['sender_email_address'];
             
-            $t0 = TMP;
             $this->Email->attachments = array(
-                TMP . 'foo.doc',
-                'bar.doc' => TMP . 'some-temp-name'
+                TMP . 'LivestreamWeekly.pdf',
+                TMP . 'ArchiveWeekly.pdf'
                 );
 
             $body = 'This email has the weekly report pdf file attached.';
@@ -47,11 +40,12 @@ class EmailController extends AppController
             }
         }
     } 
-    /** 
-     * Send a text string as email body 
-     */ 
+
     function sendMonthlyMail() { 
         //$this->Email->delivery = 'debug';
+        
+        $this->requestAction('/archive_analytics/pdf_monthly');
+        $this->requestAction('/livestream_analytics/pdf_monthly');
 
         $Configuration = $this->Configuration->find('first');
         $EmailList = $this->MonthlyEmailList->find('all');
@@ -60,10 +54,10 @@ class EmailController extends AppController
             $this->Email->subject = 'Monthly Nascar ACC Player View Report'; 
             $this->Email->from = $Configuration['Configuration']['sender_email_address']; 
             
-            //$this->Email->attachments = array(
-            //    TMP . 'foo.doc',
-            //    'bar.doc' => TMP . 'some-temp-name'
-            //    );
+            $this->Email->attachments = array(
+                TMP . 'LivestreamMonthly.pdf',
+                TMP . 'ArchiveMonthly.pdf'
+                );
 
             $body = 'This email has the monthly report pdf file attached.';
             if ($this->Email->send($body) ) { 
