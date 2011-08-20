@@ -4,7 +4,7 @@
 	<!-- Limit one live_stream, node may not even exist if the event is not happening -->
 	<live_stream id="1">
 		<name><![CDATA[Live Feed Test]]></name>
-		<description><![CDATA[Description of the live feed]]></description>
+		<description><![CDATA[Plays all 2 prerolls]]></description>
 		<url><![CDATA[flv/jdsmith-freak-alley.flv]]></url>
 		<left_icon><![CDATA[bostoncollege]]></left_icon>
 		<right_icon><![CDATA[ncstate]]></right_icon>
@@ -12,8 +12,8 @@
 		<thumbnail><![CDATA[flv/thumbs/featured/jdsmith-freak-alley.jpg]]></thumbnail>
 	</live_stream>
     <archive_feed id="4">
-        <name><![CDATA[Archive Feed Number One]]></name>
-        <description><![CDATA[Description for archive feed number one]]></description>
+        <name><![CDATA[Archive 1]]></name>
+        <description><![CDATA[Plays 1 random preroll]]></description>
         <high_res><![CDATA[flv/jdsmith-freak-alley.flv]]></high_res>
         <low_res><![CDATA[flv/jdsmith-freak-alley.flv]]></low_res>
         <left_icon><![CDATA[bostoncollege]]></left_icon>
@@ -21,6 +21,16 @@
         <background><![CDATA[flv/thumbs/featured/jdsmith-freak-alley.jpg]]></background>
         <thumbnail><![CDATA[flv/thumbs/featured/jdsmith-freak-alley.jpg]]></thumbnail>
     </archive_feed>
+  <archive_feed id="10">
+    <name><![CDATA[Archive Feed 1]]></name>
+    <description><![CDATA[Plays 1 random preroll]]></description>
+    <high_res><![CDATA[flv/jdsmith-freak-alley.flv]]></high_res>
+    <low_res><![CDATA[flv/jdsmith-freak-alley.flv]]></low_res>
+    <left_icon><![CDATA[bostoncollege]]></left_icon>
+    <right_icon><![CDATA[ncstate]]></right_icon>
+    <background><![CDATA[flv/thumbs/featured/jdsmith-freak-alley.jpg]]></background>
+    <thumbnail><![CDATA[flv/thumbs/featured/jdsmith-freak-alley.jpg]]></thumbnail>
+  </archive_feed>
     <preroll_ad id="15">
         <url><![CDATA[flv/bsu-football-open.flv]]></url>
     </preroll_ad>
