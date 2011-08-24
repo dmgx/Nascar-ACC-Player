@@ -7,22 +7,22 @@
 		<description><![CDATA[Plays all 2 prerolls]]></description>
 		<url><![CDATA[flv/jdsmith-freak-alley.flv]]></url>
 		<left_icon><![CDATA[bostoncollege]]></left_icon>
-		<right_icon><![CDATA[ncstate]]></right_icon>
+		<right_icon><![CDATA[clemson]]></right_icon>
 		<background><![CDATA[flv/thumbs/featured/jdsmith-freak-alley.jpg]]></background>
 		<thumbnail><![CDATA[flv/thumbs/featured/jdsmith-freak-alley.jpg]]></thumbnail>
 	</live_stream>
     <archive_feed id="4">
-        <name><![CDATA[Archive 1]]></name>
+        <name><![CDATA[Archive Feed 1]]></name>
         <description><![CDATA[Plays 1 random preroll]]></description>
         <high_res><![CDATA[flv/jdsmith-freak-alley.flv]]></high_res>
         <low_res><![CDATA[flv/jdsmith-freak-alley.flv]]></low_res>
         <left_icon><![CDATA[bostoncollege]]></left_icon>
-        <right_icon><![CDATA[ncstate]]></right_icon>
+        <right_icon><![CDATA[unc]]></right_icon>
         <background><![CDATA[flv/thumbs/featured/jdsmith-freak-alley.jpg]]></background>
         <thumbnail><![CDATA[flv/thumbs/featured/jdsmith-freak-alley.jpg]]></thumbnail>
     </archive_feed>
   <archive_feed id="10">
-    <name><![CDATA[Archive Feed 1]]></name>
+    <name><![CDATA[Archive Feed 2]]></name>
     <description><![CDATA[Plays 1 random preroll]]></description>
     <high_res><![CDATA[flv/jdsmith-freak-alley.flv]]></high_res>
     <low_res><![CDATA[flv/jdsmith-freak-alley.flv]]></low_res>
