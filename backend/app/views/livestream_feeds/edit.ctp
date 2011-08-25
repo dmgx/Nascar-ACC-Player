@@ -1,4 +1,5 @@
 <div class="livestreamFeeds form">
+<?php echo $form->create('LivestreamFeed', array('type' => 'file')); ?>
 <?php echo $this->Form->create('LivestreamFeed');?>
 	<fieldset>
 		<legend><?php __('Edit Livestream Feed'); ?></legend>

@@ -1,4 +1,5 @@
 <div class="archiveFeeds form">
+<?php echo $form->create('ArchiveFeed', array('type' => 'file')); ?>
 <?php echo $this->Form->create('ArchiveFeed');?>
 	<fieldset>
 		<legend><?php __('Edit Archive Feed'); ?></legend>

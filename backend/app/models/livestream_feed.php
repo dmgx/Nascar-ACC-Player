@@ -112,6 +112,8 @@ class LivestreamFeed extends AppModel {
         if ($size && !$error && $name) {
             $t0 = move_uploaded_file($tmp_name, $dest.$name);
             $this->data['LivestreamFeed']['thumbnail_url'] = $name;
+        } else {
+            unset($this->data['LivestreamFeed']['thumbnail_url']);
         }
         
         extract($this->data['LivestreamFeed']['background']);
@@ -119,6 +121,8 @@ class LivestreamFeed extends AppModel {
         if ($size && !$error && $name) {
             $t0 = move_uploaded_file($tmp_name, $dest.$name);
             $this->data['LivestreamFeed']['background'] = $name;
+        } else {
+            unset($this->data['LivestreamFeed']['background']);
         }
         return true;
     } 

@@ -223,8 +223,8 @@ INSERT INTO `configurations` (`popover_frequency`, `twitter`, `facebook`, `place
     'http://acc.nascarmediagroup.com/assets/livefeed/',
     'http://acc.nascarmediagroup.com/assets/archive_hr/',
     'http://acc.nascarmediagroup.com/assets/archive_lr/',
-    'http://acc.nascarmediagroup.com/assets/thumbnail/',
-    'http://acc.nascarmediagroup.com/assets/background/',
+    'assets/thumbnail/',
+    'assets/background/',
     'email@nascarmediagroup.com'
 );
 

@@ -114,12 +114,17 @@ class ArchiveFeed extends AppModel {
         if ($size && !$error && $name) {
             $t0 = move_uploaded_file($tmp_name, $dest.$name);
             $this->data['ArchiveFeed']['thumbnail_url'] = $name;
+        } else {
+            unset($this->data['ArchiveFeed']['thumbnail_url']);
         }
+        
         extract($this->data['ArchiveFeed']['background']);
         $dest = $configuration['Configuration']['background_url_path'];
         if ($size && !$error && $name) {
             $t0 = move_uploaded_file($tmp_name, $dest.$name);
             $this->data['ArchiveFeed']['background'] = $name;
+        } else {
+            unset($this->data['ArchiveFeed']['background']);
         }
         return true;
     } 
