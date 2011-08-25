@@ -75,7 +75,7 @@ class UsersController extends AppController {
         { 
             if($this->Session->check('User') == false) 
             { 
-                $this->redirect('login'); 
+                $this->redirect(''); 
                 $this->Session->setFlash('The URL you\'ve followed requires you login.'); 
             } 
         } 

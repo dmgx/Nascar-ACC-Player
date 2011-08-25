@@ -56,6 +56,11 @@
 			<?php echo $configuration['Configuration']['background_url_path']; ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Sending Email Address'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $configuration['Configuration']['sender_email_address']; ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">

@@ -14,6 +14,7 @@
 		echo $this->Form->input('archive_lr_url_path');
 		echo $this->Form->input('thumbnail_url_path');
 		echo $this->Form->input('background_url_path');
+        echo $this->Form->input('sender_email_address');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

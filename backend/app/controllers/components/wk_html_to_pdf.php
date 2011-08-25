@@ -52,7 +52,7 @@ class WkHtmlToPdfComponent extends Object
             $url = "http://{$_SERVER['HTTP_HOST']}{$rooturl}{$controllerName}/getViewDump/{$fileName}"; 
             $outfile = $filename ? $filename : "output{$randomNumber}.pdf"; 
             $output = TMP.$outfile; 
-            exec("wkhtmltopdf {$url} {$output}"); 
+            exec("/usr/local/bin/wkhtmltopdf {$url} {$output}"); 
         } 
 
         //send file to browser and trigger download dialogue box 
