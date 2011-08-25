@@ -70,5 +70,4 @@ class Status extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-
 }

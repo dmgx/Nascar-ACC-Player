@@ -1,5 +1,4 @@
 <?php 
-
 class XmlController extends AppController
 {
     var $name = 'Xml';
@@ -168,5 +167,10 @@ class XmlController extends AppController
         $this->viewPath .= '';
         $this->layoutPath = 'xml';
     }
+    
+    function none() {
+        $this->RequestHandler->respondAs('xml');
+        $this->viewPath .= '';
+        $this->layoutPath = 'xml';
+    }
 }
-?>

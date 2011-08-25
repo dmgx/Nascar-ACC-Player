@@ -1,12 +1,7 @@
 <?php 
-
-
-
 class AppController extends Controller { 
-
     var $helpers = array('Session', 'Html', 'Form', 'Javascript'); 
     var $components = array('Auth', 'Cookie', 'Session');
-
     function beforeFilter() {
         $this->Auth->userModel = 'User';
         $this->Auth->fields = array('username' => 'username', 'password' => 'password');
@@ -23,22 +18,16 @@ class AppController extends Controller {
  * @return none			view vars are set for each associated model
  */
 function _populateLookups($models = array()) {
- 
-	if (empty($models)) {
- 
-		// build a list of all associated models:
- 
-		// create a reference to the Controllers root model
+ 	if (empty($models)) {
+ 		// build a list of all associated models:
+ 		// create a reference to the Controllers root model
 		// this is the first item in the controllers $uses array
 		// or the default if $uses is empty
 		$rootModel = $this->{$this->modelClass};
- 
-		// build list of belongsTo Models
+ 		// build list of belongsTo Models
 		foreach($rootModel->belongsTo as $model=>$attr) {
- 
-			$models[] = $model;
- 
-		}
+ 			$models[] = $model;
+ 		}
  
 		// build list of hasAndBelongsToMany Models
 		foreach($rootModel->hasAndBelongsToMany as $model=>$attr) {
@@ -79,5 +68,4 @@ function beforeRender() {
  
 }
 
-?> 
-
+?>

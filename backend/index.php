@@ -37,7 +37,6 @@
 	if (!defined('CAKE_CORE_INCLUDE_PATH')) {
 		define('CAKE_CORE_INCLUDE_PATH', ROOT);
 	}
-
 /**
  * Set the include path or define app and core path
  */

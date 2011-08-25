@@ -1,6 +1,5 @@
 <?php
 class ArchiveFeed extends AppModel {
-    
 	var $name = 'ArchiveFeed';
 	var $displayField = 'name';
 	var $validate = array(
@@ -128,5 +127,4 @@ class ArchiveFeed extends AppModel {
         }
         return true;
     } 
-
 }

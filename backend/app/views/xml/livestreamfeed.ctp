@@ -26,5 +26,5 @@
             <?php __('</thumbnail>'); ?>
         <?php  __('</livestream>');?>
     <?php endforeach; ?>
-<?php  __('</root>');?>
+<?php  __('</root>');
 

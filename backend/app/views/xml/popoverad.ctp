@@ -34,5 +34,5 @@
             <?php __('</url>'); ?>
         <?php  __('</popoverad>');?>
     <?php endforeach; ?>
-<?php  __('</root>');?>
+<?php  __('</root>');
 

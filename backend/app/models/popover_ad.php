@@ -68,5 +68,4 @@ class PopoverAd extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-
 }

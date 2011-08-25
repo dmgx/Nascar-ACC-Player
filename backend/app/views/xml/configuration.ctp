@@ -13,5 +13,5 @@
             <?php __('<![CDATA['); echo $configuration['Configuration']['placeholder']; __(']]>'); ?>
         <?php __('</placeholder>'); ?>
     <?php  __('</configuration>');?>
-<?php  __('</root>');?>
+<?php  __('</root>');
 

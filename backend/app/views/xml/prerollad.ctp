@@ -8,5 +8,4 @@
             <?php __('</url>'); ?>
         <?php  __('</prerollad>');?>
     <?php endforeach; ?>
-<?php  __('</root>');?>
-
+<?php  __('</root>');

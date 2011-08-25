@@ -31,5 +31,4 @@ class ContactType extends AppModel {
 			'counterQuery' => ''
 		),
 	);
-
 }

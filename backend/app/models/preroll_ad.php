@@ -51,5 +51,4 @@ class PrerollAd extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-
 }

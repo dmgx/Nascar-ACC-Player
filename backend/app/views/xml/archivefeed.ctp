@@ -29,5 +29,5 @@
             <?php __('</thumbnail>'); ?>
         <?php  __('</archive_feed>');?>
     <?php endforeach; ?>
-<?php  __('</root>');?>
+<?php  __('</root>');
 
