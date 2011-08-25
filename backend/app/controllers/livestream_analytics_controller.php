@@ -52,7 +52,7 @@ class LivestreamAnalyticsController extends AppController {
         $this->Auth->allow('getViewDump');
     }
     function beforeRender(){
-        if (($this->action == "pdf_monthly") || ($this->action == "pdf_weekly")) $this->autoLayout = false;
+        if (($this->action == "pdf_monthly") || ($this->action == "pdf_weekly")) $this->layout = "pdf";
     }
     function pdf_monthly() {
  		$this->LivestreamAnalytic->recursive = 0;

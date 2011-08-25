@@ -36,7 +36,7 @@
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link(__('Home', true), '/'); ?></h1>
+            <h1>Video Player CMS</h1>
 		</div>
 		<div id="content">
 

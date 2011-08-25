@@ -61,7 +61,8 @@ class UsersController extends AppController {
 	}
      
     function login() 
-    { 
+    {
+        $this->layout = "login";
     } 
      
     function logout() 

@@ -34,9 +34,9 @@ class EmailController extends AppController
 
             $body = 'This email has the weekly report pdf file attached.';
             if ($this->Email->send($body) ) { 
-                $this->Session->setFlash('Simple email sent'); 
+                $this->Session->setFlash('Weekly email sent'); 
             } else { 
-                $this->Session->setFlash('Simple email not sent'); 
+                $this->Session->setFlash('Weekly email not sent'); 
             }
         }
     } 
@@ -61,9 +61,9 @@ class EmailController extends AppController
 
             $body = 'This email has the monthly report pdf file attached.';
             if ($this->Email->send($body) ) { 
-                $this->Session->setFlash('Simple email sent'); 
+                $this->Session->setFlash('Monthly email sent'); 
             } else { 
-                $this->Session->setFlash('Simple email not sent'); 
+                $this->Session->setFlash('Monthly email not sent'); 
             }
         }
     } 

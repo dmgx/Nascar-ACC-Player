@@ -30,12 +30,5 @@
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
-	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
-    Router::connect('/users/index/*', array('controller' => 'users', 'action' => 'index'));
-    Router::connect('/users/add', array('controller' => 'users', 'action' => 'add'));
-    Router::connect('/users/edit/*', array('controller' => 'users', 'action' => 'edit'));
-    Router::connect('/users/delete/*', array('controller' => 'users', 'action' => 'delete'));
-    Router::connect('/ArchiveFeeds/index/*', array('controller' => 'ArchiveFeeds', 'action' => 'index'));
-    Router::connect('/ArchiveFeeds/add', array('controller' => 'ArchiveFeeds', 'action' => 'add'));
-    Router::connect('/ArchiveFeeds/edit/*', array('controller' => 'ArchiveFeeds', 'action' => 'edit'));
-    Router::connect('/ArchiveFeeds/delete/*', array('controller' => 'ArchiveFeeds', 'action' => 'delete'));
+	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display', 'home'));
+    Router::connect('/login/*', array('controller' => 'pages', 'action' => 'display', 'home'));

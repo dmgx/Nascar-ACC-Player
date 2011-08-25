@@ -3,6 +3,23 @@
 	padding:0;
 }
 
+#footer {
+	clear: both;
+	padding: 6px 10px;
+	text-align: center;
+    background: #fff;
+}
+#footer a {
+	color: #6C6D71;
+    background: #fff;
+	font-weight: normal;
+	text-decoration: none;
+}
+#footer a:hover {
+	color: #000;
+	background: #fff;
+	text-decoration: underline;
+}
 /** General Style Info **/
 body {
 	color: #000;
@@ -20,10 +37,12 @@ h1 {
 	font-size: 150%;
 }
 h2 {
-	background:#fff;
+	background: #fff url('../img/ACC.jpg') no-repeat left;
 	color: #e32;
 	font-family:'Gill Sans','lucida grande', helvetica, arial, sans-serif;
 	font-size: 190%;
+	line-height:100px;
+	padding: 0px 200px;
 }
 h3 {
 	color: #993;
