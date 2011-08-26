@@ -2,6 +2,10 @@
 class MonthlyEmailListsController extends AppController {
 
 	var $name = 'MonthlyEmailLists';
+  
+    function beforeFilter() {
+        $this->layout = 'header';
+    }
 
 	function index() {
 		$this->MonthlyEmailList->recursive = 0;

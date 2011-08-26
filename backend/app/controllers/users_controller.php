@@ -3,6 +3,10 @@ class UsersController extends AppController {
 
 	var $name = 'Users';
     var $helpers = array('Html', 'Form'); 
+  
+    function beforeFilter() {
+        $this->layout = 'header';
+    }
 
 	function index() {
 		$this->User->recursive = 0;

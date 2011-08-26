@@ -7,6 +7,7 @@ class EmailController extends AppController
     var $uses = array('WeeklyEmailList','MonthlyEmailList','Configuration');
     
     function beforeFilter() {
+        $this->layout = 'header';
         $this->Auth->allow('*');
     }
     function index()

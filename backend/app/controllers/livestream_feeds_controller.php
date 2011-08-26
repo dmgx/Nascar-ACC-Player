@@ -4,6 +4,10 @@ class LivestreamFeedsController extends AppController {
 	var $name = 'LivestreamFeeds';
     var $helpers = array('Form');
     var $uses = array('LivestreamFeed','Configuration');
+  
+    function beforeFilter() {
+        $this->layout = 'header';
+    }
 
 	function index() {
 		$this->LivestreamFeed->recursive = 0;

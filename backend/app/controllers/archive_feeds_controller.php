@@ -4,6 +4,10 @@ class ArchiveFeedsController extends AppController {
 	var $name = 'ArchiveFeeds';
     var $helpers = array('Form');
     var $uses = array('ArchiveFeed','Configuration');
+  
+    function beforeFilter() {
+        $this->layout = 'header';
+    }
 
 	function index() {
 		$this->ArchiveFeed->recursive = 0;

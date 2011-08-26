@@ -2,6 +2,10 @@
 class ConfigurationsController extends AppController {
 
 	var $name = 'Configurations';
+  
+    function beforeFilter() {
+        $this->layout = 'header';
+    }
 
 	function index() {
 		$this->set('configuration', $this->Configuration->read(null, 1));

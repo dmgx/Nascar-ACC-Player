@@ -44,8 +44,10 @@ class LivestreamAnalyticsController extends AppController {
         }
         $this->data[$this->name]['chartdata'] = $data;
     }
+  
     function beforeFilter()
     {
+        $this->layout = 'header';
         parent::beforeFilter();
         $this->Auth->allow('pdf_monthly');
         $this->Auth->allow('pdf_weekly');

@@ -5,6 +5,10 @@ class PrerollAnalyticsController extends AppController {
     var $uses = array('PrerollAnalytic','PrerollAd','Configuration');
 
     var $helpers = array('Chart');
+  
+    function beforeFilter() {
+        $this->layout = 'header';
+    }
 
 	function index() {
  		$this->PrerollAnalytic->recursive = 0;

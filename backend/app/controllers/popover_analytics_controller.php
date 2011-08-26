@@ -5,6 +5,10 @@ class PopoverAnalyticsController extends AppController {
     var $uses = array('PopoverAnalytic','PopoverAd','Configuration');
 
     var $helpers = array('Chart');
+  
+    function beforeFilter() {
+        $this->layout = 'header';
+    }
 
 	function index() {
  		$this->PopoverAnalytic->recursive = 0;

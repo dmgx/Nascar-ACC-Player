@@ -2,6 +2,10 @@
 class WeeklyEmailListsController extends AppController {
 
 	var $name = 'WeeklyEmailLists';
+  
+    function beforeFilter() {
+        $this->layout = 'header';
+    }
 
 	function index() {
 		$this->WeeklyEmailList->recursive = 0;

@@ -2,6 +2,10 @@
 class CategoriesController extends AppController {
 
 	var $name = 'Categories';
+  
+    function beforeFilter() {
+        $this->layout = 'header';
+    }
 
 	function index() {
 		$this->Category->recursive = 0;

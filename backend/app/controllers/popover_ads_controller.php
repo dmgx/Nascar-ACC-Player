@@ -4,6 +4,10 @@ class PopoverAdsController extends AppController {
 	var $name = 'PopoverAds';
     var $uses = array('PopoverAd','Configuration');
     var $helpers = array('Html', 'Javascript'); 
+  
+    function beforeFilter() {
+        $this->layout = 'header';
+    }
 
 	function index() {
 		$this->PopoverAd->recursive = 0;

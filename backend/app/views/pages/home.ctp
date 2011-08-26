@@ -16,6 +16,7 @@
  * @since         CakePHP(tm) v 0.10.0.1076
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
+$this->layout = 'header';
 if (Configure::read() == 0):
 	$this->cakeError('error404');
 endif;
@@ -40,4 +41,6 @@ endif;
 	<ul><li><?php __('Manage preroll video ads'); ?></li></ul></li>
 	<li><a href="popover_ads"><?php __('Popover Ads'); ?> </a>
 	<ul><li><?php __('Manage Popover Ads'); ?></li></ul></li>
+	<li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?> </a>
+	<ul><li><?php __('Logout of CMS'); ?></li></ul></li>
 </ul>

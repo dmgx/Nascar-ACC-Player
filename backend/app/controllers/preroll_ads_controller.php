@@ -2,6 +2,10 @@
 class PrerollAdsController extends AppController {
 
 	var $name = 'PrerollAds';
+  
+    function beforeFilter() {
+        $this->layout = 'header';
+    }
 
 	function index() {
 		$this->PrerollAd->recursive = 0;
