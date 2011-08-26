@@ -71,6 +71,6 @@
         <p>&nbsp</p>
 		<li><?php echo $this->Html->link(__('New Archive Feed', true), array('action' => 'add')); ?></li>
         <p>&nbsp</p>
-		<li><?php echo $this->Html->link(__('View Archive Analytics', true), array('controller' => 'archive_analytics', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Archive Analytics', true), array('controller' => 'archive_analytics', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

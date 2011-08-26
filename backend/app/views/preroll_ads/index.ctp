@@ -60,6 +60,6 @@
         <p>&nbsp</p>
 		<li><?php echo $this->Html->link(__('New Preroll Ad', true), array('action' => 'add')); ?></li>
         <p>&nbsp</p>
-		<li><?php echo $this->Html->link(__('View Preroll Analytics', true), array('controller' => 'preroll_analytics', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Preroll Analytics', true), array('controller' => 'preroll_analytics', 'action' => 'index')); ?> </li>
 	</ul>
 </div>
