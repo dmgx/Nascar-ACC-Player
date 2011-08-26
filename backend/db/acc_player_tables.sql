@@ -44,18 +44,18 @@ CREATE TABLE IF NOT EXISTS `team_icons` (
   PRIMARY KEY (`id`)
 );
 INSERT INTO `team_icons` (`id`, `name`, `icon`) VALUES
-(1, 'Boston College', 'BostonCollegeIcon.png'),
-(2, 'Clemson', 'Clemson.png'),
-(3, 'Duke', 'Duke.png'),
-(4, 'Flordia State', 'FlordiaState.png'),
-(5, 'Georgia Tech', 'GeorgiaTech.png'),
-(6, 'Maryland', 'Maryland.png'),
-(7, 'Miami', 'Miami.png'),
-(8, 'North Carolina', 'NorthCarolina.png'),
-(9, 'NC State', 'NCState.png'),
-(10, 'Virginia', 'Virginia.png'),
-(11, 'Virginia Tech', 'VirginiaTech.png'),
-(12, 'Wake Forest', 'WakeForest.png');
+(1, 'Boston College', 'BostonCollegeIcon'),
+(2, 'Clemson', 'Clemson'),
+(3, 'Duke', 'Duke'),
+(4, 'Flordia State', 'FlordiaState'),
+(5, 'Georgia Tech', 'GeorgiaTech'),
+(6, 'Maryland', 'Maryland'),
+(7, 'Miami', 'Miami'),
+(8, 'North Carolina', 'NorthCarolina'),
+(9, 'NC State', 'NCState'),
+(10, 'Virginia', 'Virginia'),
+(11, 'Virginia Tech', 'VirginiaTech'),
+(12, 'Wake Forest', 'WakeForest');
 
 DROP TABLE IF EXISTS `archive_feeds`;
 CREATE TABLE IF NOT EXISTS `archive_feeds` (
