@@ -6,7 +6,7 @@
 body {
 	background: #fff;
 	color: #6C6D71;
-	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
+	font-family:arial,'lucida grande',verdana,helvetica,sans-serif;
 	font-size:80%;
 	margin: 0;
 }
@@ -34,12 +34,12 @@ h1 {
 h2 {
 	background:#fff;
 	color: #6C6D71;
-	font-family:'Gill Sans','lucida grande', helvetica, arial, sans-serif;
+	font-family:arial, 'Gill Sans','lucida grande', helvetica, sans-serif;
 	font-size: 190%;
 }
 h3 {
 	color: #993;
-	font-family:'Gill Sans','lucida grande', helvetica, arial, sans-serif;
+	font-family:arial, 'Gill Sans','lucida grande', helvetica, sans-serif;
 	font-size: 165%;
 }
 h4 {
@@ -180,7 +180,7 @@ table td.actions a {
 .cake-sql-log td {
 	padding: 4px 8px;
 	text-align: left;
-	font-family: Monaco, Consolas, "Courier New", monospaced;
+	font-family: arial, Monaco, Consolas, "Courier New", monospaced;
 }
 .cake-sql-log caption {
 	color:#fff;
@@ -286,15 +286,17 @@ label {
 textarea {
 	clear: both;
 	font-size: 120%;
-	font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
+	font-family: arial, "frutiger linotype", "lucida grande", "verdana", sans-serif;
 	padding: 1%;
+    text-align: left;
+    vertical-align: bottom;
 	width:98%;
-    height: 7px;
+    height: 10px;
 }
 input{
 	clear: both;
 	font-size: 100%;
-	font-family: "frutiger linotype", "lucida grande", "verdana", sans-serif;
+	font-family: arial, "frutiger linotype", "lucida grande", "verdana", sans-serif;
 	padding: 1%;
 	width:98%;
 }
@@ -328,21 +330,23 @@ div.radio label {
 	margin: 0 0 6px 20px;
 }
 input.buttontext {
-	padding: 1%;
-    height: 7px;
+    vertical-align: baseline;
+    height: auto;
 	width: 85%;
     color: #000;
-	margin-top: -20px;
+    padding-top: 5px;
 	margin-left: 7px;
-	margin-bottom: 15px;
+	margin-top: -25px;
+	margin-bottom: 10px;
 }
 input.textbutton {
-	margin-top: -20px;
-	margin-bottom: -15px;
+    vertical-align: baseline;
 	top: 15px;
 	width: 10%;
 	height: auto;
     color: #000;
+	margin-top: -25px;
+	margin-bottom: 10px;
 }
 input[type=submit] {
 	display: inline;
@@ -382,7 +386,7 @@ div.error-message {
 p.error {
 	background-color: #e32;
 	color: #fff;
-	font-family: Courier, monospace;
+	font-family: arial, Courier, monospace;
 	font-size: 120%;
 	line-height: 140%;
 	padding: 0.8em;
@@ -397,7 +401,7 @@ p.error em {
 	background: #ffcc00;
 	color: #000;
 	display: block;
-	font-family: Courier, monospace;
+	font-family: arial, Courier, monospace;
 	font-size: 120%;
 	line-height: 140%;
 	padding: 0.8em;
@@ -444,7 +448,7 @@ td.actions a {
 	text-decoration:none;
 	text-shadow: #fff 0px 1px 0px;
 	min-width: 0;
-    width: 140px;
+    width: 130px;
 }
 
 input[type=submit]:hover,
