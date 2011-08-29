@@ -6,6 +6,7 @@
 	<?php
 		echo $this->Form->input('id', array('type' => 'hidden'));
 		echo $this->Form->input('name');
+		echo $this->Form->input('display_name');
 		echo $this->Form->input('description');
 		echo $this->Form->input('status_id');
 		echo $this->Form->input('url');

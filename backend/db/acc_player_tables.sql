@@ -39,7 +39,7 @@ INSERT INTO `statuses` (`id`, `name`) VALUES
 DROP TABLE IF EXISTS `team_icons`;
 CREATE TABLE IF NOT EXISTS `team_icons` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(32) NOT NULL,
+  `name` varchar(128) NOT NULL,
   `icon` text NOT NULL,
   PRIMARY KEY (`id`)
 );
@@ -60,7 +60,7 @@ INSERT INTO `team_icons` (`id`, `name`, `icon`) VALUES
 DROP TABLE IF EXISTS `archive_feeds`;
 CREATE TABLE IF NOT EXISTS `archive_feeds` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(32) NOT NULL,
+  `name` varchar(128) NOT NULL,
   `description` text,
   `status_id` int(11) NOT NULL,
   `low_res_url` text NOT NULL,
@@ -82,7 +82,8 @@ CREATE TABLE IF NOT EXISTS `archive_feeds` (
 DROP TABLE IF EXISTS `livestream_feeds`;
 CREATE TABLE IF NOT EXISTS `livestream_feeds` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(32) NOT NULL,
+  `name` varchar(128) NOT NULL,
+  `display_name` varchar(128) NOT NULL,
   `description` text,
   `status_id` int(11) NOT NULL,
   `url` text NOT NULL,
@@ -105,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `livestream_feeds` (
 DROP TABLE IF EXISTS `preroll_ads`;
 CREATE TABLE IF NOT EXISTS `preroll_ads` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(32) NOT NULL,
+  `name` varchar(128) NOT NULL,
   `description` text,
   `status_id` int(11) NOT NULL,
   `image_url` text NOT NULL,
@@ -120,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `preroll_ads` (
 DROP TABLE IF EXISTS `ad_types`;
 CREATE TABLE IF NOT EXISTS `ad_types` ( -- ENUM ('SWF', 'Image', 'Text'),
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(32) NOT NULL,
+  `name` varchar(16) NOT NULL,
   `description` text,
   PRIMARY KEY (`id`)
 );
@@ -132,7 +133,7 @@ INSERT INTO `ad_types` (`id`, `name`) VALUES
 DROP TABLE IF EXISTS `popover_ads`;
 CREATE TABLE IF NOT EXISTS `popover_ads` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(32) NOT NULL,
+  `name` varchar(128) NOT NULL,
   `description` text,
   `status_id` int(11) NOT NULL,
   `ad_type_id`  int(11) NOT NULL, 
@@ -168,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `livestream_analytics` (
 DROP TABLE IF EXISTS `contact_types`;
 CREATE TABLE IF NOT EXISTS `contact_types` ( -- ENUM ('view', 'click')
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(32) NOT NULL,
+  `name` varchar(16) NOT NULL,
   `description` text,
   PRIMARY KEY (`id`)
 );

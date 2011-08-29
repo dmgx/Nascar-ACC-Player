@@ -5,6 +5,7 @@
 		<legend><?php __('Add Livestream Feed'); ?></legend>
 	<?php
 		echo $this->Form->input('name');
+		echo $this->Form->input('display_name');
 		echo $this->Form->input('description');
 		echo $this->Form->input('status_id');
 		echo $this->Form->input('url',array('value'=>$configuration['Configuration']['livefeed_url_path']));

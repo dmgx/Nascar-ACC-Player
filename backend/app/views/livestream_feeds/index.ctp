@@ -4,6 +4,7 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
+			<th><?php echo $this->Paginator->sort('display_name');?></th>
 			<th><?php echo $this->Paginator->sort('description');?></th>
 			<th><?php echo $this->Paginator->sort('Satus','status_id',array('type' => 'text','label' => 'Satus'));?></th>
 			<th><?php echo $this->Paginator->sort('url');?></th>
@@ -29,6 +30,7 @@
 	<tr<?php echo $class;?>>
 		<td><?php echo $livestreamFeed['LivestreamFeed']['id']; ?>&nbsp;</td>
 		<td><?php echo $livestreamFeed['LivestreamFeed']['name']; ?>&nbsp;</td>
+		<td><?php echo $livestreamFeed['LivestreamFeed']['display_name']; ?>&nbsp;</td>
 		<td><?php echo $livestreamFeed['LivestreamFeed']['description']; ?>&nbsp;</td>
 		<td><?php echo $livestreamFeed['Status']['name']; ?>&nbsp;</td>
 		<td><?php echo $livestreamFeed['LivestreamFeed']['url']; ?>&nbsp;</td>
