@@ -182,6 +182,6 @@ class XmlController extends AppController
  
         $this->RequestHandler->respondAs('xml');
         $this->viewPath .= '';
-        $this->layoutPath = '';
+        $this->layoutPath = 'xml';
     }
 }
