@@ -1,5 +1,12 @@
 <?php  __('<root>');?>
 	<?php
+	foreach ($postReturn as $postRtn):
+	?>
+        <?php  __('<analytic_post>'); ?>
+            <?php __('<![CDATA['); echo $postRtn; __(']]>'); ?>
+        <?php  __('</analytic_post>');?>
+    <?php endforeach; ?>
+	<?php
 	foreach ($archiveFeeds as $archiveFeed):
 	?>
         <?php  __('<archive_feed id="'); echo $archiveFeed['ArchiveFeed']['id']; __('">'); ?>

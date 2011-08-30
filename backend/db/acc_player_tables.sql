@@ -12,8 +12,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 );
 
 INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `password`, `useremail`, `created`, `modified`) VALUES
-(1, 'test', 'Test', 'Testy', 'e70c3dc1bd4f74abfee646a5c2b8c825fb44ccd3', 'rktest@gametruckparty.com', '2011-08-04 16:37:00', '2011-08-04 16:37:00');
--- test user pw 123456
+(1, 'admin', 'Admin', 'User', 'e70c3dc1bd4f74abfee646a5c2b8c825fb44ccd3', 'rktest@gametruckparty.com', '2011-08-04 16:37:00', '2011-08-04 16:37:00');
 
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
@@ -44,18 +43,19 @@ CREATE TABLE IF NOT EXISTS `team_icons` (
   PRIMARY KEY (`id`)
 );
 INSERT INTO `team_icons` (`id`, `name`, `icon`) VALUES
-(1, 'Boston College', 'BostonCollegeIcon'),
-(2, 'Clemson', 'Clemson'),
-(3, 'Duke', 'Duke'),
-(4, 'Flordia State', 'FlordiaState'),
-(5, 'Georgia Tech', 'GeorgiaTech'),
-(6, 'Maryland', 'Maryland'),
-(7, 'Miami', 'Miami'),
-(8, 'North Carolina', 'NorthCarolina'),
-(9, 'NC State', 'NCState'),
-(10, 'Virginia', 'Virginia'),
-(11, 'Virginia Tech', 'VirginiaTech'),
-(12, 'Wake Forest', 'WakeForest');
+(1, 'Appalachian_ State', 'appalachian_state'),
+(2, 'Boston College', 'BostonCollege'),
+(3, 'Clemson', 'Clemson'),
+(4, 'Duke', 'Duke'),
+(5, 'Florida State', 'FloridaState'),
+(6, 'Georgia Tech', 'GeorgiaTech'),
+(7, 'Maryland', 'Maryland'),
+(8, 'Miami', 'Miami'),
+(9, 'North Carolina', 'NorthCarolina'),
+(10, 'NC State', 'NCState'),
+(11, 'Virginia', 'Virginia'),
+(12, 'Virginia Tech', 'VirginiaTech'),
+(13, 'Wake Forest', 'WakeForest');
 
 DROP TABLE IF EXISTS `archive_feeds`;
 CREATE TABLE IF NOT EXISTS `archive_feeds` (

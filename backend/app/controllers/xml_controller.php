@@ -32,16 +32,20 @@ class XmlController extends AppController
                 $data = array('ArchiveAnalytic' => array('archive_feed_id' => $id, 'view_time' => DboSource::expression('NOW()')));
                 $this->ArchiveAnalytic->create();
                 if ($this->ArchiveAnalytic->save($data)) {
+                    $this->set('postReturn',array("Success"));
                     $this->Session->setFlash(__('The archive analytic has been saved', true));
                 } else {
+                    $this->set('postReturn',array("Failed Data Store"));
                     $this->Session->setFlash(__('The archive analytic could not be saved. Please, try again.', true));
                 }
                 $this->set('archiveFeeds',array());
             } else {
+                $this->set('postReturn',array("Failed Bad ID"));
                 $this->set('archiveFeeds',array());
             }
 		} else {
             // retreive Archive Feed data
+            $this->set('postReturn',array());
             $conditions = array("ArchiveFeed.status_id" => 2);
             if (!$this->set('archiveFeeds', $this->ArchiveFeed->find('all', array('conditions' => $conditions)))){
                 
@@ -63,16 +67,20 @@ class XmlController extends AppController
                 $data = array('LivestreamAnalytic' => array('livestream_feed_id' => $id, 'view_time' => DboSource::expression('NOW()')));
                 $this->LivestreamAnalytic->create();
                 if ($this->LivestreamAnalytic->save($data)) {
+                    $this->set('postReturn',array("Success"));
                     $this->Session->setFlash(__('The livestream analytic has been saved', true));
                 } else {
+                    $this->set('postReturn',array("Failed Data Store"));
                     $this->Session->setFlash(__('The livestream analytic could not be saved. Please, try again.', true));
                 }
                 $this->set('livestreamFeeds',array());
             } else {
+                $this->set('postReturn',array("Failed Bad ID"));
                 $this->set('livestreamFeeds',array());
             }
         } else {
             // retreive Livestream Feed data
+            $this->set('postReturn',array());
             $conditions = array("AND" =>
                                 array("LivestreamFeed.start_time <=" => date('Y-m-d G:i:s', strtotime("now")) ,
                                       "LivestreamFeed.end_time >=" => date('Y-m-d G:i:s', strtotime("now")),
@@ -95,16 +103,20 @@ class XmlController extends AppController
                 $data = array('PrerollAnalytic' => array('preroll_ad_id' => $id, 'event_time' => DboSource::expression('NOW()')));
                 $this->PrerollAnalytic->create();
                 if ($this->PrerollAnalytic->save($data)) {
+                    $this->set('postReturn',array("Success"));
                     $this->Session->setFlash(__('The preroll analytic has been saved', true));
                 } else {
+                    $this->set('postReturn',array("Failed Data Store"));
                     $this->Session->setFlash(__('The preroll analytic could not be saved. Please, try again.', true));
                 }
                 $this->set('prerollAds',array());
             } else {
+                $this->set('postReturn',array("Failed Bad ID"));
                 $this->set('prerollAds',array());
             }
         } else {
             // retreive Preroll Ad data
+            $this->set('postReturn',array());
             $conditions = array("AND" =>
                                 array("PrerollAd.start_time <=" => date('Y-m-d G:i:s', strtotime("now")) ,
                                       "PrerollAd.end_time >=" => date('Y-m-d G:i:s', strtotime("now")),
@@ -134,19 +146,24 @@ class XmlController extends AppController
                     $data = array('PopoverAnalytic' => array('popover_ad_id' => $id, 'contact_type_id' => $contactTypeID, 'event_time' => DboSource::expression('NOW()')));
                     $this->PopoverAnalytic->create();
                     if ($this->PopoverAnalytic->save($data)) {
+                        $this->set('postReturn',array("Success"));
                         $this->Session->setFlash(__('The popover analytic has been saved', true));
                     } else {
+                        $this->set('postReturn',array("Failed Data Store"));
                         $this->Session->setFlash(__('The popover analytic could not be saved. Please, try again.', true));
                     }
                     $this->set('popoverAds',array());
                 } else {
+                    $this->set('postReturn',array("Failed Bad ID"));
                     $this->set('popoverAds',array());
                 }
             } else {
+                $this->set('postReturn',array("Failed Bad Contact Type"));
                 $this->set('popoverAds',array());
             }
         } else {
             // retreive Popover Ad data
+            $this->set('postReturn',array());
             $conditions = array("AND" =>
                                 array("PopoverAd.start_time <=" => date('Y-m-d G:i:s', strtotime("now")) ,
                                       "PopoverAd.end_time >=" => date('Y-m-d G:i:s', strtotime("now")),
@@ -165,12 +182,6 @@ class XmlController extends AppController
  
         $this->RequestHandler->respondAs('xml');
         $this->viewPath .= '';
-        $this->layoutPath = 'xml';
-    }
-    
-    function none() {
-        $this->RequestHandler->respondAs('xml');
-        $this->viewPath .= '';
-        $this->layoutPath = 'xml';
+        $this->layoutPath = '';
     }
 }

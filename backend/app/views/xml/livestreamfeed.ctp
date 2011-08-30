@@ -1,5 +1,12 @@
 <?php  __('<root>');?>
 	<?php
+	foreach ($postReturn as $postRtn):
+	?>
+        <?php  __('<analytic_post>'); ?>
+            <?php __('<![CDATA['); echo $postRtn; __(']]>'); ?>
+        <?php  __('</analytic_post>');?>
+    <?php endforeach; ?>
+	<?php
 	foreach ($livestreamFeeds as $livestreamFeed):
 	?>
         <?php  __('<livestream id="'); echo $livestreamFeed['LivestreamFeed']['id']; __('">');?>
