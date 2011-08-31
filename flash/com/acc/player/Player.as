@@ -603,6 +603,7 @@
 				"videoTitle": event.target.title,
 				"leftIcon": event.target.leftIcon,
 				"rightIcon": event.target.rightIcon,
+				"background": event.target.background,
 				"type": "live"
 			}
 			playVideo(config);
@@ -627,12 +628,25 @@
 			
 			// Play a single preroll here
 			playRandomPreroll();
+			var videoUrl = event.target.videoUrl.toString();
+			var feedUrl = null;
+			
+			// If the archive video is an rtmp, we need to take care of it
+			if (event.target.videoUrl.match("rtmp")) {
+				var myPattern:RegExp = /^(.*)\/(.*)\.flv$/gi;
+				var temp:String = videoUrl;
+				videoUrl = videoUrl.replace(myPattern, "$2");
+				feedUrl = temp.replace(myPattern, "$1");
+			}
+			
 			var config:Object = {
 				"videoId":event.target.id,
-				"currentVideo": event.target.videoUrl,
+				"currentVideo": videoUrl,
+				"currentFeed": feedUrl,
 				"videoTitle": event.target.title,
 				"leftIcon": event.target.leftIcon,
 				"rightIcon": event.target.rightIcon,
+				"background": event.target.background,
 				"type": "archive"
 			}
 			playVideo(config);
@@ -700,12 +714,30 @@
 				videoCls.video.height = videoCls.videoHeight;  // set the video's height to the videoHeight variable
 				videoCls.positionVideo();
 				if (videoCls.videoType == "live") {
+			
+					/*placeholderUrl = xml.configuration.placeholder;
+					loader.load(new URLRequest(placeholderUrl));  //  load the xml
+					loader.addEventListener(Event.COMPLETE, placeholderLoaded);  //  listener for when the xml is loaded
+					
+					placeholderLoader = new Loader();
+					placeholderLoader.load(new URLRequest(placeholderUrl));
+					placeholderLoader.x = 0;
+					placeholderLoader.y = 0;
+					videoCls.videoBlackBox.addChild(placeholderLoader);
+					placeholderLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, placeholderLoaded);*/
+			
+			
 					// play the live stream
 					liveFeedConfig = config;
 					nc.addEventListener(NetStatusEvent.NET_STATUS, playLiveFeed);
 					nc.connect(currentVideo);
 					Tweener.addTween(videoCls.pauseBtn, {alpha:.3, time:.5, transition:"easeOut"});
 					videoCls.liveFeedPlaying = true;
+				}
+				else if (config.currentFeed != null) {
+					liveFeedConfig = config;
+					nc.addEventListener(NetStatusEvent.NET_STATUS, playArchiveFeed);
+					nc.connect(config.currentFeed);
 				}
 				else {
 					Tweener.addTween(videoCls.pauseBtn, {alpha:1, time:.5, transition:"easeOut"});
@@ -772,6 +804,31 @@
 				Tweener.addTween(videoCls.playBtn, {alpha:0, time:.5, transition:"easeOut"});
 				videoViewed(liveFeedConfig);
 				nsl.play("" + liveFeedConfig.videoTitle + "");
+			}
+		}
+		
+		public function playArchiveFeed(event:NetStatusEvent):void {
+			var info:Object = event.info;
+			if (info.code == "NetConnection.Connect.Success") {
+				videoCls.videoAdvertisementTxt.text = "";
+				videoCls.videoThumb.width = 0;
+				nc.removeEventListener(NetStatusEvent.NET_STATUS, playArchiveFeed);
+				
+				nsl = new NetStream(nc);
+				nsl.addEventListener(NetStatusEvent.NET_STATUS, videoCls.myStatusHandler);
+				nsl.addEventListener(AsyncErrorEvent.ASYNC_ERROR, asyncErrorHandler);
+				
+				// Attach the net stream to the video
+				
+				videoCls.video.attachNetStream(nsl);
+				var newMetal:Object = new Object();
+				newMetal.onMetaData = onMetaData;
+				nsl.client = newMetal;
+				nsl.bufferTime = 5;
+				
+				Tweener.addTween(videoCls.playBtn, {alpha:0, time:.5, transition:"easeOut"});
+				videoViewed(liveFeedConfig);
+				nsl.play("" + liveFeedConfig.currentVideo + "");
 			}
 		}
 		
