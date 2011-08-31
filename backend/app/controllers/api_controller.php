@@ -10,7 +10,7 @@
 	        $this->Auth->allow('*');
 	    }
 	
-		function index() {
+		function embed() {
 			$this->layoutPath = "none";
 		}
 	

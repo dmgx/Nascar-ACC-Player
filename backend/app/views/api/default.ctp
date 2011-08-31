@@ -6,7 +6,7 @@
 		<style>
 			#swfContainer{position: relative;width:950px}
 		</style>
-		<script type="text/javascript" src="swfobject.js"></script>
+		<script type="text/javascript" src="/assets/swf/swfobject.js"></script>
 		<script type="text/javascript">
 			var swfVersionStr = "9.0.124";
 			var xiSwfUrlStr = "";
@@ -30,7 +30,7 @@
 			swfobject.createCSS("html", "height:100%; background-color: #ffffff;");
 			swfobject.createCSS("body", "margin:0; padding:0; overflow:hidden; height:100%;");
 			swfobject.embedSWF(
-				"acc.swf", "flashContent",
+				"/assets/swf/acc.swf", "flashContent",
 				"100%", "450px",
 				swfVersionStr, xiSwfUrlStr,
 				flashvars, params, attributes);
