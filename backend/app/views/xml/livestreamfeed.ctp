@@ -10,12 +10,15 @@
 	foreach ($livestreamFeeds as $livestreamFeed):
 	?>
         <?php  __('<livestream id="'); echo $livestreamFeed['LivestreamFeed']['id']; __('">');?>
-            <?php __('<name>'); ?>
-                <?php __('<![CDATA['); echo $livestreamFeed['LivestreamFeed']['name']; __(']]>'); ?>
-            <?php __('</name>'); ?>
+            <?php __('<display_name>'); ?>
+                <?php __('<![CDATA['); echo $livestreamFeed['LivestreamFeed']['display_name']; __(']]>'); ?>
+            <?php __('</display_name>'); ?>
             <?php __('<description>'); ?>
                 <?php __('<![CDATA['); echo $livestreamFeed['LivestreamFeed']['description']; __(']]>'); ?>
             <?php __('</description>'); ?>
+			<?php __('<name>'); ?>
+                <?php __('<![CDATA['); echo $livestreamFeed['LivestreamFeed']['name']; __(']]>'); ?>
+            <?php __('</name>'); ?>
             <?php __('<url>'); ?>
                 <?php __('<![CDATA['); echo $livestreamFeed['LivestreamFeed']['url']; __(']]>'); ?>
             <?php __('</url>'); ?>
