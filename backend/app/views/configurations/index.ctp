@@ -1,7 +1,7 @@
 <div class="configurations index">
 <h2><?php  __('Configuration');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Popover Frequency'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Popover Frequency (In Seconds)'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $configuration['Configuration']['popover_frequency']; ?>
 			&nbsp;

@@ -5,7 +5,7 @@
 	<?php
 		echo $this->Form->input('twitter');
 		echo $this->Form->input('facebook');
-		echo $this->Form->input('popover_frequency');
+		echo $this->Form->input('popover_frequency', array('label' => 'Popover Frequency (In Seconds)'));
 		echo $this->Form->input('placeholder');
 		echo $this->Form->input('image_url_path');
 		echo $this->Form->input('swf_url_path');

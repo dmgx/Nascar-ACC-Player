@@ -575,3 +575,11 @@ div.code-coverage-results span.result-good {
 #url-rewriting-warning {
 	display: none;
 }
+
+.configurations dt {
+	width:18em;
+}
+
+.configurations dd {
+    margin-left:18em;
+}
