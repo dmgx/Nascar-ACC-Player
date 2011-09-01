@@ -38,6 +38,9 @@ class UsersController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
+            if (!empty($this->data['User']['password_temp'])) {
+                $this->data['User']['password'] = Security::hash($this->data['User']['password_temp'], null, true);
+            }
 			if ($this->User->save($this->data)) {
 				$this->flash(__('The user has been saved.', true));
                 $this->redirect(array('action' => 'index'));
