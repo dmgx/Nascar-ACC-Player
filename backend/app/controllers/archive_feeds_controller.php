@@ -28,6 +28,7 @@ class ArchiveFeedsController extends AppController {
 
         if (!empty($this->data)) {
 			$this->ArchiveFeed->create();
+            if (empty($this->data['ArchiveFeed']['display_rank'])) $this->data['ArchiveFeed']['display_rank'] = 0;
 			if ($this->ArchiveFeed->save($this->data)) {
 				$this->Session->setFlash(__('The archive feed has been saved', true));
 				$this->redirect(array('action' => 'index'));
@@ -51,6 +52,7 @@ class ArchiveFeedsController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
+            if (empty($this->data['ArchiveFeed']['display_rank'])) $this->data['ArchiveFeed']['display_rank'] = 0;
 			if ($this->ArchiveFeed->save($this->data)) {
 				$this->Session->setFlash(__('The archive feed has been saved', true));
 				$this->redirect(array('action' => 'index'));

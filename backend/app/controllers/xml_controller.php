@@ -47,7 +47,7 @@ class XmlController extends AppController
             // retreive Archive Feed data
             $this->set('postReturn',array());
             $conditions = array("ArchiveFeed.status_id" => 2);
-            if (!$this->set('archiveFeeds', $this->ArchiveFeed->find('all', array('conditions' => $conditions)))){
+            if (!$this->set('archiveFeeds', $this->ArchiveFeed->find('all', array('conditions' => $conditions,'order' => array('ArchiveFeed.display_rank DESC', 'ArchiveFeed.name'))))){
                 
             }
         }

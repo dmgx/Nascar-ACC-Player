@@ -31,6 +31,7 @@
         value="Pick File..."> 
     <?php
 		echo $this->Form->input('category_id');
+		echo $this->Form->input('display_rank');
 	?>
 	</fieldset>
     <?php

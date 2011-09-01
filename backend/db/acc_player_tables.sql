@@ -70,6 +70,7 @@ CREATE TABLE IF NOT EXISTS `archive_feeds` (
   `right_icon_id` int(11) NOT NULL,
   `background` text NOT NULL,
   `category_id` int(11) NOT NULL,
+  `display_rank` int(11) NOT NULL DEFAULT 0,
   `created` datetime NOT NULL,
   `modified` datetime,
   PRIMARY KEY (`id`),

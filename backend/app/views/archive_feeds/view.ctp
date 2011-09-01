@@ -56,6 +56,11 @@
 			<?php echo $archiveFeed['ArchiveFeed']['category_id']; ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Display Rank'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $archiveFeed['ArchiveFeed']['display_rank']; ?>
+			&nbsp;
+		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created Date'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $archiveFeed['ArchiveFeed']['created']; ?>

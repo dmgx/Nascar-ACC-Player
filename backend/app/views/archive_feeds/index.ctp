@@ -13,6 +13,7 @@
 			<th><?php echo $this->Paginator->sort('right_icon_id');?></th>
 			<th><?php echo $this->Paginator->sort('background');?></th>
 			<th><?php echo $this->Paginator->sort('category_id');?></th>
+			<th><?php echo $this->Paginator->sort('display_rank');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th class="actions"><?php __('Actions');?></th>
@@ -37,6 +38,7 @@
 		<td><?php echo $archiveFeed['RightIcon']['name']; ?>&nbsp;</td>
 		<td><?php echo $archiveFeed['ArchiveFeed']['background']; ?>&nbsp;</td>
 		<td><?php echo $archiveFeed['Category']['name']; ?>&nbsp;</td>
+		<td><?php echo $archiveFeed['ArchiveFeed']['display_rank']; ?>&nbsp;</td>
 		<td><?php echo $archiveFeed['ArchiveFeed']['created']; ?>&nbsp;</td>
 		<td><?php echo $archiveFeed['ArchiveFeed']['modified']; ?>&nbsp;</td>
 		<td class="actions">
