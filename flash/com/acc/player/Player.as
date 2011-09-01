@@ -471,8 +471,8 @@
 				videoItem.videoUrl = liveStreamNode.url;
 				videoItem.title = liveStreamNode.display_name;
 				videoItem.name = liveStreamNode.name;
-				videoItem.leftIcon = "img/team_logos/" + liveStreamNode.left_icon + ".png";
-				videoItem.rightIcon = "img/team_logos/" + liveStreamNode.right_icon + ".png";
+				videoItem.leftIcon = "http://acc.nascarmediagroup.com/assets/swf/img/team_logos/" + liveStreamNode.left_icon + ".png";
+				videoItem.rightIcon = "http://acc.nascarmediagroup.com/assets/swf/img/team_logos/" + liveStreamNode.right_icon + ".png";
 				videoItem.addEventListener(MouseEvent.MOUSE_OVER, btnOver);
 				videoItem.addEventListener(MouseEvent.MOUSE_OUT, btnOut);
 				videoItem.addEventListener(MouseEvent.CLICK, liveStreamClick);
@@ -514,8 +514,8 @@
 				videoItem.id = videoNode.attribute("id");
 				videoItem.videoUrl = videoNode.high_res;
 				videoItem.title = videoNode.name;
-				videoItem.leftIcon = "img/team_logos/" + videoNode.left_icon + ".png";
-				videoItem.rightIcon = "img/team_logos/" + videoNode.right_icon + ".png";
+				videoItem.leftIcon = "http://acc.nascarmediagroup.com/assets/swf/img/team_logos/" + videoNode.left_icon + ".png";
+				videoItem.rightIcon = "http://acc.nascarmediagroup.com/assets/swf/img/team_logos/" + videoNode.right_icon + ".png";
 				videoItem.addEventListener(MouseEvent.MOUSE_OVER, btnOver);
 				videoItem.addEventListener(MouseEvent.MOUSE_OUT, btnOut);
 				videoItem.addEventListener(MouseEvent.CLICK, archiveClick);
@@ -742,6 +742,7 @@
 			var config = videoCls.videoStack.splice(0,1)[0];
 			
 			if (config) {
+				Tweener.addTween(videoCls.videoPreloader, {alpha:.8, time:1, transition:"easeOut"});
 				videoCls.video.attachNetStream(ns);
 				videoCls.videoType = config.type;
 				videoItemName = config.videoId;  // set the videoItemName variable to the current targets name
@@ -943,6 +944,15 @@
 			{
 				seconds2 = "0" + seconds2;  //  the seconds2 variable is equal to 0:seconds
 			}
+			
+			// Show the preloader for the video
+			if (tempNS.time == 0) {
+				videoCls.videoPreloader.visible = true;
+			}
+			else {
+				videoCls.videoPreloader.visible = false;
+			}
+			
 			videoCls.videoTimeProgressTxt.text = minutes + ":" + seconds;
 			videoCls.videoTimeDurationTxt.text = (isNaN(minutes2) && isNaN(seconds2)) ? "N/A" : minutes2 + ":" + seconds2;  // update the videoTimeTxt field with the total time and current time.
 			if (isNaN(minutes2) && isNaN(seconds2)) {

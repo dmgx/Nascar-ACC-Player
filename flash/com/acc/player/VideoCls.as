@@ -163,6 +163,7 @@
 		
 		public function myStatusHandler(event:NetStatusEvent):void
 		{
+			return;
 			var tempNS:NetStream = (!feedServerPlaying) ? player.ns : player.nsl;
 			//trace(event.info.code);
 			switch(event.info.code)
