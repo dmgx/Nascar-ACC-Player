@@ -27,6 +27,7 @@
 		var rightIcon:MovieClip;
 		
 		var popoverad:MovieClip;
+		var adcontainer:MovieClip;
 		var popoverClose:SimpleButton;
 		var fullScreen:SimpleButton;
 		var videoTrackProgress:MovieClip;
@@ -95,6 +96,7 @@
 		var yMin:Number;
 		var yMax:Number;
 		var sideScrollThumbDif:Number;
+		var currentlyPlayingTarget:Object;
 		
 		public function Player() {
 			////// MAIN STAGE MOVIE CLIPS //////
@@ -105,6 +107,7 @@
 			rightIcon = player_mc.right_icon;
 			
 			popoverad = player_mc.popoverad_mc;
+			adcontainer = popoverad.ad_container;
 			popoverClose = player_mc.popoverad_mc.popover_close;
 			fullScreen = player_mc.fullScreen_btn;
 			videoTrackProgress = player_mc.videoTrack_mc.videoTrackProgress_mc;
@@ -165,7 +168,7 @@
 			volumeButton.addEventListener(MouseEvent.MOUSE_DOWN, volumeBtnDown);
 			volumeButton.addEventListener(MouseEvent.MOUSE_UP, volumeBtnUp);
 			popoverClose.addEventListener(MouseEvent.CLICK, closePopoverAd);
-			fullScreen.addEventListener(MouseEvent.CLICK, goFullScreen);
+			fullScreen.addEventListener(MouseEvent.CLICK, goScaledFullScreen);
 			
 			addEventListenersForGalleryBtns();
 			
@@ -178,7 +181,7 @@
 			ns = new NetStream(nc);
 			
 			// Create the video object
-			videoCls = new VideoCls(player_mc, ns);
+			videoCls = new VideoCls(player_mc, this);
 			
 			ns.addEventListener(NetStatusEvent.NET_STATUS, videoCls.myStatusHandler);
 			ns.addEventListener(AsyncErrorEvent.ASYNC_ERROR, asyncErrorHandler);
@@ -197,7 +200,6 @@
 			
 			loader.load(new URLRequest(xmlPath));  //  load the xml
 			loader.addEventListener(Event.COMPLETE, xmlLoaded);  //  listener for when the xml is loaded
-			trace("xmlPath" + xmlPath);
 		
 			gallery1Btn.addEventListener(MouseEvent.CLICK, galleryBtnClick0);  // add a listener for a click on the gallery1Btn
 			gallery2Btn.addEventListener(MouseEvent.CLICK, galleryBtnClick1);
@@ -311,6 +313,12 @@
 			stage.displayState = StageDisplayState.FULL_SCREEN;
 		}
 		
+		public function goScaledFullScreen(event:MouseEvent){
+			var screenRectangle:Rectangle = new Rectangle(videoCls.videoBlackBox.x, videoCls.videoBlackBox.y, videoCls.videoBlackBox.width, videoCls.videoBlackBox.height);
+			stage.fullScreenSourceRect = screenRectangle;
+			stage.displayState = StageDisplayState.FULL_SCREEN;
+		}
+		
 		public function xmlLoaded(event:Event):void
 		{
 			if((event.target as URLLoader) != null)   
@@ -329,9 +337,19 @@
 			// Save off the preroll ads
 			for each(var prerollAd:XML in xml.prerollad)
 			{
+				var prerollUrl:String = prerollAd.url;
+				var feedUrl:String = null;
+				// If the archive video is an rtmp, we need to take care of it
+				if (prerollUrl.match("rtmp")) {
+					var myPattern:RegExp = /^(.*)\/(.*)\.flv$/gi;
+					var temp:String = prerollUrl;
+					prerollUrl = prerollUrl.replace(myPattern, "$2");
+					feedUrl = temp.replace(myPattern, "$1");
+				}
 				preroll_ads.push({
 					"videoId":prerollAd.attribute("id"),
-					"currentVideo": prerollAd.url,
+					"currentVideo": prerollUrl,
+					"currentFeed": feedUrl,
 					"videoTitle": "",
 					"type": "ad"
 				});
@@ -442,7 +460,7 @@
 		public function makeLiveFeeds(autoplay:Boolean):void {
 			for each(var liveStreamNode:XML in xml.livestream) {
 				var videoItem:categoryItem_mc = new categoryItem_mc;
-				videoItem.categoryItemTitle_txt.text = liveStreamNode.name;
+				videoItem.categoryItemTitle_txt.text = liveStreamNode.display_name;
 				videoItem.categoryItemDesc_txt.text = liveStreamNode.description;
 				videoItem.x = 10;
 				videoItem.y = (videoItem.height + 3) * i;
@@ -451,9 +469,10 @@
 				videoItem.name = "" + a;
 				videoItem.id = liveStreamNode.attribute("id");
 				videoItem.videoUrl = liveStreamNode.url;
-				videoItem.title = liveStreamNode.name;
-				videoItem.leftIcon = "img/team_logos/" + liveStreamNode.left_icon + ".gif";
-				videoItem.rightIcon = "img/team_logos/" + liveStreamNode.right_icon + ".gif";
+				videoItem.title = liveStreamNode.display_name;
+				videoItem.name = liveStreamNode.name;
+				videoItem.leftIcon = "img/team_logos/" + liveStreamNode.left_icon + ".png";
+				videoItem.rightIcon = "img/team_logos/" + liveStreamNode.right_icon + ".png";
 				videoItem.addEventListener(MouseEvent.MOUSE_OVER, btnOver);
 				videoItem.addEventListener(MouseEvent.MOUSE_OUT, btnOut);
 				videoItem.addEventListener(MouseEvent.CLICK, liveStreamClick);
@@ -486,6 +505,7 @@
 				var videoItem:categoryItem_mc = new categoryItem_mc;
 				videoItem.categoryItemTitle_txt.text = videoNode.name;
 				videoItem.categoryItemDesc_txt.text = videoNode.description;
+				videoItem.playingLive_txt.playingLive_txt.text = "NOW PLAYING";
 				videoItem.x = 10;
 				videoItem.y = (videoItem.height + 3) * i;  
 				videoItem.buttonMode = true;
@@ -494,8 +514,8 @@
 				videoItem.id = videoNode.attribute("id");
 				videoItem.videoUrl = videoNode.high_res;
 				videoItem.title = videoNode.name;
-				videoItem.leftIcon = "img/team_logos/" + videoNode.left_icon + ".gif";
-				videoItem.rightIcon = "img/team_logos/" + videoNode.right_icon + ".gif";
+				videoItem.leftIcon = "img/team_logos/" + videoNode.left_icon + ".png";
+				videoItem.rightIcon = "img/team_logos/" + videoNode.right_icon + ".png";
 				videoItem.addEventListener(MouseEvent.MOUSE_OVER, btnOver);
 				videoItem.addEventListener(MouseEvent.MOUSE_OUT, btnOut);
 				videoItem.addEventListener(MouseEvent.CLICK, archiveClick);
@@ -506,7 +526,7 @@
 					var videoThumbURL = "http://acc.nascarmediagroup.com/assets/thumbnail/" + videoNode.thumbnail;
 					videoThumbLoader = new Loader();
 					videoThumbLoader.load(new URLRequest(videoThumbURL));
-					videoThumbLoader.x = 9;  
+					videoThumbLoader.x = 9;
 					videoThumbLoader.y = 8;
 					videoItem.addChild(videoThumbLoader); 
 					videoThumbLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, videoThumbLoaded);
@@ -527,29 +547,37 @@
 		public function showPopoverAd():void {
 			var config = popover_ads[popoverAdInc];
 			if (config) {
-				popoverad.removeChildAt(0);
+				//adcontainer.removeChildAt(0);
 				currentPopoverAd = config;
 				if (config.asset != undefined) {
 					
 					var popoverURL = config.asset;
 					popoverLoader = new Loader();
 					popoverLoader.load(new URLRequest(popoverURL));
-					popoverLoader.x = 4;
-					popoverLoader.y = 14;
-					popoverad.addChild(popoverLoader);
+					popoverLoader.x = 0;
+					popoverLoader.y = 0;
+					adcontainer.addChild(popoverLoader);
 					popoverLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, popoverLoaded);
 					popoverLoader.addEventListener(MouseEvent.CLICK, clickAd);
 				
 				}
 				if (config.content != undefined) {
 					var contentField:TextField = new TextField();
-					contentField.textColor = 0xFFFFFF;
-					contentField.x = 4;
-					contentField.y = 14;
-					contentField.width = 486;
-					contentField.height = 45;
+					
+					var textFormat:TextFormat = new TextFormat();
+					textFormat.color = 0xFFFFFF;
+					textFormat.leftMargin = 4;
+					textFormat.rightMargin = 4;
+					textFormat.size = 15;
+					textFormat.font = "Myriad Pro";
+					
+					contentField.x = 0;
+					contentField.y = 0;
+					contentField.width = adcontainer.width;
+					contentField.height = adcontainer.height;
 					contentField.text = config.content;
-					popoverad.addChild(contentField);
+					contentField.setTextFormat(textFormat);
+					adcontainer.addChild(contentField);
 					contentField.addEventListener(MouseEvent.CLICK, clickAd);
 				}
 				adViewed(config);
@@ -559,8 +587,8 @@
 		}
 		
 		public function popoverLoaded(event:Event):void {
-			event.target.loader.height = 45;
-			event.target.loader.width = 486;
+			event.target.loader.height = adcontainer.height;
+			event.target.loader.width = adcontainer.width - 10;
 			event.target.loader.contentLoaderInfo.removeEventListener(Event.COMPLETE, popoverLoaded);
 		}
 		
@@ -574,8 +602,24 @@
 			Tweener.addTween(popoverad, {alpha:0, time:1, transition:"easeOut"});
 		}
 		
-		public function liveStreamClick(event:MouseEvent):void
-		{
+		public function setCurrent(target:Object):void {
+			// Get rid of the last one
+			if (currentlyPlayingTarget) {
+				Tweener.addTween(currentlyPlayingTarget.playingLive_txt, {alpha:0, time:.5, transition:"easeOut"});
+				currentlyPlayingTarget.categoryItemTitle_txt.y = 7;
+				currentlyPlayingTarget.categoryItemDesc_txt.y = 27;
+			}
+			
+			// Set the current one
+			target.categoryItemTitle_txt.y = 20;
+			target.categoryItemDesc_txt.y = 40;
+			Tweener.addTween(target.playingLive_txt, {alpha:1, time:.5, transition:"easeOut"});
+			currentlyPlayingTarget = target;
+		}
+		
+		public function liveStreamClick(event:MouseEvent):void {
+			setCurrent(event.target);
+			
 			popoverAdInc = 0;
 			videoCls.video.attachNetStream(ns);
 			Tweener.addTween(leftIcon, {alpha:0, time:1, transition:"easeOut"});
@@ -601,6 +645,7 @@
 				"videoId":event.target.id,
 				"currentVideo": event.target.videoUrl,
 				"videoTitle": event.target.title,
+				"videoName": event.target.name,
 				"leftIcon": event.target.leftIcon,
 				"rightIcon": event.target.rightIcon,
 				"background": event.target.background,
@@ -612,6 +657,7 @@
 		
 		public function archiveClick(event:MouseEvent):void
 		{
+			setCurrent(event.target);
 			popoverAdInc = 0;
 			videoCls.video.attachNetStream(ns);
 			Tweener.addTween(leftIcon, {alpha:0, time:1, transition:"easeOut"});
@@ -696,6 +742,7 @@
 			var config = videoCls.videoStack.splice(0,1)[0];
 			
 			if (config) {
+				videoCls.video.attachNetStream(ns);
 				videoCls.videoType = config.type;
 				videoItemName = config.videoId;  // set the videoItemName variable to the current targets name
 				currentVideo = config.currentVideo;  // set the current video variable to the video in the xml 
@@ -714,6 +761,7 @@
 				videoCls.video.height = videoCls.videoHeight;  // set the video's height to the videoHeight variable
 				videoCls.positionVideo();
 				if (videoCls.videoType == "live") {
+					videoCls.feedServerPlaying = true;
 			
 					/*placeholderUrl = xml.configuration.placeholder;
 					loader.load(new URLRequest(placeholderUrl));  //  load the xml
@@ -735,11 +783,17 @@
 					videoCls.liveFeedPlaying = true;
 				}
 				else if (config.currentFeed != null) {
+					videoCls.feedServerPlaying = true;
+					videoCls.liveFeedPlaying = false;
 					liveFeedConfig = config;
+					if (videoCls.videoType != "ad") {
+						Tweener.addTween(videoCls.pauseBtn, {alpha:1, time:.5, transition:"easeOut"});
+					}
 					nc.addEventListener(NetStatusEvent.NET_STATUS, playArchiveFeed);
 					nc.connect(config.currentFeed);
 				}
 				else {
+					videoCls.feedServerPlaying = false;
 					Tweener.addTween(videoCls.pauseBtn, {alpha:1, time:.5, transition:"easeOut"});
 					videoCls.liveFeedPlaying = false;
 					videoViewed(config);
@@ -761,16 +815,16 @@
 				var leftIconURL = config.leftIcon;
 				leftIconLoader = new Loader();
 				leftIconLoader.load(new URLRequest(leftIconURL));
-				leftIconLoader.x = 2;
-				leftIconLoader.y = 2;
+				leftIconLoader.x = -3;
+				leftIconLoader.y = -4;
 				leftIcon.addChild(leftIconLoader);
 				leftIconLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, leftIconLoaded);
 				
 				var rightIconURL = config.rightIcon;
 				rightIconLoader = new Loader();
 				rightIconLoader.load(new URLRequest(rightIconURL));
-				rightIconLoader.x = 2;
-				rightIconLoader.y = 2;
+				rightIconLoader.x = -3;
+				rightIconLoader.y = -4;
 				rightIcon.addChild(rightIconLoader);
 				rightIconLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, rightIconLoaded);
 			}
@@ -803,7 +857,7 @@
 				
 				Tweener.addTween(videoCls.playBtn, {alpha:0, time:.5, transition:"easeOut"});
 				videoViewed(liveFeedConfig);
-				nsl.play("" + liveFeedConfig.videoTitle + "");
+				nsl.play("" + liveFeedConfig.videoName + "");
 			}
 		}
 		
@@ -871,7 +925,11 @@
 		
 		public function videoTimeEnterFrame(event:Event):void
 		{
-			var totalSeconds:Number = ns.time;  // variable to hold the ns.time
+			var tempNS:NetStream = (!videoCls.feedServerPlaying) ? ns : nsl;
+			if (!tempNS) {
+				return;
+			}
+			var totalSeconds:Number = tempNS.time;  // variable to hold the ns.time
 			var totalSeconds2:Number = videoCls.duration;  // variable to hold the duration
 			var minutes:Number = Math.floor(totalSeconds / 60);  // variable to hold the rounded down totalSeconds divided by 60
 			var minutes2:Number = Math.floor(totalSeconds2 / 60);  // variable to hold the rounded down totalSeconds2 divided by 60

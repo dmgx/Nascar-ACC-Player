@@ -30,18 +30,23 @@
 		var videoStack:Array;
 		var videoType:String;
 		var ns:NetStream;
+		var nsl:NetStream;
 		var amountLoaded:Number;
 		var duration:Number;
 		var scrubInterval;
 		
 		var moviePlaying:Boolean;
 		var liveFeedPlaying:Boolean;
+		var feedServerPlaying:Boolean;
 		
 		// Create the video
 		var video:Video;
+		var player:Player;
 
-		public function VideoCls(player_mc:MovieClip, nets:NetStream) {
-			ns = nets;
+		public function VideoCls(player_mc:MovieClip, obj:Player) {
+			ns = obj.ns;
+			nsl = obj.nsl;
+			player = obj;
 			
 			// Create the video variables
 			playBtn = player_mc.playBtn_mc;
@@ -88,6 +93,7 @@
 			
 			moviePlaying = false;
 			liveFeedPlaying = false;
+			feedServerPlaying = false;
 		}
 		
 		public function setVideoListeners() {
@@ -115,18 +121,20 @@
 		
 		public function playBtnClick(event:MouseEvent):void
 		{
-			ns.resume();
+			var tempNS = (!feedServerPlaying) ? player.ns : player.nsl;
+			tempNS.resume();
 			moviePlaying = true;
 			//Tweener.addTween(playBtn, {alpha:0, time:.5, transition:"easeOut"});
 		}
 		
 		public function pauseBtnClick(event:MouseEvent):void
 		{
-			if (liveFeedPlaying) {
+			var tempNS = (!feedServerPlaying) ? player.ns : player.nsl;
+			if (liveFeedPlaying || videoType == "ad") {
 				return;
 			}
 			moviePlaying = false;
-			ns.pause();
+			tempNS.pause();
 			//Tweener.addTween(playBtn, {alpha:.5, time:.5, transition:"easeIn"});
 		}
 		
@@ -155,6 +163,7 @@
 		
 		public function myStatusHandler(event:NetStatusEvent):void
 		{
+			var tempNS:NetStream = (!feedServerPlaying) ? player.ns : player.nsl;
 			//trace(event.info.code);
 			switch(event.info.code)
 			{
@@ -189,16 +198,20 @@
 		////// TIMELINE SCRUBBER //////
 		public function videoStatus():void
 		{
-			amountLoaded = ns.bytesLoaded / ns.bytesTotal;
+			var tempNS = (!feedServerPlaying) ? player.ns : player.nsl;
+			if (!tempNS) {
+				return;
+			}
+			amountLoaded = tempNS.bytesLoaded / tempNS.bytesTotal;
 			//videoTrackDownload.width = amountLoaded * 340;
 			//videoThumb.x = 0;
 			if (videoType == "ad") {
 				videoThumb.width = 0;
-				adThumb.width = ns.time / duration * 510;
+				adThumb.width = tempNS.time / duration * 510;
 			}
 			else {
 				adThumb.width = 0;
-				videoThumb.width = ns.time / duration * 510;
+				videoThumb.width = tempNS.time / duration * 510;
 			}
 			//videoTrackProgress.width = videoThumb.x;
 			if (moviePlaying) {
