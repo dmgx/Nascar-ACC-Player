@@ -32,7 +32,7 @@
 			swfobject.createCSS("html", "height:100%; background-color: #ffffff;");
 			swfobject.createCSS("body", "margin:0; padding:0; overflow:hidden; height:100%;");
 			swfobject.embedSWF(
-				"/assets/swf/acc.swf", "flashContent",
+				"/assets/swf/testing/acc.swf", "flashContent",
 				"100%", "450px",
 				swfVersionStr, xiSwfUrlStr,
 				flashvars, params, attributes);
