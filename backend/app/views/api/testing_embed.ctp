@@ -11,7 +11,7 @@
 			var swfVersionStr = "9.0.124";
 			var xiSwfUrlStr = "";
 			var flashvars = {
-				xmlURL = "http://acc.nascarmediagroup.com/api/static_xml"
+				xmlURL : "http://acc.nascarmediagroup.com/api/testing_xml"
 			};
 			var params = {};
 			params.quality = "best";
