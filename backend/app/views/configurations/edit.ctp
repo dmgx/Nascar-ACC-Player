@@ -15,6 +15,7 @@
 		echo $this->Form->input('thumbnail_url_path');
 		echo $this->Form->input('background_url_path');
         echo $this->Form->input('sender_email_address');
+        echo $this->Form->input('live_stream_test');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

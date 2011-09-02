@@ -61,6 +61,11 @@
 			<?php echo $configuration['Configuration']['sender_email_address']; ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Live Test Stream'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $configuration['Configuration']['live_stream_test']; ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">
