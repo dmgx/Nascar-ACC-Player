@@ -41,6 +41,7 @@
 		var xCount:Number;
 		var yCount:Number;
 		var a:Number = 0;
+		var backgroundLoader:Loader;
 		var popoverLoader:Loader;
 		var placeholderLoader:Loader;
 		var videoThumbLoader:Loader;
@@ -53,6 +54,7 @@
 		
 		////// VIDEO VARS //////
 		var currentVideo:String;
+		var currentVideoConfig:Object;
 		var videoSound:SoundTransform;
 		var volumeBounds:Rectangle;
 		
@@ -98,6 +100,8 @@
 		var sideScrollThumbDif:Number;
 		var currentlyPlayingTarget:Object;
 		
+		var liveFeedExists:Boolean;
+		
 		public function Player() {
 			////// MAIN STAGE MOVIE CLIPS //////
 			videoBox = player_mc;
@@ -121,6 +125,7 @@
 			popoverTime = 0;
 			twitterFeedUrl = "";
 			placeholderUrl = "";
+			liveFeedExists = false;
 			
 			// Create the net connection.  There is only one
 			nc = new NetConnection();
@@ -374,7 +379,7 @@
 			container_mc.y = 60;  //  set the containers y position
 			sidebarBox.addChild(container_mc);  //  add the container to the right sidebar
 			
-			placeholderUrl = xml.configuration.placeholder;
+			/*placeholderUrl = xml.configuration.placeholder;
 			loader.load(new URLRequest(placeholderUrl));  //  load the xml
 			loader.addEventListener(Event.COMPLETE, placeholderLoaded);  //  listener for when the xml is loaded
 			
@@ -383,19 +388,32 @@
 			placeholderLoader.x = 0;
 			placeholderLoader.y = 0;
 			videoCls.videoBlackBox.addChild(placeholderLoader);
-			placeholderLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, placeholderLoaded);
+			placeholderLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, placeholderLoaded);*/
 			
 			// Find out if a live feed exists
 			makeLiveFeeds(autoplay);
 			makeArchiveVideos();
+			
+			if (!liveFeedExists) {
+				placeholderUrl = xml.configuration.placeholder;
+				loader.load(new URLRequest(placeholderUrl));  //  load the xml
+				loader.addEventListener(Event.COMPLETE, placeholderLoaded);  //  listener for when the xml is loaded
+				
+				placeholderLoader = new Loader();
+				placeholderLoader.load(new URLRequest(placeholderUrl));
+				placeholderLoader.x = 0;
+				placeholderLoader.y = 0;
+				videoCls.videoBlackBox.addChild(placeholderLoader);
+				placeholderLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, placeholderLoaded);
+			}
 			
 			// Check the height of the sidebarBox
 			checkContainerHeight();
 		}
 		
 		public function placeholderLoaded(event:Event):void {
-			placeholderLoader.width = videoCls.videoBlackBox.width;
-			placeholderLoader.height = videoCls.videoBlackBox.height;
+			placeholderLoader.width = 620;
+			placeholderLoader.height = 300;
 			placeholderLoader.contentLoaderInfo.removeEventListener(Event.COMPLETE, placeholderLoaded);
 		}
 		
@@ -459,6 +477,7 @@
 		
 		public function makeLiveFeeds(autoplay:Boolean):void {
 			for each(var liveStreamNode:XML in xml.livestream) {
+				liveFeedExists = true;
 				var videoItem:categoryItem_mc = new categoryItem_mc;
 				videoItem.categoryItemTitle_txt.text = liveStreamNode.display_name;
 				videoItem.categoryItemDesc_txt.text = liveStreamNode.description;
@@ -476,7 +495,7 @@
 				videoItem.addEventListener(MouseEvent.MOUSE_OVER, btnOver);
 				videoItem.addEventListener(MouseEvent.MOUSE_OUT, btnOut);
 				videoItem.addEventListener(MouseEvent.CLICK, liveStreamClick);
-				videoItem.background = "http://acc.nascarmediagroup.com/assets/background/" + liveStreamNode.background;
+				videoItem.background = (liveStreamNode.background) ? "http://acc.nascarmediagroup.com/assets/background/" + liveStreamNode.background : null;
 				//container_mc.alpha = 0;
 				//Tweener.addTween(container_mc, {alpha:1, time:.5, transition:"easeOut"});
 				if (liveStreamNode.thumbnail != "") {
@@ -519,7 +538,7 @@
 				videoItem.addEventListener(MouseEvent.MOUSE_OVER, btnOver);
 				videoItem.addEventListener(MouseEvent.MOUSE_OUT, btnOut);
 				videoItem.addEventListener(MouseEvent.CLICK, archiveClick);
-				videoItem.background = "http://acc.nascarmediagroup.com/assets/background/" + videoNode.background;
+				videoItem.background = (videoNode.background) ? "http://acc.nascarmediagroup.com/assets/background/" + videoNode.background : null;
 				//container_mc.alpha = 0;    
 				//Tweener.addTween(container_mc, {alpha:1, time:.5, transition:"easeOut"});
 				if (videoNode.thumbnail != "") {
@@ -619,6 +638,7 @@
 		
 		public function liveStreamClick(event:MouseEvent):void {
 			setCurrent(event.target);
+			removeBackground();
 			
 			popoverAdInc = 0;
 			videoCls.video.attachNetStream(ns);
@@ -657,6 +677,7 @@
 		
 		public function archiveClick(event:MouseEvent):void
 		{
+			removeBackground();
 			setCurrent(event.target);
 			popoverAdInc = 0;
 			videoCls.video.attachNetStream(ns);
@@ -747,6 +768,7 @@
 				videoCls.videoType = config.type;
 				videoItemName = config.videoId;  // set the videoItemName variable to the current targets name
 				currentVideo = config.currentVideo;  // set the current video variable to the video in the xml 
+				currentVideoConfig = config;
 				
 				// If it has a title, set it.
 				if (config.videoTitle) {
@@ -763,17 +785,6 @@
 				videoCls.positionVideo();
 				if (videoCls.videoType == "live") {
 					videoCls.feedServerPlaying = true;
-			
-					/*placeholderUrl = xml.configuration.placeholder;
-					loader.load(new URLRequest(placeholderUrl));  //  load the xml
-					loader.addEventListener(Event.COMPLETE, placeholderLoaded);  //  listener for when the xml is loaded
-					
-					placeholderLoader = new Loader();
-					placeholderLoader.load(new URLRequest(placeholderUrl));
-					placeholderLoader.x = 0;
-					placeholderLoader.y = 0;
-					videoCls.videoBlackBox.addChild(placeholderLoader);
-					placeholderLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, placeholderLoaded);*/
 			
 			
 					// play the live stream
@@ -858,6 +869,7 @@
 				
 				Tweener.addTween(videoCls.playBtn, {alpha:0, time:.5, transition:"easeOut"});
 				videoViewed(liveFeedConfig);
+				removeBackground();
 				nsl.play("" + liveFeedConfig.videoName + "");
 			}
 		}
@@ -883,6 +895,7 @@
 				
 				Tweener.addTween(videoCls.playBtn, {alpha:0, time:.5, transition:"easeOut"});
 				videoViewed(liveFeedConfig);
+				removeBackground();
 				nsl.play("" + liveFeedConfig.currentVideo + "");
 			}
 		}
@@ -895,6 +908,46 @@
 		public function rightIconLoaded(event:Event):void {
 			rightIconLoader.contentLoaderInfo.removeEventListener(Event.COMPLETE, rightIconLoaded);
 			Tweener.addTween(rightIcon, {alpha:1, time:1, transition:"easeOut"});
+		}
+		
+		public function removeBackground():void {
+			if (backgroundLoader != null) {
+				if (videoCls.videoBlackBox.contains(backgroundLoader)) {
+					videoCls.videoBlackBox.removeChild(backgroundLoader);
+				}
+			}
+			if (placeholderLoader != null) {
+				if (videoCls.videoBlackBox.contains(placeholderLoader)) {
+					videoCls.videoBlackBox.removeChild(placeholderLoader);
+				}
+			}
+		}
+		
+		public function loadBackground():void {
+			if (backgroundLoader != null) {
+				if (videoCls.videoBlackBox.contains(backgroundLoader)) {
+					return;
+				}
+			}
+			
+			if (currentVideoConfig) {
+				var backgroundUrl:String = currentVideoConfig.background;
+				
+				if (backgroundUrl != null) {
+					backgroundLoader = new Loader();
+					backgroundLoader.load(new URLRequest(backgroundUrl));
+					backgroundLoader.x = 0;
+					backgroundLoader.y = 0;
+					videoCls.videoBlackBox.addChild(backgroundLoader);
+					backgroundLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, backgroundLoaded);
+				}
+			}
+		}
+		
+		public function backgroundLoaded(event:Event):void {
+			backgroundLoader.contentLoaderInfo.removeEventListener(Event.COMPLETE, backgroundLoaded);
+			backgroundLoader.width = 620;
+			backgroundLoader.height = 300;
 		}
 		
 		public function playPrerolls():void {
@@ -921,6 +974,13 @@
 		}
 		
 		public function videoTimeComplete():void {
+			if (currentVideoConfig && videoCls.videoStack.length == 0) {
+				loadBackground();
+				var tempNS:NetStream = (!videoCls.feedServerPlaying) ? ns : nsl;
+				tempNS.pause();
+				tempNS.seek(0);
+				//Tweener.addTween(videoCls.playBtn, {alpha:.7, time:.5, transition:"easeOut"});
+			}
 			playStack();
 		}
 		
@@ -948,9 +1008,11 @@
 			// Show the preloader for the video
 			if (tempNS.time == 0) {
 				videoCls.videoPreloader.visible = true;
+				loadBackground();
 			}
 			else {
 				videoCls.videoPreloader.visible = false;
+				removeBackground();
 			}
 			
 			videoCls.videoTimeProgressTxt.text = minutes + ":" + seconds;
@@ -959,7 +1021,7 @@
 				videoCls.videoThumb.width = 0;
 			}
 			
-			if(minutes + ":" + seconds == minutes2 + ":" + seconds2) {
+			if(tempNS.time > 1 && !isNaN(tempNS.time) && (int(tempNS.time*10)/10==int(videoCls.duration*10)/10)) {
 				videoCls.moviePlaying = false;
 				videoTimeComplete();
 			}
@@ -1030,7 +1092,7 @@
 		
 		public function checkContainerHeight():void
 		{
-			if(container_mc.height > sideScrollbarMasker.height)
+			if(container_mc.height > (sideScrollbarMasker.height - 20))
 			{
 				linkSideScroller();  // add a listener to check for the linked side scrollbar
 				sideScrollbarThumb.addEventListener(MouseEvent.MOUSE_DOWN, sideScrollbarThumbDown);  // add the mouse down listener for the sideScrollbarThumb
@@ -1088,8 +1150,8 @@
 			{
 				sideScrollbarThumb.y = yMax;    // only let the sideScrollbarThumb move to the yMax
 			}
-			sideScrollThumbDif = sideScrollbarThumb.y / yMax;    // divide the sideScrollbarThumbs y position by the yMax variable to be use when we move the container_mc
-			Tweener.addTween(container_mc, {y:((-sideScrollThumbDif * (container_mc.height - sideScrollbarMasker.height)) + 58), _Blur_blurY:5, time:1, transition:"easeOut"});  // move and blur the container_mc and blur it for a nice effect
+			sideScrollThumbDif = (sideScrollbarThumb.y / yMax);    // divide the sideScrollbarThumbs y position by the yMax variable to be use when we move the container_mc
+			Tweener.addTween(container_mc, {y:((-sideScrollThumbDif * (container_mc.height - (sideScrollbarMasker.height-60))) + 58), _Blur_blurY:1, time:1, transition:"easeOut"});  // move and blur the container_mc and blur it for a nice effect
 			event.updateAfterEvent();  // update the event after it runs for a smoother animation.
 		}
 		
