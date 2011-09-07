@@ -218,7 +218,7 @@
 			if (moviePlaying) {
 				Tweener.addTween(playBtn, {alpha:0, time:.5, transition:"easeIn"});
 			}
-			else {
+			else if (player.playerStarted) {
 				Tweener.addTween(playBtn, {alpha:.7, time:.5, transition:"easeIn"});
 			}
 		}

@@ -99,8 +99,10 @@
 		var yMax:Number;
 		var sideScrollThumbDif:Number;
 		var currentlyPlayingTarget:Object;
+		var controlCover:MovieClip;
 		
 		var liveFeedExists:Boolean;
+		var playerStarted:Boolean;
 		
 		public function Player() {
 			////// MAIN STAGE MOVIE CLIPS //////
@@ -110,6 +112,7 @@
 			leftIcon = player_mc.left_icon;
 			rightIcon = player_mc.right_icon;
 			
+			controlCover = player_mc.control_cover;
 			popoverad = player_mc.popoverad_mc;
 			adcontainer = popoverad.ad_container;
 			popoverClose = player_mc.popoverad_mc.popover_close;
@@ -218,6 +221,8 @@
 			sideScrollbarThumb.buttonMode = true;
 			sideScrollbarThumb.mouseChildren = false;
 			videoCls.adThumb = player_mc.videoTrack_mc.advertiseThumb_mc;
+			
+			playerStarted = false;
 		}
 		
 		public function asyncErrorHandler(Event:AsyncErrorEvent):void
@@ -396,8 +401,6 @@
 			
 			if (!liveFeedExists) {
 				placeholderUrl = xml.configuration.placeholder;
-				loader.load(new URLRequest(placeholderUrl));  //  load the xml
-				loader.addEventListener(Event.COMPLETE, placeholderLoaded);  //  listener for when the xml is loaded
 				
 				placeholderLoader = new Loader();
 				placeholderLoader.load(new URLRequest(placeholderUrl));
@@ -637,6 +640,9 @@
 		}
 		
 		public function liveStreamClick(event:MouseEvent):void {
+			playerStarted = true;
+			controlCover.visible = false;
+			
 			setCurrent(event.target);
 			removeBackground();
 			
@@ -677,6 +683,8 @@
 		
 		public function archiveClick(event:MouseEvent):void
 		{
+			playerStarted = true;
+			controlCover.visible = false;
 			removeBackground();
 			setCurrent(event.target);
 			popoverAdInc = 0;
