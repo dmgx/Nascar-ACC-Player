@@ -105,6 +105,8 @@
 		var playerStarted:Boolean;
 		
 		public function Player() {
+			var paramList:Object = this.root.loaderInfo.parameters;
+			
 			////// MAIN STAGE MOVIE CLIPS //////
 			videoBox = player_mc;
 			sidebarBox = rightSidebar_mc;
@@ -133,7 +135,8 @@
 			// Create the net connection.  There is only one
 			nc = new NetConnection();
 			
-			xmlPath = "http://acc.nascarmediagroup.com/xml/";  // path to the xml file
+			// xmlPath = "http://acc.nascarmediagroup.com/xml/";  // path to the xml file
+			xmlPath = paramList.xmlURL;
 			loader = new URLLoader();  //  create a new loader to load the xml
 			
 			// Save off the preroll ads
@@ -166,8 +169,6 @@
 			volumeThumb.buttonMode = true;
 			
 			////// SET STAGE //////
-			setMyStage();
-			stage.addEventListener(Event.RESIZE, myResizeEvent);
 			
 			////// VIDEO EVENT LISTENERS //////
 			volumeThumb.addEventListener(MouseEvent.MOUSE_OVER, btnOver);
@@ -177,6 +178,7 @@
 			volumeButton.addEventListener(MouseEvent.MOUSE_UP, volumeBtnUp);
 			popoverClose.addEventListener(MouseEvent.CLICK, closePopoverAd);
 			fullScreen.addEventListener(MouseEvent.CLICK, goScaledFullScreen);
+			sidebarBox.addEventListener(MouseEvent.MOUSE_WHEEL, handleMouseWheel);
 			
 			addEventListenersForGalleryBtns();
 			
@@ -289,33 +291,6 @@
 		public function btnOut(event:MouseEvent):void
 		{
 			event.currentTarget.gotoAndPlay("out");
-		}
-		
-		////// POSITION CONTENT //////
-		public function setMyStage():void
-		{
-			//videoBox.x = 3;
-			//videoBox.y = 3;
-			
-			//sidebarBox.x = stage.stageWidth - sidebarBox.width;
-			//sidebarBox.y = videoBox.y;
-			
-			//videoBox.width = sidebarBox.x - 10;
-			//videoBox.height = stage.stageHeight - 3;
-			//sidebarBox.height = stage.stageHeight - 3;
-		}
-		
-		public function myResizeEvent(event:Event):void
-		{
-			//videoBox.x = 3;
-			//videoBox.y = 3;
-			
-			//sidebarBox.x = stage.stageWidth - sidebarBox.width;
-			//sidebarBox.y = videoBox.y;
-			
-			//videoBox.width = sidebarBox.x - 10;
-			//videoBox.height = stage.stageHeight - 3;
-			//sidebarBox.height = stage.stageHeight - 3;
 		}
 		
 		//////////////////  FULL SCREEN /////////////////
@@ -1162,7 +1137,21 @@
 			Tweener.addTween(container_mc, {y:((-sideScrollThumbDif * (container_mc.height - (sideScrollbarMasker.height-60))) + 58), _Blur_blurY:1, time:1, transition:"easeOut"});  // move and blur the container_mc and blur it for a nice effect
 			event.updateAfterEvent();  // update the event after it runs for a smoother animation.
 		}
-		
-		
+			
+		public function handleMouseWheel(event:MouseEvent):Boolean {
+			sideScrollbarThumb.y = (-int(event.delta * 5) + sideScrollbarThumb.y);  // use the variables above to make the mouse not jump
+			if(sideScrollbarThumb.y <= yMin)  // if the sideScrollbarThumb's y position is less than the yMin variable then...
+			{
+				sideScrollbarThumb.y = yMin;    // only let the sidScrollbarThumb move to the yMin
+			}
+			if(sideScrollbarThumb.y >= yMax)    //  if the sideScrollbarThumb's y position is greater then the yMax variable then...
+			{
+				sideScrollbarThumb.y = yMax;    // only let the sideScrollbarThumb move to the yMax
+			}
+			sideScrollThumbDif = (sideScrollbarThumb.y / yMax);    // divide the sideScrollbarThumbs y position by the yMax variable to be use when we move the container_mc
+			Tweener.addTween(container_mc, {y:((-sideScrollThumbDif * (container_mc.height - (sideScrollbarMasker.height-60))) + 58), _Blur_blurY:1, time:1, transition:"easeOut"});  // move and blur the container_mc and blur it for a nice effect
+			event.updateAfterEvent();  // update the event after it runs for a smoother animation.
+			return false;
+		}
 	}
 }
