@@ -23,7 +23,7 @@ class LivestreamAnalyticsController extends AppController {
             'conditions' => array('LivestreamAnalytic.view_time >=' => $startdate, 'LivestreamAnalytic.view_time <=' => $enddate),
             'fields' => array(
                 'LivestreamAnalytic.livestream_feed_id',
-                'LivestreamFeed.name',
+                'LivestreamFeed.display_name',
                 'COUNT(LivestreamAnalytic.id) AS Count_Views'
                 ),
             'order' => array('Count_Views' => 'desc'),
@@ -37,7 +37,7 @@ class LivestreamAnalyticsController extends AppController {
         $data = array();
         foreach ($livestreamAnalytics as $Analytic){
             if ($Analytic[0]['Count_Views']>0){
-                $data[$i]['title'] = $Analytic['LivestreamFeed']['name'];
+                $data[$i]['title'] = $Analytic['LivestreamFeed']['display_name'];
                 $data[$i]['value'] = $Analytic[0]['Count_Views'];
             }
             $i++;
@@ -66,7 +66,7 @@ class LivestreamAnalyticsController extends AppController {
             'conditions' => array('LivestreamAnalytic.view_time >=' => $startdate, 'LivestreamAnalytic.view_time <' => $enddate),
             'fields' => array(
                 'LivestreamAnalytic.livestream_feed_id',
-                'LivestreamFeed.name',
+                'LivestreamFeed.display_name',
                 'COUNT(LivestreamAnalytic.id) AS Count_Views'
                 ),
             'order' => array('Count_Views' => 'desc'),
@@ -87,7 +87,7 @@ class LivestreamAnalyticsController extends AppController {
         $data = array();
         foreach ($livestreamAnalytics as $Analytic){
             if ($Analytic[0]['Count_Views']>0){
-                $data[$i]['title'] = $Analytic['LivestreamFeed']['name'];
+                $data[$i]['title'] = $Analytic['LivestreamFeed']['display_name'];
                 $data[$i]['value'] = $Analytic[0]['Count_Views'];
             }
             $i++;
@@ -106,7 +106,7 @@ class LivestreamAnalyticsController extends AppController {
             'conditions' => array('LivestreamAnalytic.view_time >=' => $startdate, 'LivestreamAnalytic.view_time <' => $enddate),
             'fields' => array(
                 'LivestreamAnalytic.livestream_feed_id',
-                'LivestreamFeed.name',
+                'LivestreamFeed.display_name',
                 'COUNT(LivestreamAnalytic.id) AS Count_Views'
                 ),
             'order' => array('Count_Views' => 'desc'),
@@ -127,7 +127,7 @@ class LivestreamAnalyticsController extends AppController {
         $data = array();
         foreach ($livestreamAnalytics as $Analytic){
             if ($Analytic[0]['Count_Views']>0){
-                $data[$i]['title'] = $Analytic['LivestreamFeed']['name'];
+                $data[$i]['title'] = $Analytic['LivestreamFeed']['display_name'];
                 $data[$i]['value'] = $Analytic[0]['Count_Views'];
             }
             $i++;

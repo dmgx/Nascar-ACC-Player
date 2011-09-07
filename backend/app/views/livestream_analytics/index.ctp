@@ -26,7 +26,7 @@
 	?>
 	<tr<?php echo $class;?>>
 		<td><?php echo $livestreamAnalytic['LivestreamAnalytic']['livestream_feed_id']; ?>&nbsp;</td>
-		<td><?php echo $livestreamAnalytic['LivestreamFeed']['name']; ?>&nbsp;</td>
+		<td><?php echo $livestreamAnalytic['LivestreamFeed']['display_name']; ?>&nbsp;</td>
 		<td><?php echo $livestreamAnalytic[0]['Count_Views']; ?>&nbsp;</td>
 	</tr>
 <?php endforeach; ?>
