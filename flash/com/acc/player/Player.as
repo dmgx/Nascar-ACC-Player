@@ -359,17 +359,6 @@
 			container_mc.y = 60;  //  set the containers y position
 			sidebarBox.addChild(container_mc);  //  add the container to the right sidebar
 			
-			/*placeholderUrl = xml.configuration.placeholder;
-			loader.load(new URLRequest(placeholderUrl));  //  load the xml
-			loader.addEventListener(Event.COMPLETE, placeholderLoaded);  //  listener for when the xml is loaded
-			
-			placeholderLoader = new Loader();
-			placeholderLoader.load(new URLRequest(placeholderUrl));
-			placeholderLoader.x = 0;
-			placeholderLoader.y = 0;
-			videoCls.videoBlackBox.addChild(placeholderLoader);
-			placeholderLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, placeholderLoaded);*/
-			
 			// Find out if a live feed exists
 			makeLiveFeeds(autoplay);
 			makeArchiveVideos();
@@ -569,7 +558,7 @@
 					textFormat.font = "Myriad Pro";
 					
 					contentField.x = 0;
-					contentField.y = 0;
+					contentField.y = 3;
 					contentField.width = adcontainer.width;
 					contentField.height = adcontainer.height;
 					contentField.text = config.content;
@@ -585,7 +574,7 @@
 		
 		public function popoverLoaded(event:Event):void {
 			event.target.loader.height = adcontainer.height;
-			event.target.loader.width = adcontainer.width - 10;
+			event.target.loader.width = adcontainer.width - 30;
 			event.target.loader.contentLoaderInfo.removeEventListener(Event.COMPLETE, popoverLoaded);
 		}
 		
@@ -1138,7 +1127,7 @@
 			event.updateAfterEvent();  // update the event after it runs for a smoother animation.
 		}
 			
-		public function handleMouseWheel(event:MouseEvent):Boolean {
+		public function handleMouseWheel(event:MouseEvent):void {
 			sideScrollbarThumb.y = (-int(event.delta * 5) + sideScrollbarThumb.y);  // use the variables above to make the mouse not jump
 			if(sideScrollbarThumb.y <= yMin)  // if the sideScrollbarThumb's y position is less than the yMin variable then...
 			{
@@ -1151,7 +1140,7 @@
 			sideScrollThumbDif = (sideScrollbarThumb.y / yMax);    // divide the sideScrollbarThumbs y position by the yMax variable to be use when we move the container_mc
 			Tweener.addTween(container_mc, {y:((-sideScrollThumbDif * (container_mc.height - (sideScrollbarMasker.height-60))) + 58), _Blur_blurY:1, time:1, transition:"easeOut"});  // move and blur the container_mc and blur it for a nice effect
 			event.updateAfterEvent();  // update the event after it runs for a smoother animation.
-			return false;
+			event.preventDefault();
 		}
 	}
 }
