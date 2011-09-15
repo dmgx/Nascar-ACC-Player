@@ -17,7 +17,7 @@
     ">
     <input type="button" class="input textbutton"
         onClick="thumbnail_url_file.click();"
-        value="Pick File..."> 
+        value="Upload File..."> 
     <?php
 		echo $this->Form->input('start_time');
 		echo $this->Form->input('end_time');
@@ -30,7 +30,7 @@
     ">
     <input type="button" class="input textbutton"
         onClick="background_file.click();"
-        value="Pick File..."> 
+        value="Upload File..."> 
     <?php
 		echo $this->Form->input('category_id');
 	?>

@@ -66,9 +66,9 @@
                 $width0 = ceil($item['value'][0]*$pxValue);
                 $width1 = ceil($item['value'][1]*$pxValue);
                 echo '<tr><td class="index_name">'.$item['title'].'</td>';
-                echo '<td width="'.($maxBar*$pxValue1).'">
+                echo '<td class="index_bkgd" width="'.($maxBar*$pxValue1).'">
                     <img class="index_bar0" src="img/barbg.gif" alt="'.$item['title'].' '.$unit_name[0].'" width="'.$width0.'" height="15" /></td>';
-                echo '<td width="'.($maxBar*$pxValue2).'">
+                echo '<td class="index_bkgd" width="'.($maxBar*$pxValue2).'">
                     <img class="index_bar1" src="img/barbg.gif" alt="'.$item['title'].' '.$unit_name[1].'" width="'.$width1.'" height="15"/></td>';
                 echo '<td class="index_value">'.$item['value'][0].'/'.$item['value'][1].'</td></tr>';
             }

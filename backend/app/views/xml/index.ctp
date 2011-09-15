@@ -9,7 +9,7 @@
             <?php __('<description>'); ?>
                 <?php __('<![CDATA['); echo $livestreamFeed['LivestreamFeed']['description']; __(']]>'); ?>
             <?php __('</description>'); ?>
-			 <?php __('<name>'); ?>
+            <?php __('<name>'); ?>
                 <?php __('<![CDATA['); echo $livestreamFeed['LivestreamFeed']['name']; __(']]>'); ?>
             <?php __('</name>'); ?>
             <?php __('<url>'); ?>
@@ -109,7 +109,8 @@
             <?php __('<![CDATA['); echo $configuration['Configuration']['popover_frequency']; __(']]>'); ?>
         <?php __('</popover_frequency>'); ?>
         <?php __('<placeholder>'); ?>
-            <?php __('<![CDATA['); echo $configuration['Configuration']['placeholder']; __(']]>'); ?>
+            <?php $place_holder = 'http://' . $_SERVER['HTTP_HOST'] . $this->Html->webroot . $configuration['Configuration']['placeholder'] . $configuration['Configuration']['placeholder_file'];
+            __('<![CDATA['); echo $place_holder; __(']]>'); ?>
         <?php __('</placeholder>'); ?>
     <?php  __('</configuration>');?>
 <?php  __('</root>');

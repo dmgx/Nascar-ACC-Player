@@ -7,6 +7,12 @@ class LivestreamAnalyticsController extends AppController {
     var $helpers = array('Chart');
 
 	function index() {
+        if(isset($this->params['form']) && isset($this->params['form']['pdf'])){
+            $limit = 1000000;
+        } else {
+            $limit = 20;
+        }
+        
  		$this->LivestreamAnalytic->recursive = 0;
         if (($this->data['LivestreamAnalytics']) && ($this->data['LivestreamAnalytics']['start']) && ($this->data['LivestreamAnalytics']['end'])) {
             $startdate = $this->data['LivestreamAnalytics']['start']['year']."-".$this->data['LivestreamAnalytics']['start']['month']."-".$this->data['LivestreamAnalytics']['start']['day'];
@@ -27,7 +33,7 @@ class LivestreamAnalyticsController extends AppController {
                 'COUNT(LivestreamAnalytic.id) AS Count_Views'
                 ),
             'order' => array('Count_Views' => 'desc'),
-            'limit' => 20,
+            'limit' => $limit,
             'group' => 'LivestreamAnalytic.livestream_feed_id');
         $livestreamAnalytics = $this->paginate('LivestreamAnalytic');
         $this->set(compact('livestreamAnalytics'));
@@ -43,6 +49,17 @@ class LivestreamAnalyticsController extends AppController {
             $i++;
         }
         $this->data[$this->name]['chartdata'] = $data;
+        
+        $this->data['LivestreamAnalytics']['count'] = count($livestreamAnalytics);
+        if(isset($this->params['form']) && isset($this->params['form']['pdf'])){
+            $startdatestr = date("F, d Y", strtotime($startdate));
+            $enddatestr = date("F, d Y",  strtotime($enddate));
+            $this->data['LivestreamAnalytics']['start'] = $startdatestr;
+            $this->data['LivestreamAnalytics']['end'] = $enddatestr;
+            
+            $this->layout = "pdf";
+            $this->WkHtmlToPdf->createPdf(null,'pdf');
+        }
     }
   
     function beforeFilter()

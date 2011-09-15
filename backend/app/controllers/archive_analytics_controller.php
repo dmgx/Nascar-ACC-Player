@@ -7,6 +7,12 @@ class ArchiveAnalyticsController extends AppController {
     var $helpers = array('Chart');
        
 	function index() {
+        if(isset($this->params['form']) && isset($this->params['form']['pdf'])){
+            $limit = 1000000;
+        } else {
+            $limit = 20;
+        }
+        
  		$this->ArchiveAnalytic->recursive = 0;
         if (($this->data['ArchiveAnalytics']) && ($this->data['ArchiveAnalytics']['start']) && ($this->data['ArchiveAnalytics']['end'])) {
             $startdate = $this->data['ArchiveAnalytics']['start']['year']."-".$this->data['ArchiveAnalytics']['start']['month']."-".$this->data['ArchiveAnalytics']['start']['day'];
@@ -27,7 +33,7 @@ class ArchiveAnalyticsController extends AppController {
                 'COUNT(ArchiveAnalytic.id) AS Count_Views'
                 ),
             'order' => array('Count_Views' => 'desc'),
-            'limit' => 20,
+            'limit' => $limit,
             'group' => 'ArchiveAnalytic.archive_feed_id');
         $archiveAnalytics = $this->paginate('ArchiveAnalytic');
         $this->set(compact('archiveAnalytics'));
@@ -43,6 +49,17 @@ class ArchiveAnalyticsController extends AppController {
             $i++;
         }
         $this->data[$this->name]['chartdata'] = $data;
+        
+        $this->data['ArchiveAnalytics']['count'] = count($archiveAnalytics);
+        if(isset($this->params['form']) && isset($this->params['form']['pdf'])){
+            $startdatestr = date("F, d Y", strtotime($startdate));
+            $enddatestr = date("F, d Y",  strtotime($enddate));
+            $this->data['ArchiveAnalytics']['start'] = $startdatestr;
+            $this->data['ArchiveAnalytics']['end'] = $enddatestr;
+            
+            $this->layout = "pdf";
+            $this->WkHtmlToPdf->createPdf(null,'pdf');
+        }
     }
 
     function beforeFilter()

@@ -86,9 +86,13 @@ div.index_bkgd {
 }
 
 .index_bar0 {
+    background:url(../img/barbg.gif);
+    background-color:#333;
 }
 
 .index_bar1 {
+    background:url(../img/barbg.gif);
+    background-color:#333;
 }
 
 .index_value {

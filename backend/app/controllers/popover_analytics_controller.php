@@ -3,14 +3,22 @@ class PopoverAnalyticsController extends AppController {
 
 	var $name = 'PopoverAnalytics';
     var $uses = array('PopoverAnalytic','PopoverAd','Configuration');
-
+    var $components = array('WkHtmlToPdf');
     var $helpers = array('Chart');
   
     function beforeFilter() {
         $this->layout = 'header';
+        parent::beforeFilter();
+        $this->Auth->allow('getViewDump');
     }
 
 	function index() {
+        if(isset($this->params['form']) && isset($this->params['form']['pdf'])){
+            $limit = 1000000;
+        } else {
+            $limit = 20;
+        }
+        
  		$this->PopoverAnalytic->recursive = 0;
         if (($this->data['PopoverAnalytics']) && ($this->data['PopoverAnalytics']['start']) && ($this->data['PopoverAnalytics']['end'])) {
             $startdate = $this->data['PopoverAnalytics']['start']['year']."-".$this->data['PopoverAnalytics']['start']['month']."-".$this->data['PopoverAnalytics']['start']['day'];
@@ -32,7 +40,7 @@ class PopoverAnalyticsController extends AppController {
                 'SUM(IF(PopoverAnalytic.contact_type_id="2",1,0)) AS Count_Clicks'
                 ),
             'order' => array('Count_Views' => 'desc'),
-            'limit' => 20,
+            'limit' => $limit,
             'group' => 'PopoverAnalytic.popover_ad_id');
         $popoverAnalytics = $this->paginate('PopoverAnalytic');
         $this->set(compact('popoverAnalytics'));
@@ -49,6 +57,20 @@ class PopoverAnalyticsController extends AppController {
             $i++;
         }
         $this->data[$this->name]['chartdata'] = $data;
+        
+        $this->data['PopoverAnalytics']['count'] = count($popoverAnalytics);
+        if(isset($this->params['form']) && isset($this->params['form']['pdf'])){
+            $startdatestr = date("F, d Y", strtotime($startdate));
+            $enddatestr = date("F, d Y",  strtotime($enddate));
+            $this->data['PopoverAnalytics']['start'] = $startdatestr;
+            $this->data['PopoverAnalytics']['end'] = $enddatestr;
+            
+            $this->layout = "pdf";
+            $this->WkHtmlToPdf->createPdf(null,'pdf');
+        }
     }
-
+    
+    function getViewDump($fileName) {
+        $this->WkHtmlToPdf->getViewDump($fileName);
+    }
 }

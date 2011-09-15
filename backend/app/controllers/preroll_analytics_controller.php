@@ -3,14 +3,22 @@ class PrerollAnalyticsController extends AppController {
 
 	var $name = 'PrerollAnalytics';
     var $uses = array('PrerollAnalytic','PrerollAd','Configuration');
-
+    var $components = array('WkHtmlToPdf');
     var $helpers = array('Chart');
   
     function beforeFilter() {
         $this->layout = 'header';
+        parent::beforeFilter();
+        $this->Auth->allow('getViewDump');
     }
 
 	function index() {
+        if(isset($this->params['form']) && isset($this->params['form']['pdf'])){
+            $limit = 1000000;
+        } else {
+            $limit = 20;
+        }
+        
  		$this->PrerollAnalytic->recursive = 0;
         if (($this->data['PrerollAnalytics']) && ($this->data['PrerollAnalytics']['start']) && ($this->data['PrerollAnalytics']['end'])) {
             $startdate = $this->data['PrerollAnalytics']['start']['year']."-".$this->data['PrerollAnalytics']['start']['month']."-".$this->data['PrerollAnalytics']['start']['day'];
@@ -31,7 +39,7 @@ class PrerollAnalyticsController extends AppController {
                 'COUNT(PrerollAnalytic.id) AS Count_Views'
                 ),
             'order' => array('Count_Views' => 'desc'),
-            'limit' => 20,
+            'limit' => $limit,
             'group' => 'PrerollAnalytic.preroll_ad_id');
         $prerollAnalytics = $this->paginate('PrerollAnalytic');
         $this->set(compact('prerollAnalytics'));
@@ -47,6 +55,20 @@ class PrerollAnalyticsController extends AppController {
             $i++;
         }
         $this->data[$this->name]['chartdata'] = $data;
+        
+        $this->data['PrerollAnalytics']['count'] = count($prerollAnalytics);
+        if(isset($this->params['form']) && isset($this->params['form']['pdf'])){
+            $startdatestr = date("F, d Y", strtotime($startdate));
+            $enddatestr = date("F, d Y",  strtotime($enddate));
+            $this->data['PrerollAnalytics']['start'] = $startdatestr;
+            $this->data['PrerollAnalytics']['end'] = $enddatestr;
+            
+            $this->layout = "pdf";
+            $this->WkHtmlToPdf->createPdf(null,'pdf');
+        }
     }
-
+    
+    function getViewDump($fileName) {
+        $this->WkHtmlToPdf->getViewDump($fileName);
+    }
 }

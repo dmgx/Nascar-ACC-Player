@@ -7,7 +7,8 @@
         echo $this->Form->create('ArchiveAnalytics');
         echo $this->Form->input('start',array('type'=>'date','value'=>$this->data['ArchiveAnalytics']['start']));
         echo $this->Form->input('end',array('type'=>'date','value'=>$this->data['ArchiveAnalytics']['end']));
-        echo $this->Form->submit('Submit', array('url'=> array('controller'=>'archive_analytics', 'action'=>'index')));
+        echo $this->Form->submit('Submit', array('name'=> 'Submit', 'value'=> 'Submit'));
+        echo $this->Form->submit('Create PDF', array('name'=> 'pdf', 'value'=> 'pdf'));
         echo $this->Form->end();
     ?>
     <table cellpadding="0" cellspacing="0">

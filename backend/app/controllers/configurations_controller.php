@@ -2,6 +2,7 @@
 class ConfigurationsController extends AppController {
 
 	var $name = 'Configurations';
+    var $helpers = array('Form');
   
     function beforeFilter() {
         $this->layout = 'header';

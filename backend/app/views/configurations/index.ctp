@@ -6,52 +6,57 @@
 			<?php echo $configuration['Configuration']['popover_frequency']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Twitter'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Twitter URL'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $configuration['Configuration']['twitter']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Facebook'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Facebook URL'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $configuration['Configuration']['facebook']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Placeholder'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Placeholder Server Path'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $configuration['Configuration']['placeholder']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Image Url Path'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Placeholder File'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $configuration['Configuration']['placeholder_file']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Default Image URL Path'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $configuration['Configuration']['image_url_path']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Swf Url Path'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Default SWF URL Path'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $configuration['Configuration']['swf_url_path']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Livefeed Url Path'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Default Livefeed URL Path'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $configuration['Configuration']['livefeed_url_path']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Archive Hr Url Path'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Default Archive High-Res URL Path'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $configuration['Configuration']['archive_hr_url_path']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Archive Lr Url Path'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Default Archive Low-Res URL Path'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $configuration['Configuration']['archive_lr_url_path']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Thumbnail Url Path'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Thumbnail Server Path'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $configuration['Configuration']['thumbnail_url_path']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Background Url Path'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Background Server Path'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $configuration['Configuration']['background_url_path']; ?>
 			&nbsp;

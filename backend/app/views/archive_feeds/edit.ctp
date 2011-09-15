@@ -17,7 +17,7 @@
     ">
     <input type="button" class="input textbutton"
         onClick="thumbnail_url_file.click();"
-        value="Pick File..."> 
+        value="Upload File..."> 
     <?php
 		echo $this->Form->input('left_icon_id',array('options' => $left_icons));
 		echo $this->Form->input('right_icon_id',array('options' => $right_icons));
@@ -28,7 +28,7 @@
     ">
     <input type="button" class="input textbutton"
         onClick="background_file.click();"
-        value="Pick File..."> 
+        value="Upload File..."> 
     <?php
 		echo $this->Form->input('category_id');
 		echo $this->Form->input('display_rank');

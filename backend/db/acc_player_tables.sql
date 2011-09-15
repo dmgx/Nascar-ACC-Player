@@ -205,6 +205,7 @@ CREATE TABLE IF NOT EXISTS `configurations` (
 	`twitter` text,
 	`facebook` text,
 	`placeholder` text,
+	`placeholder_file` text,
     `image_url_path` text,
 	`swf_url_path` text,
 	`livefeed_url_path` text,
@@ -213,13 +214,15 @@ CREATE TABLE IF NOT EXISTS `configurations` (
 	`thumbnail_url_path` text,
 	`background_url_path` text,
 	`sender_email_address` text,
+	`live_test_stream` text,
    PRIMARY KEY (`id`)
 );
-INSERT INTO `configurations` (`popover_frequency`, `twitter`, `facebook`, `placeholder`, `image_url_path`, `swf_url_path`, `livefeed_url_path`, `archive_hr_url_path`, `archive_lr_url_path`, `thumbnail_url_path`, `background_url_path`, `sender_email_address`) VALUES
+INSERT INTO `configurations` (`popover_frequency`, `twitter`, `facebook`, `placeholder`, `placeholder_file`, `image_url_path`, `swf_url_path`, `livefeed_url_path`, `archive_hr_url_path`, `archive_lr_url_path`, `thumbnail_url_path`, `background_url_path`, `sender_email_address`, `live_test_stream`) VALUES
     (180,
     'http://twitter.com/statuses/user_timeline/theacc.xml?count=25',
     'http://facebook.com/theacc',
-    'http://acc.nascarmediagroup.com/assets/static_placeholder.png',
+    'http://acc.nascarmediagroup.com/assets/',
+    'static_placeholder.png',
     'http://acc.nascarmediagroup.com/assets/images/',
     'http://acc.nascarmediagroup.com/assets/swf/',
     'http://acc.nascarmediagroup.com/assets/livefeed/',
@@ -228,6 +231,7 @@ INSERT INTO `configurations` (`popover_frequency`, `twitter`, `facebook`, `place
     'assets/thumbnail/',
     'assets/background/',
     'email@nascarmediagroup.com'
+    'test'
 );
 
 DROP TABLE IF EXISTS `weekly_email_lists`;
