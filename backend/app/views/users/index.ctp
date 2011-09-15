@@ -2,11 +2,10 @@
 	<h2><?php __('Users');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('username');?></th>
-			<th><?php echo $this->Paginator->sort('firstname');?></th>
-			<th><?php echo $this->Paginator->sort('lastname');?></th>
-			<th><?php echo $this->Paginator->sort('useremail');?></th>
+			<th><?php echo $this->Paginator->sort("First", 'firstname');?></th>
+			<th><?php echo $this->Paginator->sort("Last", 'lastname');?></th>
+			<th><?php echo $this->Paginator->sort("Email", 'useremail');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th class="actions"><?php __('Actions');?></th>

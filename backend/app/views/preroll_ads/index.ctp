@@ -2,11 +2,8 @@
 	<h2><?php __('Preroll Ads');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
-			<th><?php echo $this->Paginator->sort('description');?></th>
 			<th><?php echo $this->Paginator->sort('status_id');?></th>
-			<th><?php echo $this->Paginator->sort('image_url',array('label'=>'Ad URL'));?></th>
 			<th><?php echo $this->Paginator->sort('start_time');?></th>
 			<th><?php echo $this->Paginator->sort('end_time');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
@@ -22,11 +19,8 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $prerollAd['PrerollAd']['id']; ?>&nbsp;</td>
 		<td><?php echo $prerollAd['PrerollAd']['name']; ?>&nbsp;</td>
-		<td><?php echo $prerollAd['PrerollAd']['description']; ?>&nbsp;</td>
 		<td><?php echo $prerollAd['Status']['name']; ?>&nbsp;</td>
-		<td><?php echo $prerollAd['PrerollAd']['image_url']; ?>&nbsp;</td>
 		<td><?php echo $prerollAd['PrerollAd']['start_time']; ?>&nbsp;</td>
 		<td><?php echo $prerollAd['PrerollAd']['end_time']; ?>&nbsp;</td>
 		<td><?php echo $prerollAd['PrerollAd']['created']; ?>&nbsp;</td>

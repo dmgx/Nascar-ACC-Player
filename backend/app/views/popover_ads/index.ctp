@@ -2,13 +2,9 @@
 	<h2><?php __('Popover Ads');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
-			<th><?php echo $this->Paginator->sort('description');?></th>
 			<th><?php echo $this->Paginator->sort('status_id');?></th>
 			<th><?php echo $this->Paginator->sort('ad_type_id');?></th>
-			<th><?php echo $this->Paginator->sort('image_url');?></th>
-			<th><?php echo $this->Paginator->sort('link_url');?></th>
 			<th><?php echo $this->Paginator->sort('start_time');?></th>
 			<th><?php echo $this->Paginator->sort('end_time');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
@@ -24,13 +20,9 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $popoverAd['PopoverAd']['id']; ?>&nbsp;</td>
 		<td><?php echo $popoverAd['PopoverAd']['name']; ?>&nbsp;</td>
-		<td><?php echo $popoverAd['PopoverAd']['description']; ?>&nbsp;</td>
 		<td><?php echo $popoverAd['Status']['name']; ?>&nbsp;</td>
 		<td><?php echo $popoverAd['AdType']['name']; ?>&nbsp;</td>
-		<td><?php echo $popoverAd['PopoverAd']['image_url']; ?>&nbsp;</td>
-		<td><?php echo $popoverAd['PopoverAd']['link_url']; ?>&nbsp;</td>
 		<td><?php echo $popoverAd['PopoverAd']['start_time']; ?>&nbsp;</td>
 		<td><?php echo $popoverAd['PopoverAd']['end_time']; ?>&nbsp;</td>
 		<td><?php echo $popoverAd['PopoverAd']['created']; ?>&nbsp;</td>

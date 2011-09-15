@@ -2,16 +2,8 @@
 	<h2><?php __('Archive Feeds');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
-			<th><?php echo $this->Paginator->sort('description');?></th>
 			<th><?php echo $this->Paginator->sort('status_id');?></th>
-			<th><?php echo $this->Paginator->sort('low_res_url');?></th>
-			<th><?php echo $this->Paginator->sort('high_res_url');?></th>
-			<th><?php echo $this->Paginator->sort('thumbnail_url');?></th>
-			<th><?php echo $this->Paginator->sort('left_icon_id');?></th>
-			<th><?php echo $this->Paginator->sort('right_icon_id');?></th>
-			<th><?php echo $this->Paginator->sort('background');?></th>
 			<th><?php echo $this->Paginator->sort('category_id');?></th>
 			<th><?php echo $this->Paginator->sort('display_rank');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
@@ -27,16 +19,8 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $archiveFeed['ArchiveFeed']['id']; ?>&nbsp;</td>
 		<td><?php echo $archiveFeed['ArchiveFeed']['name']; ?>&nbsp;</td>
-		<td><?php echo $archiveFeed['ArchiveFeed']['description']; ?>&nbsp;</td>
 		<td><?php echo $archiveFeed['Status']['name']; ?>&nbsp;</td>
-		<td><?php echo $archiveFeed['ArchiveFeed']['low_res_url']; ?>&nbsp;</td>
-		<td><?php echo $archiveFeed['ArchiveFeed']['high_res_url']; ?>&nbsp;</td>
-		<td><?php echo $archiveFeed['ArchiveFeed']['thumbnail_url']; ?>&nbsp;</td>
-		<td><?php echo $archiveFeed['LeftIcon']['name']; ?>&nbsp;</td>
-		<td><?php echo $archiveFeed['RightIcon']['name']; ?>&nbsp;</td>
-		<td><?php echo $archiveFeed['ArchiveFeed']['background']; ?>&nbsp;</td>
 		<td><?php echo $archiveFeed['Category']['name']; ?>&nbsp;</td>
 		<td><?php echo $archiveFeed['ArchiveFeed']['display_rank']; ?>&nbsp;</td>
 		<td><?php echo $archiveFeed['ArchiveFeed']['created']; ?>&nbsp;</td>

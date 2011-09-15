@@ -2,18 +2,11 @@
 	<h2><?php __('Livestream Feeds');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('name');?></th>
 			<th><?php echo $this->Paginator->sort('display_name');?></th>
-			<th><?php echo $this->Paginator->sort('description');?></th>
-			<th><?php echo $this->Paginator->sort('Satus','status_id',array('type' => 'text','label' => 'Satus'));?></th>
-			<th><?php echo $this->Paginator->sort('url');?></th>
-			<th><?php echo $this->Paginator->sort('thumbnail_url');?></th>
+			<th><?php echo $this->Paginator->sort('Satus','status_id',array('type' => 'text','label' => 'Status'));?></th>
 			<th><?php echo $this->Paginator->sort('start_time');?></th>
 			<th><?php echo $this->Paginator->sort('end_time');?></th>
-			<th><?php echo $this->Paginator->sort('Left Icon','left_icon_id',array('type' => 'text','label' => 'Left Icon'));?></th>
-			<th><?php echo $this->Paginator->sort('Right Icon','right_icon_id',array('type' => 'text','label' => 'Right Icon'));?></th>
-			<th><?php echo $this->Paginator->sort('background');?></th>
 			<th><?php echo $this->Paginator->sort('Category','category_id',array('type' => 'text','label' => 'Category'));?></th>
 			<th><?php echo $this->Paginator->sort('Created','created',array('label' => 'Created'));?></th>
 			<th><?php echo $this->Paginator->sort('Updated','modified',array('label' => 'Updated'));?></th>
@@ -28,18 +21,11 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $livestreamFeed['LivestreamFeed']['id']; ?>&nbsp;</td>
 		<td><?php echo $livestreamFeed['LivestreamFeed']['name']; ?>&nbsp;</td>
 		<td><?php echo $livestreamFeed['LivestreamFeed']['display_name']; ?>&nbsp;</td>
-		<td><?php echo $livestreamFeed['LivestreamFeed']['description']; ?>&nbsp;</td>
 		<td><?php echo $livestreamFeed['Status']['name']; ?>&nbsp;</td>
-		<td><?php echo $livestreamFeed['LivestreamFeed']['url']; ?>&nbsp;</td>
-		<td><?php echo $livestreamFeed['LivestreamFeed']['thumbnail_url']; ?>&nbsp;</td>
 		<td><?php echo $livestreamFeed['LivestreamFeed']['start_time']; ?>&nbsp;</td>
 		<td><?php echo $livestreamFeed['LivestreamFeed']['end_time']; ?>&nbsp;</td>
-		<td><?php echo $livestreamFeed['LeftIcon']['name']; ?>&nbsp;</td>
-		<td><?php echo $livestreamFeed['RightIcon']['name']; ?>&nbsp;</td>
-		<td><?php echo $livestreamFeed['LivestreamFeed']['background']; ?>&nbsp;</td>
 		<td><?php echo $livestreamFeed['Category']['name']; ?>&nbsp;</td>
 		<td><?php echo $livestreamFeed['LivestreamFeed']['created']; ?>&nbsp;</td>
 		<td><?php echo $livestreamFeed['LivestreamFeed']['modified']; ?>&nbsp;</td>
