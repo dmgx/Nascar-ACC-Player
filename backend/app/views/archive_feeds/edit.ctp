@@ -10,7 +10,7 @@
 		echo $this->Form->input('status_id');
 		echo $this->Form->input('low_res_url');
 		echo $this->Form->input('high_res_url');
-        echo $this->Form->input('thumbnail_url',array('label' => 'Thumbnail','type' => 'file','name'=>'thumbnail_url_file', 'style'=>'display: none;', 'onchange'=>'thumbnail_url_text.value=thumbnail_url_file.value;'));
+        echo $this->Form->input('thumbnail_url',array('label' => 'Thumbnail','type' => 'file','name'=>'thumbnail_url_file', 'onchange'=>'thumbnail_url_text.value=thumbnail_url_file.value;'));
     ?>
     <input type="text" class="input buttontext" name="thumbnail_url_text" value="
         <?php echo $this->data['ArchiveFeed']['thumbnail_url']; ?>
@@ -21,7 +21,7 @@
     <?php
 		echo $this->Form->input('left_icon_id',array('options' => $left_icons));
 		echo $this->Form->input('right_icon_id',array('options' => $right_icons));
-		echo $this->Form->input('background',array('type' => 'file','name'=>'background_file', 'style'=>'display: none;', 'onchange'=>'background_text.value=background_file.value;'));
+		echo $this->Form->input('background',array('type' => 'file','name'=>'background_file', 'onchange'=>'background_text.value=background_file.value;'));
     ?>
     <input type="text" class="input buttontext" name="background_text" value="
     <?php echo $this->data['ArchiveFeed']['background']; ?>

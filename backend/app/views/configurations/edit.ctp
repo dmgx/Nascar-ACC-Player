@@ -8,7 +8,7 @@
 		echo $this->Form->input('twitter', array('label' => 'Twitter URL'));
 		echo $this->Form->input('facebook', array('label' => 'Facebook URL'));
 		echo $this->Form->input('placeholder', array('label' => 'Placeholder Server Path'));
-		echo $this->Form->input('placeholder_file', array('label' => 'Placholder File','type' => 'file','name'=>'placeholder_file_file', 'style'=>'display: none;', 'onchange'=>'placeholder_file_text.value=placeholder_file_file.value;'));
+		echo $this->Form->input('placeholder_file', array('label' => 'Placholder File','type' => 'file','name'=>'placeholder_file_file', 'onchange'=>'placeholder_file_text.value=placeholder_file_file.value;'));
     ?>
     <input type="text" class="input buttontext" name="placeholder_file_text" value="
         <?php echo $this->data['Configuration']['placeholder_file']; ?>

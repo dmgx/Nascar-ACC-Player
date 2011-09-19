@@ -460,6 +460,10 @@ td.actions a:hover {
 
 input[type=file]{
 	size: 400px;
+	-moz-opacity:0 ;
+	filter:alpha(opacity: 0);
+	opacity: 0;
+    margin-top: -60px;
 }
 
 /** Related **/
