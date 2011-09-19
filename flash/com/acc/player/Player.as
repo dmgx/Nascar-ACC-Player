@@ -3,6 +3,7 @@
 	import caurina.transitions.properties.FilterShortcuts;
 	import flash.text.TextField;
 	import flash.display.StageDisplayState;
+	import flash.display.StageScaleMode;
 	import flash.display.*;
 	import flash.events.*;
 	import flash.geom.Rectangle;
@@ -160,8 +161,9 @@
 			sideScrollbarTrack = rightSidebar_mc.sideScrollbar_mc.sideScrollbarTrack_mc;  // targets the side scrollbar track
 			yMin = 0;  //  set the minimum height we want the scrubber to go to
 		
-			stage.scaleMode = StageScaleMode.NO_SCALE;
+			stage.scaleMode = StageScaleMode.NO_BORDER;
 			stage.align = StageAlign.TOP_LEFT;
+			stage.color = 0x000000;
 			FilterShortcuts.init();
 			
 			////// FILE STARTUP //////
@@ -403,6 +405,11 @@
 				var previousY:Number = 0;
 				var previousHeight:Number = 3;
 				var spacer:Number = 0;
+				
+				var style:StyleSheet = new StyleSheet();
+				var styleObj:Object = new Object();
+				styleObj.color = "#0000FF";
+				style.setStyle(".blue", styleObj);
 			
 				for each(var feedItem:XML in twitterxml.status) {
 					var userName:String = feedItem.user.name;
@@ -413,9 +420,23 @@
 					
 					// Set the title
 					twitterItem.twitterTitle_txt.text = userName;
+					twitterItem.twitterTitle_txt.addEventListener(MouseEvent.CLICK, clickTwitterTitle);
+					
+					// Linkify the description
+					var linkReg:RegExp=/http(s)?:\/\/((\d+\.\d+\.\d+\.\d+)|(([\w-]+\.)+([a-z,A-Z][\w-]*)))(:[1-9][0-9]*)?(\/([\w-.\/:%+@&=]+[\w-.\/?:%+@&=]*)?)?(#(.*))?/ig;
+       				description = description.replace(linkReg,"<a class='blue' href=\"$&\" target='_blank'>$&</a>");
+					
+					var userReg:RegExp=/@(\w+)/ig;
+       				description = description.replace(userReg,"<a class='blue' href=\"http://twitter.com/$1\" target='_blank'>@$1</a>");
+					
+					var hashReg:RegExp=/\#(\w+)/ig;
+       				description = description.replace(hashReg,"<a class='blue' href=\"http://twitter.com/#!/search?q=$1\" target='_blank'>#$1</a>");
+					
+					// Set the stylesheet on the text field
+					twitterItem.twitterDesc_txt.styleSheet = style;
 					
 					// Set the description
-					twitterItem.twitterDesc_txt.text = description;
+					twitterItem.twitterDesc_txt.htmlText = description;
 					twitterItem.twitterDesc_txt.height = 10;
 					twitterItem.twitterDesc_txt.wordWrap = true;
 					twitterItem.twitterDesc_txt.autoSize = TextFieldAutoSize.LEFT;
@@ -440,6 +461,11 @@
 			
 			// Check the height of the sidebarBox
 			checkContainerHeight();
+		}
+		
+		public function clickTwitterTitle(event:MouseEvent):void {
+			var req:URLRequest = new URLRequest("http://twitter.com/theacc");
+			navigateToURL(req, "_blank");
 		}
 		
 		public function makeLiveFeeds(autoplay:Boolean):void {
@@ -568,6 +594,7 @@
 				}
 				adViewed(config);
 				Tweener.addTween(popoverad, {alpha:1, time:2, transition:"easeIn"});
+				setTimeout(closePopoverAd, (30 * 1000));
 			}
 			popoverAdInc++;
 		}
@@ -586,6 +613,7 @@
 		
 		public function closePopoverAd(event:Event):void {
 			Tweener.addTween(popoverad, {alpha:0, time:1, transition:"easeOut"});
+			startPopoverAds();
 		}
 		
 		public function setCurrent(target:Object):void {
