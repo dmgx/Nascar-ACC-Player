@@ -35,13 +35,13 @@ class LivestreamFeedsController extends AppController {
 				$this->Session->setFlash(__('The livestream feed could not be saved. Please, try again.', true));
 			}
 		}
-        $statuses = $this->LivestreamFeed->Status->find('list'); 
+        $statuses = $this->LivestreamFeed->Status->find('list', array('order' => array('name' => 'ASC'))); 
         $this->set('statuses', $statuses ); 
-        $left_icons = $this->LivestreamFeed->LeftIcon->find('list'); 
+        $left_icons = $this->LivestreamFeed->LeftIcon->find('list', array('order' => array('name' => 'ASC'))); 
         $this->set('left_icons', $left_icons ); 
-        $right_icons = $this->LivestreamFeed->RightIcon->find('list'); 
+        $right_icons = $this->LivestreamFeed->RightIcon->find('list', array('order' => array('name' => 'ASC'))); 
         $this->set('right_icons', $right_icons ); 
-        $categories = $this->LivestreamFeed->Category->find('list'); 
+        $categories = $this->LivestreamFeed->Category->find('list', array('order' => array('name' => 'ASC'))); 
         $this->set('categories', $categories ); 
 	}
 
@@ -61,13 +61,13 @@ class LivestreamFeedsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->LivestreamFeed->read(null, $id);
 		}
-        $statuses = $this->LivestreamFeed->Status->find('list'); 
+        $statuses = $this->LivestreamFeed->Status->find('list', array('order' => array('name' => 'ASC'))); 
         $this->set('statuses', $statuses ); 
-        $left_icons = $this->LivestreamFeed->LeftIcon->find('list'); 
+        $left_icons = $this->LivestreamFeed->LeftIcon->find('list', array('order' => array('name' => 'ASC'))); 
         $this->set('left_icons', $left_icons ); 
-        $right_icons = $this->LivestreamFeed->RightIcon->find('list'); 
+        $right_icons = $this->LivestreamFeed->RightIcon->find('list', array('order' => array('name' => 'ASC'))); 
         $this->set('right_icons', $right_icons ); 
-        $categories = $this->LivestreamFeed->Category->find('list'); 
+        $categories = $this->LivestreamFeed->Category->find('list', array('order' => array('name' => 'ASC'))); 
         $this->set('categories', $categories ); 
 	}
 

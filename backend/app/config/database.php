@@ -77,10 +77,11 @@ class DATABASE_CONFIG {
 		'driver' => 'mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => 'acc_player',
-		'password' => '4CC_Pl4y3r',
+		'login' => 'drh',
+		'password' => 'V1$gkBJto',
 		'database' => 'acc_player',
 		'prefix' => '',
+		'port' => '/tmp/mysql.sock'
 	);
 
 	var $test = array(

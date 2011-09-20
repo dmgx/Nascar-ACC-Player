@@ -36,13 +36,13 @@ class ArchiveFeedsController extends AppController {
 				$this->Session->setFlash(__('The archive feed could not be saved. Please, try again.', true));
 			}
 		}
-        $statuses = $this->ArchiveFeed->Status->find('list'); 
+        $statuses = $this->ArchiveFeed->Status->find('list', array('order' => array('name' => 'ASC'))); 
         $this->set('statuses', $statuses ); 
-        $left_icons = $this->ArchiveFeed->LeftIcon->find('list'); 
+        $left_icons = $this->ArchiveFeed->LeftIcon->find('list', array('order' => array('name' => 'ASC'))); 
         $this->set('left_icons', $left_icons ); 
-        $right_icons = $this->ArchiveFeed->RightIcon->find('list'); 
+        $right_icons = $this->ArchiveFeed->RightIcon->find('list', array('order' => array('name' => 'ASC'))); 
         $this->set('right_icons', $right_icons ); 
-        $categories = $this->ArchiveFeed->Category->find('list'); 
+        $categories = $this->ArchiveFeed->Category->find('list', array('order' => array('name' => 'ASC'))); 
         $this->set('categories', $categories ); 
 	}
 
@@ -63,13 +63,13 @@ class ArchiveFeedsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->ArchiveFeed->read(null, $id);
 		}
-        $statuses = $this->ArchiveFeed->Status->find('list'); 
+        $statuses = $this->ArchiveFeed->Status->find('list', array('order' => array('name' => 'ASC'))); 
         $this->set('statuses', $statuses ); 
-        $left_icons = $this->ArchiveFeed->LeftIcon->find('list'); 
+        $left_icons = $this->ArchiveFeed->LeftIcon->find('list', array('order' => array('name' => 'ASC'))); 
         $this->set('left_icons', $left_icons ); 
-        $right_icons = $this->ArchiveFeed->RightIcon->find('list'); 
+        $right_icons = $this->ArchiveFeed->RightIcon->find('list', array('order' => array('name' => 'ASC'))); 
         $this->set('right_icons', $right_icons ); 
-        $categories = $this->ArchiveFeed->Category->find('list'); 
+        $categories = $this->ArchiveFeed->Category->find('list', array('order' => array('name' => 'ASC'))); 
         $this->set('categories', $categories );
         
 	}
@@ -85,13 +85,13 @@ class ArchiveFeedsController extends AppController {
 		}
 		$this->Session->setFlash(__('Archive feed was not deleted', true));
 		$this->redirect(array('action' => 'index'));
-        $statuses = $this->ArchiveFeed->Status->find('list'); 
+        $statuses = $this->ArchiveFeed->Status->find('list', array('order' => array('name' => 'ASC'))); 
         $this->set('statuses', $statuses ); 
-        $left_icons = $this->ArchiveFeed->LeftIcon->find('list'); 
+        $left_icons = $this->ArchiveFeed->LeftIcon->find('list', array('order' => array('name' => 'ASC'))); 
         $this->set('left_icons', $left_icons ); 
-        $right_icons = $this->ArchiveFeed->RightIcon->find('list'); 
+        $right_icons = $this->ArchiveFeed->RightIcon->find('list', array('order' => array('name' => 'ASC'))); 
         $this->set('right_icons', $right_icons ); 
-        $categories = $this->ArchiveFeed->Category->find('list'); 
+        $categories = $this->ArchiveFeed->Category->find('list', array('order' => array('name' => 'ASC'))); 
         $this->set('categories', $categories ); 
 	}
 }

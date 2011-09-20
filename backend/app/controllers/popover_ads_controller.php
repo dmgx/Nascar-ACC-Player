@@ -34,9 +34,9 @@ class PopoverAdsController extends AppController {
 				$this->Session->setFlash(__('The popover ad could not be saved. Please, try again.', true));
 			}
 		}
-        $statuses = $this->PopoverAd->Status->find('list'); 
+        $statuses = $this->PopoverAd->Status->find('list', array('order' => array('name' => 'ASC'))); 
         $this->set('statuses', $statuses ); 
-		$adTypes = $this->PopoverAd->AdType->find('list');
+		$adTypes = $this->PopoverAd->AdType->find('list', array('order' => array('name' => 'ASC')));
 		$this->set('adTypes',$adTypes);
 	}
 
@@ -61,9 +61,9 @@ class PopoverAdsController extends AppController {
 			$this->set('popoverAd',$this->data);
 		}
         
-        $statuses = $this->PopoverAd->Status->find('list'); 
+        $statuses = $this->PopoverAd->Status->find('list', array('order' => array('name' => 'ASC'))); 
         $this->set('statuses', $statuses ); 
-		$adTypes = $this->PopoverAd->AdType->find('list');
+		$adTypes = $this->PopoverAd->AdType->find('list', array('order' => array('name' => 'ASC')));
 		$this->set('adTypes',$adTypes);
 	}
 

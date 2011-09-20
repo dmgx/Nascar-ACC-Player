@@ -30,7 +30,7 @@ class PrerollAdsController extends AppController {
 				$this->Session->setFlash(__('The preroll ad could not be saved. Please, try again.', true));
 			}
 		}
-        $statuses = $this->PrerollAd->Status->find('list'); 
+        $statuses = $this->PrerollAd->Status->find('list', array('order' => array('name' => 'ASC'))); 
         $this->set('statuses', $statuses ); 
 	}
 
@@ -50,7 +50,7 @@ class PrerollAdsController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->PrerollAd->read(null, $id);
 		}
-        $statuses = $this->PrerollAd->Status->find('list'); 
+        $statuses = $this->PrerollAd->Status->find('list', array('order' => array('name' => 'ASC'))); 
         $this->set('statuses', $statuses ); 
 	}
 
