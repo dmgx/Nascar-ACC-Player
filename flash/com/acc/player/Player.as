@@ -136,7 +136,7 @@
 			// Create the net connection.  There is only one
 			nc = new NetConnection();
 			
-			// xmlPath = "http://acc.nascarmediagroup.com/xml/";  // path to the xml file
+			 // xmlPath = "http://acc.nascarmediagroup.com/xml/";  // path to the xml file
 			xmlPath = paramList.xmlURL;
 			loader = new URLLoader();  //  create a new loader to load the xml
 			
