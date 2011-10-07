@@ -161,11 +161,11 @@ ul li ul li {
 	text-decoration:none;
 }
 #header a:hover {
-	color:#CCC;
+	color:#004c88;
 }
 
 #header h1 a:hover {
-    color: #000000;
+    color: #004c88;
     text-decoration: none;
 }
 #content {
