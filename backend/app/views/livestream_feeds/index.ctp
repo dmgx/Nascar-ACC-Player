@@ -2,11 +2,11 @@
     <div class="actions">
         <h3><?php __('Actions'); ?></h3>
         <ul>
-            <li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
+            <li><?php echo $this->Html->link(__('Livestream Analytics', true), array('controller' => 'livestream_analytics', 'action' => 'index')); ?> </li>
+            <li><?php echo $this->Html->link(__('New Live Feed', true), array('action' => 'add')); ?></li>
             <li><?php echo $this->Html->link(__('List Categories', true), array('controller' => 'categories', 'action' => 'index')); ?> </li>
             <li><?php echo $this->Html->link(__('New Category', true), array('controller' => 'categories', 'action' => 'add')); ?> </li>
-            <li><?php echo $this->Html->link(__('New Live Feed', true), array('action' => 'add')); ?></li>
-            <li><?php echo $this->Html->link(__('Livestream Analytics', true), array('controller' => 'livestream_analytics', 'action' => 'index')); ?> </li>
+            <li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
         </ul>
     </div>
 </div>

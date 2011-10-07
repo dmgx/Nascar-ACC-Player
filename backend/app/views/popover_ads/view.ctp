@@ -2,11 +2,11 @@
     <div class="actions">
         <h3><?php __('Actions'); ?></h3>
         <ul>
-            <li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
-            <li><?php echo $this->Html->link(__('List Popover Ads', true), array('action' => 'index')); ?> </li>
-            <li><?php echo $this->Html->link(__('New Popover Ad', true), array('action' => 'add')); ?> </li>
             <li><?php echo $this->Html->link(__('Edit Popover Ad', true), array('action' => 'edit', $popoverAd['PopoverAd']['id'])); ?> </li>
             <li><?php echo $this->Html->link(__('Delete Popover Ad', true), array('action' => 'delete', $popoverAd['PopoverAd']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $popoverAd['PopoverAd']['id'])); ?> </li>
+            <li><?php echo $this->Html->link(__('List Popover Ads', true), array('action' => 'index')); ?> </li>
+            <li><?php echo $this->Html->link(__('New Popover Ad', true), array('action' => 'add')); ?> </li>
+            <li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
         </ul>
     </div>
 </div>

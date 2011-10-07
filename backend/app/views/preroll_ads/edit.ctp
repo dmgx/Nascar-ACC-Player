@@ -2,9 +2,9 @@
     <div class="actions">
         <h3><?php __('Actions'); ?></h3>
         <ul>
-            <li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
+            <li><?php echo $this->Html->link(__('Delete Preroll Ad', true), array('action' => 'delete', $this->Form->value('PrerollAd.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('PrerollAd.id'))); ?></li>
             <li><?php echo $this->Html->link(__('List Preroll Ads', true), array('action' => 'index'));?></li>
-            <li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('PrerollAd.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('PrerollAd.id'))); ?></li>
+            <li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
         </ul>
     </div>
 </div>

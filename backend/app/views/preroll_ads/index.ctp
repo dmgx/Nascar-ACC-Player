@@ -2,9 +2,9 @@
     <div class="actions">
         <h3><?php __('Actions'); ?></h3>
         <ul>
-            <li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
-            <li><?php echo $this->Html->link(__('New Preroll Ad', true), array('action' => 'add')); ?></li>
             <li><?php echo $this->Html->link(__('Preroll Analytics', true), array('controller' => 'preroll_analytics', 'action' => 'index')); ?> </li>
+            <li><?php echo $this->Html->link(__('New Preroll Ad', true), array('action' => 'add')); ?></li>
+            <li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
         </ul>
     </div>
 </div>
