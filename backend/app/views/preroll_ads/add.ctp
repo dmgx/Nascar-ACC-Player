@@ -1,3 +1,12 @@
+<div id="contentsub">
+    <div class="actions">
+        <h3><?php __('Actions'); ?></h3>
+        <ul>
+            <li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
+            <li><?php echo $this->Html->link(__('List Preroll Ads', true), array('action' => 'index'));?></li>
+        </ul>
+    </div>
+</div>
 <div class="prerollAds form">
 <?php echo $this->Form->create('PrerollAd');?>
 	<fieldset>
@@ -12,12 +21,4 @@
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
-        <p>&nbsp</p>
-		<li><?php echo $this->Html->link(__('List Preroll Ads', true), array('action' => 'index'));?></li>
-	</ul>
 </div>

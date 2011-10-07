@@ -1,3 +1,12 @@
+<div id="contentsub">
+    <div class="actions">
+        <h3><?php __('Actions'); ?></h3>
+        <ul>
+            <li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
+            <li><?php echo $this->Html->link(__('View Configuration', true), array('action' => 'index'));?></li>
+        </ul>
+    </div>
+</div>
 <div class="configurations form">
 <?php echo $form->create('Configuration', array('type' => 'file')); ?>
 <?php echo $this->Form->create('Configuration');?>
@@ -32,12 +41,4 @@
         echo $this->Form->submit('Submit', array('onclick' => 'placeholder_file_file.name ="data[Configuration][placeholder_file]";'));
         echo $this->Form->end();
     ?>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
-        <p>&nbsp</p>
-		<li><?php echo $this->Html->link(__('View Configuration', true), array('action' => 'index'));?></li>
-	</ul>
 </div>

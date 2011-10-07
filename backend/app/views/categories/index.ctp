@@ -1,3 +1,12 @@
+<div id="contentsub">
+    <div class="actions">
+        <h3><?php __('Actions'); ?></h3>
+        <ul>
+            <li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
+            <li><?php echo $this->Html->link(__('New Category', true), array('action' => 'add')); ?></li>
+        </ul>
+    </div>
+</div>
 <div class="categories index">
 	<h2><?php __('Categories');?></h2>
 	<table cellpadding="0" cellspacing="0">
@@ -42,12 +51,4 @@
  |
 		<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
-        <p>&nbsp</p>
-		<li><?php echo $this->Html->link(__('New Category', true), array('action' => 'add')); ?></li>
-	</ul>
 </div>

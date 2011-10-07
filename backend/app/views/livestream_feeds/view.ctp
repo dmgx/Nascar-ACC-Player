@@ -1,3 +1,17 @@
+<div id="contentsub">
+    <div class="actions">
+        <h3><?php __('Actions'); ?></h3>
+        <ul>
+            <li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
+            <li><?php echo $this->Html->link(__('List Categories', true), array('controller' => 'categories', 'action' => 'index')); ?> </li>
+            <li><?php echo $this->Html->link(__('New Category', true), array('controller' => 'categories', 'action' => 'add')); ?> </li>
+            <li><?php echo $this->Html->link(__('List Live Feeds', true), array('action' => 'index')); ?> </li>
+            <li><?php echo $this->Html->link(__('New Live Feed', true), array('action' => 'add')); ?> </li>
+            <li><?php echo $this->Html->link(__('Edit Live Feed', true), array('action' => 'edit', $livestreamFeed['LivestreamFeed']['id'])); ?> </li>
+            <li><?php echo $this->Html->link(__('Delete Live Feed', true), array('action' => 'delete', $livestreamFeed['LivestreamFeed']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $livestreamFeed['LivestreamFeed']['id'])); ?> </li>
+        </ul>
+    </div>
+</div>
 <div class="livestreamFeeds view">
 <h2><?php  __('Livestream Feed');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
@@ -78,19 +92,3 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
-        <p>&nbsp</p>
-		<li><?php echo $this->Html->link(__('List Categories', true), array('controller' => 'categories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Category', true), array('controller' => 'categories', 'action' => 'add')); ?> </li>
-        <p>&nbsp</p>
-		<li><?php echo $this->Html->link(__('List Livestream Feed', true), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Livestream Feed', true), array('action' => 'add')); ?> </li>
-        <p>&nbsp</p>
-		<li><?php echo $this->Html->link(__('Edit Livestream Feed', true), array('action' => 'edit', $livestreamFeed['LivestreamFeed']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('Delete Livestream Feed', true), array('action' => 'delete', $livestreamFeed['LivestreamFeed']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $livestreamFeed['LivestreamFeed']['id'])); ?> </li>
-	</ul>
-</div>
-

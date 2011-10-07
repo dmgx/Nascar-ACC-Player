@@ -26,6 +26,16 @@ function modify_pick(index_value,startup){
 </script>
 
 <!-- document form -->
+<div id="contentsub">
+    <div class="actions">
+        <h3><?php __('Actions'); ?></h3>
+        <ul>
+            <li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
+            <li><?php echo $this->Html->link(__('List Popover Ads', true), array('action' => 'index'));?></li>
+            <li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('PopoverAd.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('PopoverAd.id'))); ?></li>
+        </ul>
+    </div>
+</div>
 <div class="popoverAds form">
 <?php echo $this->Form->create('PopoverAd');?>
 	<fieldset>
@@ -42,16 +52,6 @@ function modify_pick(index_value,startup){
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
-        <p>&nbsp</p>
-		<li><?php echo $this->Html->link(__('List Popover Ads', true), array('action' => 'index'));?></li>
-        <p>&nbsp</p>
-		<li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('PopoverAd.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('PopoverAd.id'))); ?></li>
-	</ul>
 </div>
 <script type="text/javascript">
 window.onload = modify_pick('<?php echo $popoverAd['PopoverAd']['ad_type_id']; ?>',true);

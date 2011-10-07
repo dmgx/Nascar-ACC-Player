@@ -1,3 +1,15 @@
+<div id="contentsub">
+    <div class="actions">
+        <h3><?php __('Actions'); ?></h3>
+        <ul>
+            <li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
+            <li><?php echo $this->Html->link(__('List Categories', true), array('controller' => 'categories', 'action' => 'index')); ?> </li>
+            <li><?php echo $this->Html->link(__('New Category', true), array('controller' => 'categories', 'action' => 'add')); ?> </li>
+            <li><?php echo $this->Html->link(__('List Live Feeds', true), array('action' => 'index'));?></li>
+            <li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('LivestreamFeed.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('LivestreamFeed.id'))); ?></li>
+        </ul>
+    </div>
+</div>
 <div class="livestreamFeeds form">
 <?php echo $form->create('LivestreamFeed', array('type' => 'file')); ?>
 <?php echo $this->Form->create('LivestreamFeed');?>
@@ -39,17 +51,4 @@
         echo $this->Form->submit('Submit', array('url'=> array('controller'=>'livestream_feeds', 'action'=>'edit'), 'onclick' => 'thumbnail_url_file.name ="data[LivestreamFeed][thumbnail_url]";background_file.name ="data[LivestreamFeed][background]";'));
         echo $this->Form->end();
     ?>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
-        <p>&nbsp</p>
-		<li><?php echo $this->Html->link(__('List Categories', true), array('controller' => 'categories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Category', true), array('controller' => 'categories', 'action' => 'add')); ?> </li>
-        <p>&nbsp</p>
-		<li><?php echo $this->Html->link(__('List Livestream Feeds', true), array('action' => 'index'));?></li>
-        <p>&nbsp</p>
-		<li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('LivestreamFeed.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('LivestreamFeed.id'))); ?></li>
-	</ul>
 </div>

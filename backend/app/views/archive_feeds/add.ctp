@@ -1,3 +1,14 @@
+<div id="contentsub">
+    <div class="actions">
+        <h3><?php __('Actions'); ?></h3>
+        <ul>
+            <li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
+            <li><?php echo $this->Html->link(__('List Categories', true), array('controller' => 'categories', 'action' => 'index')); ?> </li>
+            <li><?php echo $this->Html->link(__('New Category', true), array('controller' => 'categories', 'action' => 'add')); ?> </li>
+            <li><?php echo $this->Html->link(__('List Archive Feeds', true), array('action' => 'index'));?></li>
+        </ul>
+    </div>
+</div>
 <div class="archiveFeeds form">
 <?php echo $form->create('ArchiveFeed', array('type' => 'file')); ?>
 <?php echo $this->Form->create('ArchiveFeed');?>
@@ -33,15 +44,4 @@
     echo $this->Form->submit('Submit', array('url'=> array('controller'=>'archive_feeds', 'action'=>'add'), 'onclick' => 'thumbnail_url_file.name ="data[ArchiveFeed][thumbnail_url]";background_file.name ="data[ArchiveFeed][background]";'));
     echo $this->Form->end();
     ?>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
-        <p>&nbsp</p>
-		<li><?php echo $this->Html->link(__('List Categories', true), array('controller' => 'categories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Category', true), array('controller' => 'categories', 'action' => 'add')); ?> </li>
-        <p>&nbsp</p>
-		<li><?php echo $this->Html->link(__('List Archive Feeds', true), array('action' => 'index'));?></li>
-	</ul>
 </div>

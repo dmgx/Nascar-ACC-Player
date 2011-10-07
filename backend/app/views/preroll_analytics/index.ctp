@@ -1,6 +1,15 @@
 <?php
     echo $html->css('chart', 'stylesheet', array("media"=>"all" ), false);
 ?> 
+<div id="contentsub">
+    <div class="actions">
+        <h3><?php __('Actions'); ?></h3>
+        <ul>
+            <li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
+            <li><?php echo $this->Html->link(__('List Preroll Ads', true), array('controller' => 'preroll_ads', 'action' => 'index')); ?> </li>
+        </ul>
+    </div>
+</div>
 <div class="prerollAnalytics index">
 	<h2><?php __('Preroll Analytics');?></h2>
     <?php
@@ -41,8 +50,7 @@
 
 	<div class="paging">
 		<?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>
-	 | 	<?php echo $this->Paginator->numbers();?>
- |
+	  	<?php echo $this->Paginator->numbers();?>
 		<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
 
@@ -50,12 +58,4 @@
     <div id="result">
         <?php $this->Chart->drawChart($this->data['PrerollAnalytics']['chartdata'],'Preroll Name','View Count'); ?>
     </div>   
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
-        <p>&nbsp</p>
-		<li><?php echo $this->Html->link(__('List Preroll Ads', true), array('controller' => 'preroll_ads', 'action' => 'index')); ?> </li>
-	</ul>
 </div>

@@ -1,3 +1,15 @@
+<div id="contentsub">
+    <div class="actions">
+        <h3><?php __('Actions'); ?></h3>
+        <ul>
+            <li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
+            <li><?php echo $this->Html->link(__('List Categories', true), array('controller' => 'categories', 'action' => 'index')); ?> </li>
+            <li><?php echo $this->Html->link(__('New Category', true), array('controller' => 'categories', 'action' => 'add')); ?> </li>
+            <li><?php echo $this->Html->link(__('New Live Feed', true), array('action' => 'add')); ?></li>
+            <li><?php echo $this->Html->link(__('Livestream Analytics', true), array('controller' => 'livestream_analytics', 'action' => 'index')); ?> </li>
+        </ul>
+    </div>
+</div>
 <div class="livestreamFeeds index">
 	<h2><?php __('Livestream Feeds');?></h2>
 	<table cellpadding="0" cellspacing="0">
@@ -46,21 +58,7 @@
 
 	<div class="paging">
 		<?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>
-	 | 	<?php echo $this->Paginator->numbers();?>
- |
+	  	<?php echo $this->Paginator->numbers();?>
 		<?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
-        <p>&nbsp</p>
-		<li><?php echo $this->Html->link(__('List Categories', true), array('controller' => 'categories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Category', true), array('controller' => 'categories', 'action' => 'add')); ?> </li>
-        <p>&nbsp</p>
-		<li><?php echo $this->Html->link(__('New Livestream Feed', true), array('action' => 'add')); ?></li>
-        <p>&nbsp</p>
-		<li><?php echo $this->Html->link(__('Livestream Analytics', true), array('controller' => 'livestream_analytics', 'action' => 'index')); ?> </li>
-	</ul>
 </div>

@@ -1,3 +1,14 @@
+<div id="contentsub">
+    <div class="actions">
+        <h3><?php __('Actions'); ?></h3>
+        <ul>
+            <li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
+            <li><?php echo $this->Html->link(__('Monthly Email List', true), array('controller' => 'MonthlyEmailLists','action' => 'index'));?></li>
+            <li><?php echo $this->Html->link(__('Weekly Email List', true), array('controller' => 'WeeklyEmailLists','action' => 'index'));?></li>
+            <li><?php echo $this->Html->link(__('Edit Configuration', true), array('action' => 'edit', $configuration['Configuration']['id'])); ?> </li>
+        </ul>
+    </div>
+</div>
 <div class="configurations index">
 <h2><?php  __('Configuration');?></h2>
 	<dl><?php $i = 0; $class = ' class="altrow"';?>
@@ -72,15 +83,4 @@
 			&nbsp;
 		</dd>
 	</dl>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
-        <p>&nbsp</p>
-		<li><?php echo $this->Html->link(__('Monthly Email List', true), array('controller' => 'MonthlyEmailLists','action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('Weekly Email List', true), array('controller' => 'WeeklyEmailLists','action' => 'index'));?></li>
-        <p>&nbsp</p>
-		<li><?php echo $this->Html->link(__('Edit Configuration', true), array('action' => 'edit', $configuration['Configuration']['id'])); ?> </li>
-	</ul>
 </div>

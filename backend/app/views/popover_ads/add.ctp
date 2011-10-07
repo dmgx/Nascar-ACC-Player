@@ -26,6 +26,15 @@ function modify_pick(index_value,startup){
 </script>
 
 <!-- document form -->
+<div id="contentsub">
+    <div class="actions">
+        <h3><?php __('Actions'); ?></h3>
+        <ul>
+            <li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
+            <li><?php echo $this->Html->link(__('List Popover Ads', true), array('action' => 'index'));?></li>
+        </ul>
+    </div>
+</div>
 <div class="popoverAds form">
 <?php echo $this->Form->create('PopoverAd');?>
 	<fieldset>
@@ -42,14 +51,6 @@ function modify_pick(index_value,startup){
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
-        <p>&nbsp</p>
-		<li><?php echo $this->Html->link(__('List Popover Ads', true), array('action' => 'index'));?></li>
-	</ul>
 </div>
 <script type="text/javascript">
 window.onload = modify_pick("1",false);
