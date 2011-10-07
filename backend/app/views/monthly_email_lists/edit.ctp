@@ -4,7 +4,7 @@
         <ul>
             <li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?></li>
             <li><?php echo $this->Html->link(__('View Configuration', true), array('controller' => 'Configurations', 'action' => 'index'));?></li>
-            <li><?php echo $this->Html->link(__('List Monthly Email Lists', true), array('action' => 'index'));?></li>
+            <li><?php echo $this->Html->link(__('List Monthly Emails', true), array('action' => 'index'));?></li>
             <li><?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $this->Form->value('MonthlyEmailList.id')), null, sprintf(__('Are you sure you want to delete # %s?', true), $this->Form->value('MonthlyEmailList.id'))); ?></li>
         </ul>
     </div>
