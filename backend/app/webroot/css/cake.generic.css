@@ -46,11 +46,12 @@ h1 {
     font-size: 200%;
 }
 h2 {
-	background-color:#fff;
+	background-color:#F5F5F5;
     color: #6C6D71;
     font-family: arial,'Gill Sans','lucida grande',helvetica,sans-serif;
     font-size: 190%;
 	padding:8px 15px 8px 30px ;
+    margin-left: 40px;
 }
 h3 {
     color: #999933;
@@ -114,16 +115,16 @@ ul li ul li {
 .users {
 	background: url(../img/cmsicons/users.png) 10px 12px no-repeat #F5F5F5 ;
 }
-.archive_feeds {
+.archiveFeeds {
 	background: url(../img/cmsicons/archived_feeds.png) 10px 12px no-repeat #F5F5F5 ;
 }
-.livestream_feeds {
+.livestreamFeeds {
 	background: url(../img/cmsicons/livestream_feeds.png) 10px 12px no-repeat #F5F5F5 ;
 }
-.preroll_ads {
+.prerollAds {
 	background: url(../img/cmsicons/preroll_ads.png) 10px 12px no-repeat #F5F5F5 ;
 }
-.popover_ads {
+.popoverAds {
 	background: url(../img/cmsicons/popover_ads.png) 10px 12px no-repeat #F5F5F5 ;
 }
 .logout {

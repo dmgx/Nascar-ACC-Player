@@ -29,18 +29,18 @@ endif;
 ?>
 
 <ul>
-	<li><a href="configurations"><?php __('Configurations'); ?> </a>
+	<li class="configurations"><a href="configurations"><?php __('Configurations'); ?> </a>
 	<ul><li><?php __('Managing configuration parameters'); ?></li></ul></li>
-	<li><a href="users"><?php __('Users'); ?> </a>
+	<li class="users"><a href="users"><?php __('Users'); ?> </a>
 	<ul><li><?php __('Managing users'); ?></li></ul></li>
-	<li><a href="archive_feeds"><?php __('Archive Feeds'); ?> </a>
+	<li class="archiveFeeds"><a href="archive_feeds"><?php __('Archive Feeds'); ?> </a>
 	<ul><li><?php __('Manage archived video feeds'); ?></li></ul></li>
-	<li><a href="livestream_feeds"><?php __('Livestream Feeds'); ?> </a>
+	<li class="livestreamFeeds"><a href="livestream_feeds"><?php __('Livestream Feeds'); ?> </a>
 	<ul><li><?php __('Manage live video streams'); ?></li></ul></li>
-	<li><a href="preroll_ads"><?php __('Preroll Ads'); ?> </a>
+	<li class="prerollAds"><a href="preroll_ads"><?php __('Preroll Ads'); ?> </a>
 	<ul><li><?php __('Manage preroll video ads'); ?></li></ul></li>
-	<li><a href="popover_ads"><?php __('Popover Ads'); ?> </a>
+	<li class="popoverAds"><a href="popover_ads"><?php __('Popover Ads'); ?> </a>
 	<ul><li><?php __('Manage Popover Ads'); ?></li></ul></li>
-	<li><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?> </a>
+	<li class="logout"><?php echo $html->link('Logout', array('controller' => 'Users', 'action' => 'logout')); ?> </a>
 	<ul><li><?php __('Logout of CMS'); ?></li></ul></li>
 </ul>
